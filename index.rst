@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-DayLight
+eGaaS
 ===============================================================================
 
 ..  image:: img/small_information_items_187.png
@@ -14,7 +14,7 @@ DayLight
    :align: center
 
 
-В настоящем документе приведено описание концепций, основных принципов и подходов технической реализации платформы Daylight.
+В настоящем документе приведено описание концепций, основных принципов и подходов технической реализации платформы eGaaS.
 
 
 Описание платформы
