@@ -6,7 +6,7 @@
 eGaaS
 ===============================================================================
 
-..  image:: img/small_information_items_187.png
+..  image:: img/logo.png
 ..   :height: 156 px
 ..   :width: 235 px
    :scale: 100 %
