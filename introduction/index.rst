@@ -7,4 +7,5 @@
 
    what-is-daylight.rst
    templates.rst
+   appexample.rst
 
