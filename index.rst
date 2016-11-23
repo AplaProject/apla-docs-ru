@@ -25,19 +25,3 @@ eGaaS
 
    introduction/index.rst
 
-Daylight Manifest
-===============================================================================
-
-.. toctree::
-   :maxdepth: 4
-
-   manifest/index.rst
-
-
-White Paper: Daylight
-===============================================================================
-
-.. toctree::
-   :maxdepth: 4
-
-   whitepaper/index.rst
