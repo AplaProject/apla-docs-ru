@@ -129,7 +129,7 @@ FuncName() и FuncName{}. В обих случаях производится в
 **Title(text)** - создает заголовок с классом content-heading.
 
 
-**TemplateNav(template,text,[params])** - возвращает ссылку на шаблон load_template('template’, {params} ), где text - текст ссылки. params не является обязательным параметром.
+**TemplateNav(template,text,[param], [value])** - возвращает ссылку на шаблон load_template('template’, {param:value} ), где text - текст ссылки. param и value не являются обязательными параметрами.
 
 
 **TextHidden(idname,....)** - создает скрытые textarea с id = указанным именам, а в качестве значение берется значение переменной с таким же именем. Например,
