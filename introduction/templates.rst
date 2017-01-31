@@ -38,7 +38,9 @@ FuncName() и FuncName{}. В обих случаях производится в
 **BtnEdit( page, id )** - создает кнопку с шестеренкой с ссылкой на указанную страницу page и передает туда id в качестве параметра. Может применяться в таблицах для ссылки на редактирования элементов.
 
 
-**BtnTemplate(template,text,params)** - создает ссылку на шаблон в виде кнопки load_template('template’, {params} ), где text - текст ссылки. params не является обязательным параметром.
+**BtnTemplate(template,text,[params],[class], [anchor])** - создает ссылку на шаблон в виде кнопки load_template('template’, {params} ), где text - текст ссылки. params не является обязательным параметром.  Четвертым параметром можно указать классы для кнопки, а пятым якорь для перехода по странице после загрузки содержимого.
+
+**BtnSys(pagename,text,[params],[class])** - создает ссылку на предопределенную страницу в виде кнопки load_page('mypage’, {params}), где text - текст ссылки. params не является обязательным параметром.  Четвертым параметром можно указать классы для кнопки.
 
 **Div(class,text)** - создает тэг div с указанными классами и содержимым.
 
@@ -75,7 +77,12 @@ FuncName() и FuncName{}. В обих случаях производится в
 
 **Navigation( params, ….)** - возвращает панель с хлебными крошками params и ссылкой Edit справа. Например, Navigation( LiTemplate(dashboard_default, citizen),goverment)
 
-**LiTemplate(template, [text])** - возвращает элемент li с сылкой на указанный шаблон. Если text не указан, то текст ссылки будет такой же как template.
+**LiTemplate(template, [text], [params])** - возвращает элемент li с сcылкой на указанный шаблон. Если text не указан, то текст ссылки будет такой же как template. В третьем параметре можно указать переменные для ссылки.
+
+.. code:: js
+
+      LiTemplate(link, mypage, global:1)
+
 
 **LinkTemplate(template,text,params)** - создает ссылку на шаблон load_template('template’, {params} ), где text - текст ссылки. params не является обязательным параметром.
 
