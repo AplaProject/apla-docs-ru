@@ -224,6 +224,17 @@
 .. code:: js
 
     IsGovAccount($citizen)  // В поле Conditions
+    
+**StateValue(name string) string**
+
+Функция возвращает значение указанного параметра из настроек государства (таблица state_parameters).
+
+* *name* - имя получаемого параметра.
+
+.. code:: js
+
+    Println( StateValue("gov_account")) 
+
 
 **Table(tblname) string**
 
