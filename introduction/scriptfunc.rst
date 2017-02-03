@@ -31,9 +31,9 @@
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
  
  
- **DBUpdate(tblname string, id int, params string, val...)**
+**DBUpdate(tblname string, id int, params string, val...)**
  
- Функция обновляет указанные столбцы в таблице в записи с данным **id**.
+Функция обновляет указанные столбцы в таблице в записи с данным **id**.
  
 * *tblname* - имя таблицы в базе данных.
 * *id* - идентификатор id изменяемой записи.
@@ -44,5 +44,18 @@
 
     DBUpdate(Table("mytable"), myid, "name,amount", "John Dow", 100)
  
+**DBUpdateWhere(tblname string, column string, value (int|string), params string, val ...)**
+
+Функция обновляет указанные столбцы в таблице в записи, у которой определенная колонка имеет данной значение. Таблица должна иметь индекс по указанному столбцу.
  
- 
+* *tblname* - имя таблицы в базе данных.
+* *column* - имя столбца, по которой будет идти поиск записи.
+* *value* - значение для поиска записи по значению в столбце.
+* *params* - имена колонок, в которые будут записаны указанные далее значения. Перечисляются через запятую.
+* *val* - значения для указанных столбцов в параметре *params*. Могут иметь строковый или числовой тип.
+
+.. code:: js
+
+    DBUpdateWhere(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
+
+
