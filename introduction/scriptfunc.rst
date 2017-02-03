@@ -17,6 +17,22 @@
     par["Name"] = "My Name"
     CallContract("MyContract", par)
 
+**DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array**
+
+Функция возвращает список значений одной колонки у всех полученных записей по указанным условиям.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя столбца, из которого будут браться значения.
+* *offset* - смещение для выборки записей.
+* *limit* - количество получаемых записей. Укажите -1, ограничение не нужно.
+* *order* - сортировка. Может быть пустой строкой.
+* *where* - условия для запроса. Имена полей должны быть слева в сравнениях. Для подстановки параметров нужно использовать **?**.
+* *params* - параметры, которые будут подставляться в услвоие для запроса.
+
+.. code:: js
+
+    var ret array
+    ret = DBGetList(Table("mytable"), "name", 0, -1, "", "id > ? and id <= ? and ")
 
 **DBInsert(tblname string, params string, val ...) int**
 
