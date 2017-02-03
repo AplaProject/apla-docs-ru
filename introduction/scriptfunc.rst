@@ -28,6 +28,17 @@
     par["Name"] = "My Name"
     CallContract("MyContract", par)
 
+**ContractAccess(name string) bool**
+
+Данная функция проверяет, имеет ли текущий выполняемый контракт указанное имя. Как правило используется в различных условиях для проверки доступа к таблицам в базе данных. То есть можно разрешить доступ к таблице только из указанного контракта.
+
+* *name* - имя контракта.
+
+.. code:: js
+
+    ContractAccess("MyContract")  // В поле Conditions
+
+
 **DBAmount(tblname string, column string, id int) money**
 
 Функция возвращет денежное значение поля **amount** у указанной записи.
