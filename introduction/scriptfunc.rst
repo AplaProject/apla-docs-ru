@@ -334,3 +334,15 @@
 
     Println( Table("citizens")) // may be 1_citizens or 2_citizens etc.
 
+**UpdateContract(name string, value string, conditions string)**
+
+Функция обновляет указанный контракт. 
+
+* *name* - имя контракта.
+* *value* - исходный текст контракта.
+* *conditions* - права доступа на изменениe контракта.
+
+.. code:: js
+
+    UpdateContract("MyContract", source, "IsGovAccount($citizen)")
+
