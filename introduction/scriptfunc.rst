@@ -247,6 +247,18 @@
 
     IsGovAccount($citizen)  // В поле Conditions
 
+**Len(val array) int**
+
+Функция возвращает количество элементов в указанном массиве.
+
+* *val* - массив, должен иметь тип **array**.
+
+.. code:: js
+
+    if Len(mylist) == 0 {
+      ...
+    }
+
 **Money(val string|float|int) money**
 
 Функция преобразует число или строку в денежный тип **money**.
