@@ -47,6 +47,19 @@
 
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
 
+**DBInt(tblname string, name string, id int) int**
+
+Функция возвращает числовое значение из таблицы базы данных.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *id* - идентификатор поля **id** записи, у которой будет взято значение.
+
+.. code:: js
+
+    var val int
+    val = DBInt(Table("mytable"), "counter", 1)
+
 **DBString(tblname string, name string, id int) string**
 
 Функция возвращает строковое значение из таблицы базы данных.
