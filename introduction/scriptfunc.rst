@@ -162,7 +162,8 @@
 .. code:: js
 
     var val string
-    val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?", mygroup, "My company" )
+    val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?", 
+           mygroup, "My company" )
 
 **DBTransfer(tblname, columns string, idFrom int, idTo int, amount money)**
 
