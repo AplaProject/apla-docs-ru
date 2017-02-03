@@ -205,6 +205,17 @@
 
     DBUpdateWhere(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
 
+**Float(val int|string) float**
+
+Функция преобразует целое число **int** или **string** в число с плавающей точкой.
+
+* *val* - целое число или строка.
+
+.. code:: js
+
+    val = Float("567.989") + Float(232)
+
+
 **IdToAddress(id int) string**
 
 Функция преобразует числовое значение адреса в строку вида 1234-...-6789.
