@@ -303,6 +303,16 @@
     var sha string
     sha = Sha256("Test message")
 
+**Sprintf(pattern string, val ...) string**
+
+Функция формирует строку на основе указанного шаблона и параметров, можно использовать %d (число), %s (строка), %f (float), %v (для любых типов).
+
+* *pattern* - шаблон для формирования строки.
+
+.. code:: js
+
+    out = Sprintf("%s=%d", mypar, 6448)
+
 **StateValue(name string) string**
 
 Функция возвращает значение указанного параметра из настроек государства (таблица state_parameters).
