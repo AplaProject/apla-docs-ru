@@ -60,6 +60,20 @@
     var val int
     val = DBInt(Table("mytable"), "counter", 1)
 
+**DBIntExt(tblname string, name string, val (int|string), idname string) int**
+
+Функция возвращает числовое значение из таблицы базы данных с поиском записи по указанному полю и значениею.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *val* - значение, по которому будет искаться запись.
+* *idname* - имя колонки, по которой будет искаться запись. Таблица должна иметь индекс по данной колонке.
+
+.. code:: js
+
+    var val int
+    val = DBIntExt(Table("mytable"), "balance", "wallet_id", $wallet )
+
 **DBString(tblname string, name string, id int) string**
 
 Функция возвращает строковое значение из таблицы базы данных.
