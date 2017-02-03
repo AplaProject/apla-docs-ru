@@ -73,6 +73,20 @@
     var val string
     val = DBString(Table("mytable"), "name", AddressToId(person))
 
+**DBStringExt(tblname string, name string, val (int|string), idname string) string**
+
+Функция возвращает строковое значение из таблицы базы данных с поиском записи по указанному полю и значениею.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *val* - значение, по которому будет искаться запись.
+* *idname* - имя колонки, по которой будет искаться запись. Таблица должна иметь индекс по данной колонке.
+
+.. code:: js
+
+    var val string
+    val = DBStringExt(Table("mytable"), "address", "My Company", "company" )
+
 **DBTransfer(tblname, columns string, idFrom int, idTo int, amount money)**
 
 Функция переводит указанные средства из одного кошелька в другой. 
