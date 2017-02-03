@@ -271,6 +271,17 @@
     var amount money
     amount = Money(347464.123)
 
+**PubToID(hexkey string) int**
+
+Функция возвращает адрес по публичному ключу в шестнадцатеричной кодировке.
+
+* *hexkey* - публичный ключ в шестнадацатеричном виде.
+
+.. code:: js
+
+    var wallet int
+    wallet = PubToID("fa5e78.....34abd6")
+
 **Sha256(val string) string**
 
 Функция возвращает хэш SHA256 от указанной строки.
