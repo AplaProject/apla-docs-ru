@@ -47,6 +47,19 @@
 
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
 
+**DBString(tblname string, name string, id int) string**
+
+Функция возвращает строковое значение из таблицы базы данных.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *id* - идентификатор поля **id** записи, у которой будет взято значение.
+
+.. code:: js
+
+    var val string
+    val = DBString(Table("mytable"), "name", AddressToId(person))
+
 **DBTransfer(tblname, columns string, idFrom int, idTo int, amount money)**
 
 Функция переводит указанные средства из одного кошелька в другой. 
