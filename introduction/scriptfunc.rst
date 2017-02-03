@@ -246,6 +246,16 @@
 
     Println( StateValue("gov_account")) 
 
+**Str(val int|float) string**
+
+Функция преобразует целое число **int** или **float** в строку.
+
+* *val* - целое или число с плавающей точкой.
+
+.. code:: js
+
+    myfloat = 5.678
+    val = Str(myfloat)
 
 **Table(tblname) string**
 
