@@ -346,3 +346,16 @@
 
     UpdateContract("MyContract", source, "IsGovAccount($citizen)")
 
+**UpdateParam(name string, value string, conditions string)**
+
+Функция обновляет параметр государства в таблице state_parameters. 
+
+* *name* - имя параметра.
+* *value* - значение параметра.
+* *conditions* - права доступа на изменениe параметра.
+
+.. code:: js
+
+    UpdateParam("myparam", "new value", "IsGovAccount($citizen)")
+
+
