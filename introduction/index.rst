@@ -8,6 +8,7 @@
    what-is-daylight.rst
    templates.rst
    appexample.rst
+   script.rst
    scriptfunc.rst
    
 
