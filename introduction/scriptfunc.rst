@@ -4,9 +4,10 @@
 
 Ниже перечислены готовые функции, которые можно использовать в контрактах. 
 
-* [CallContract]
+* [CallContract](#CallContract)
 
-[CallContract]: **CallContract(name string, params map)**
+## CallContract
+**CallContract(name string, params map)**
 
 * *name* - имя вызываемого контракта.
 * *params* - ассоциативный массив с входящими параметрами для контракта.
