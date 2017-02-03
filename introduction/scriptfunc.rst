@@ -235,7 +235,18 @@
 .. code:: js
 
     IsGovAccount($citizen)  // В поле Conditions
-    
+
+**Money(val string|float|int) money**
+
+Функция преобразует число или строку в денежный тип **money**.
+
+* *val* - значение для преобразования. Может иметь тип **string**, **int**, **float**.
+
+.. code:: js
+
+    var amount money
+    amount = Money(347464.123)
+
 **StateValue(name string) string**
 
 Функция возвращает значение указанного параметра из настроек государства (таблица state_parameters).
