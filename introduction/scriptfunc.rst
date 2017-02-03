@@ -74,6 +74,20 @@
     var val int
     val = DBIntExt(Table("mytable"), "balance", "wallet_id", $wallet )
 
+**DBIntWhere(tblname string, name string, where string, params ...) int**
+
+Функция возвращает числовое значение из таблицы базы данных с поиском записи по указанным условиям.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *where* - условия для запроса. Имена полей должны быть слева в сравнениях. Для подстановки параметров нужно использовать **?**.
+* *params* - параметры, которые будут подставляться в условие для запроса.
+
+.. code:: js
+
+    var val int
+    val = DBIntWhere(Table("mytable"), "counter",  "idgroup = ? and statue=?", mygroup, 1 )
+
 **DBString(tblname string, name string, id int) string**
 
 Функция возвращает строковое значение из таблицы базы данных.
