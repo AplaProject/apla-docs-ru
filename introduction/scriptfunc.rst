@@ -346,6 +346,18 @@
 
     UpdateContract("MyContract", source, "IsGovAccount($citizen)")
 
+**UpdateMenu(name string, value string, conditions string)**
+
+Функция обновляет указанное меню. 
+
+* *name* - имя обновляемого меню.
+* *value* - текст меню с функциями шаблонизатора.
+* *conditions* - права доступа на изменениe меню.
+
+.. code:: js
+
+    UpdateMenu("main_menu", mymenu, "IsGovAccount($citizen)")
+
 **UpdateParam(name string, value string, conditions string)**
 
 Функция обновляет параметр государства в таблице state_parameters. 
