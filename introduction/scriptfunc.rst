@@ -101,6 +101,20 @@
     var val string
     val = DBStringExt(Table("mytable"), "address", "My Company", "company" )
 
+**DBStringWhere(tblname string, name string, where string, params ...) string**
+
+Функция возвращает строковое значение из таблицы базы данных с поиском записи по указанным условиям.
+
+* *tblname* - имя таблицы в базе данных.
+* *name* - имя колонки, значение которой будет возвращено.
+* *where* - условия для запроса. Имена полей должны быть слева в сравнениях. Для подстановки параметров нужно использовать **?**.
+* *params* - параметры, которые будут подставляться в условие для запроса.
+
+.. code:: js
+
+    var val string
+    val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?", mygroup, "My company" )
+
 **DBTransfer(tblname, columns string, idFrom int, idTo int, amount money)**
 
 Функция переводит указанные средства из одного кошелька в другой. 
