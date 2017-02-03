@@ -358,6 +358,19 @@
 
     UpdateMenu("main_menu", mymenu, "IsGovAccount($citizen)")
 
+**UpdatePage(name string, value string, menu string, conditions string)**
+
+Функция обновляет указанную страницу. 
+
+* *name* - имя обновляемой страницы.
+* *value* - текст страницы с функциями шаблонизатора.
+* *menu* - имя привязываемого меню.
+* *conditions* - права доступа на изменениe страницы.
+
+.. code:: js
+
+    UpdatePage("default_dashboard",mypage, "main_menu", "IsGovAccount($citizen)")
+
 **UpdateParam(name string, value string, conditions string)**
 
 Функция обновляет параметр государства в таблице state_parameters. 
