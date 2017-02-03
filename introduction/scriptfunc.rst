@@ -4,7 +4,7 @@
 
 Ниже перечислены готовые функции, которые можно использовать в контрактах. 
 
-* [CallContract](#CallContract)
+* [CallContract](#callcontract)
 
 ## CallContract
 **CallContract(name string, params map)**
