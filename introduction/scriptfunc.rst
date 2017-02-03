@@ -216,6 +216,16 @@
 
     val = Float("567.989") + Float(232)
 
+**HexToBytes(hexdata string) bytes**
+
+Функция преобразует строку с шестнадцатеричной кодировкой в последовательность байт с типом **bytes**.
+
+* *hexdata* - входящая строка, содержащая шестнадцатеричную запись.
+
+.. code:: js
+
+    var val bytes
+    val = HexToBytes("34fe4501a4d80094")
 
 **IdToAddress(id int) string**
 
