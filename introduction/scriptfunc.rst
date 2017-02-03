@@ -32,7 +32,8 @@
 .. code:: js
 
     var ret array
-    ret = DBGetList(Table("mytable"), "name", 0, -1, "", "idval > ? and idval <= ? and company=?", 10, 200, "My company")
+    ret = DBGetList(Table("mytable"), "name", 0, -1, "", "idval > ? and idval <= ? and company=?", 
+                     10, 200, "My company")
 
 **DBInsert(tblname string, params string, val ...) int**
 
