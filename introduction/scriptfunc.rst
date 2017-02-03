@@ -271,6 +271,17 @@
     var amount money
     amount = Money(347464.123)
 
+**Sha256(val string) string**
+
+Функция возвращает хэш SHA256 от указанной строки.
+
+* *val* - входящая строка, у которой нужно вычислить хэш **Sha256**.
+
+.. code:: js
+
+    var sha string
+    sha = Sha256("Test message")
+
 **StateValue(name string) string**
 
 Функция возвращает значение указанного параметра из настроек государства (таблица state_parameters).
