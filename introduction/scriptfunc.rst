@@ -46,7 +46,20 @@
 .. code:: js
 
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
- 
+
+**DBTransfer(tblname, columns string, idFrom int, idTo int, amount money)**
+
+Функция переводит указанные средства из одного кошелька в другой. 
+
+* *tblname* - имя таблицы в базе данных, где хранятся средства.
+* *columns* - имя столбца в котором будут сниматься и начисляться средства.
+* *idFrom* - адрес кошелька откуда сниматься деньги.
+* *idTo* - адрес кошелька куда будут переведены деньги. По умолчанию, считается, что кошельки хранятся в столбце с именем **id**. Если кошельки записаны в колонке с другим именем, то укажите это имя через запятую в columns. Например, *amount,wallet_id*.
+* *amount* - величина переводимых средств.
+
+.. code:: js
+
+    DBTransfer(Table("mytable"), "amount", fromId, AddressToId(toaddr), Money(10000))
  
 **DBUpdate(tblname string, id int, params string, val...)**
  
