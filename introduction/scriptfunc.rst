@@ -28,6 +28,19 @@
     par["Name"] = "My Name"
     CallContract("MyContract", par)
 
+**DBAmount(tblname string, column string, id int) money**
+
+Функция возвращет денежное значение поля **amount** у указанной записи.
+
+* *tblname* - имя таблицы в базе данных.
+* *column* - имя столбца, по которой будет идти поиск записи.
+* *id* - значение для поиска записи, выборка *column=id*.
+
+.. code:: js
+
+    mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
+
+
 **DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array**
 
 Функция возвращает список значений одной колонки у всех полученных записей по указанным условиям.
