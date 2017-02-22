@@ -329,7 +329,7 @@
 
 .. code:: js
 
-    UpdateContract("MyContract", source, "IsGovAccount($citizen)")
+    UpdateContract("MyContract", source, "СonditionsContract($citizen)")
 
 **UpdateMenu(name string, value string, conditions string)**
 
@@ -341,7 +341,7 @@
 
 .. code:: js
 
-    UpdateMenu("main_menu", mymenu, "IsGovAccount($citizen)")
+    UpdateMenu("main_menu", mymenu, "СonditionsContract($citizen)")
 
 **UpdatePage(name string, value string, menu string, conditions string)**
 
@@ -354,7 +354,7 @@
 
 .. code:: js
 
-    UpdatePage("default_dashboard",mypage, "main_menu", "IsGovAccount($citizen)")
+    UpdatePage("default_dashboard",mypage, "main_menu", "СonditionsContract($citizen)")
 
 **UpdateParam(name string, value string, conditions string)**
 
@@ -366,4 +366,4 @@
 
 .. code:: js
 
-    UpdateParam("myparam", "new value", "IsGovAccount($citizen)")
+    UpdateParam("myparam", "new value", "СonditionsContract($citizen)")
