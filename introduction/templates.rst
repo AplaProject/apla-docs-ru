@@ -58,7 +58,7 @@
 
 .. code:: js
 
-SetVar( var1= value1, var2 = "Значение 2", var3=10, `var4 #= #citizen_id#, #state_id#` )
+      SetVar( var1= value1, var2 = "Значение 2", var3=10, `var4 #= #citizen_id#, #state_id#` )
       
 К переменным в дальнейшем можно обращаться как  #var1#, #var2# …
 
@@ -148,7 +148,7 @@ SetVar( var1= value1, var2 = "Значение 2", var3=10, `var4 #= #citizen_id
 
 .. code:: js
 
-MarkDown(`## Header
+      MarkDown(`## Header
             Any Text
       `)
 
@@ -337,7 +337,7 @@ MarkDown(`## Header
 
 .. code:: js
 
- TxButton {
+      TxButton {
           Contract: MyContract,
           Inputs: 'Name=myname, Request #= myreq',
          OnSuccess: "MyPage, RequestId:# myreq#"
@@ -353,7 +353,7 @@ MarkDown(`## Header
 
 .. code:: js
 
- TxForm {
+      TxForm {
           Contract: MyContract,
           OnSuccess: 'mypage'
       }
@@ -392,7 +392,7 @@ MarkDown(`## Header
 
 .. code:: js
 
-LiTemplate(mypage, Home page, global:1)
+      LiTemplate(mypage, Home page, global:1)
 
 **BtnSys(page,name,[params],[class])** - создает кнопку со ссылкой на системную страницу *page*
 
@@ -466,7 +466,7 @@ LiTemplate(mypage, Home page, global:1)
 **Ring(count,[title],[size])** - выводит кольцо со значением параметра *count* посередине. 
 
 * *title* - заголовок;
- * *size* - размер значения.
+* *size* - размер значения.
 
 **WiAccount(address)** - выводит в специальном оформлении номер аккаунта (адрес кошелька), переданном в параметре address.
 
@@ -516,20 +516,20 @@ LiTemplate(mypage, Home page, global:1)
 
 .. code:: js
 
-SetVar(
-type_new_page_id = TxId(NewPage),
-type_new_contract_id = TxId(NewContract)
-)
+      SetVar(
+      type_new_page_id = TxId(NewPage),
+      type_new_contract_id = TxId(NewContract)
+      )
 
 **Json(data)** - создает тэг script с переменной jdata с присвоением ей указанных в параметре data  данными в формате json.
 Например,
 
 .. code:: js
 
-Json(`param1: 1, param2: "строка"`) 
+      Json(`param1: 1, param2: "string"`) 
       
 получим 
 
 .. code:: js
 
-      var jdata = { param1: 1, param2: "строка"}
+      var jdata = { param1: 1, param2: "string"}
