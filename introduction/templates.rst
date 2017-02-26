@@ -33,13 +33,13 @@
 
 .. code:: js
 
-Div(panel data-widget=panel-scroll myclass data-sweet-alert=, Text)
+      Div(panel data-widget=panel-scroll myclass data-sweet-alert=, Text)
 
 будет преобразовано в 
 
 .. code:: js
 
-<div class="panel myclass" data-sweet-alert data-widget="panel-scroll">Text</div>
+      <div class="panel myclass" data-sweet-alert data-widget="panel-scroll">Text</div>
 
 .. note::
 
