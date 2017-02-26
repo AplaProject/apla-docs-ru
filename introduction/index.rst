@@ -9,7 +9,6 @@
    templates.rst
    appexample.rst
    script.rst
-   contractsignatures.rst
    scriptfunc.rst
    
 
