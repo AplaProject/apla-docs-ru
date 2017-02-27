@@ -267,7 +267,7 @@ MoneyTransfer("SenderAccountId,RecipientAccountId,Amount",sender_id,recipient_id
     }
 
 
-2. Добавить в таблицу *Signatures* запись содержащую: 
+2. Добавить в таблицу *Signatures* (на странице **Signatures** программного клиента eGaaS) запись содержащую: 
 
 * имя контракта *MoneyTransfer*, 
 * имена полей, значения которых будут показываться пользователю, и их текстовое описание, 
@@ -276,8 +276,8 @@ MoneyTransfer("SenderAccountId,RecipientAccountId,Amount",sender_id,recipient_id
 В текущем примере достаточно указать два поля **Receipient** и **Amount**:
 
 * **Title**: Are you agree to send money this recipient?
-* **Parameter**: Receipient Text: Wallet ID
-* **Parameter**: Amount Text: Amount (qEGS)
+* **Parameter**: *Receipient* Text: Wallet ID
+* **Parameter**: *Amount* Text: Amount (qEGS)
 
 Теперь если вставить вызов контракта *MoneyTransfer("Recipient, Amount", 12345, 100)*, то будет получена системная ошибка *"Signature is not defined"*. Если же контракт будет вызван следующим образом *MoneyTransfer("Recipient, Amount, Signature", 12345, 100, "xxx...xxxxx"), то возникнет ошибка при проверке подписи. При вызове контракта проверяется подпись следующих данных: ""время оригинальной транзакции, id пользователя, значение полей указанных в таблице signatures"", и подделать эту подпись невозможно.
 
@@ -288,7 +288,7 @@ MoneyTransfer("SenderAccountId,RecipientAccountId,Amount",sender_id,recipient_id
     contract MyTest {
       data {
           Recipient int "hidden"
-          Amount    money
+          Amount  money
           Signature string "signature:send_money"
       }
       func action {
