@@ -7,8 +7,8 @@
 Функции не возвращают ошибок, так как все проверки на ошибки происходят автоматически.
 При генерации ошибки в любой из функции, контракт прекращает свою работу и выводит описание ошибки в специальном окне.
 
-**CallContract(name string, params map)**
-
+CallContract(name string, params map)
+==============================
 Функция вызывает контракт по его имени. В передаваемом массиве должны быть перечислены все параметры, указанные в section data контракта.
 
 * *name* - имя вызываемого контракта.
@@ -20,8 +20,8 @@
     par["Name"] = "My Name"
     CallContract("MyContract", par)
 
-**ContractAccess(name string, [name string]) bool**
-
+ContractAccess(name string, [name string]) bool
+==============================
 Функция проверяет, совпадает ли имя выполняемого контракта с одним из имен, перечисленных в параметрах. Как правило используется для контроля доступа контрактов к таблицам. Функция прописывается в полях *Permissions* при редактировании колонок таблицы или в полях  *Insert* и *New Column* в разделе *Table permission*.
 
 * *name* - имя контракта.
@@ -32,8 +32,8 @@
     ContractAccess("MyContract","SimpleContract")  
 
 
-**DBAmount(tblname string, column string, id int) money**
-
+DBAmount(tblname string, column string, id int) money
+==============================
 Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы. (Для получения данных типа money нельзя использовать  функции **DBInt()** и **DBIntExt()**, возвращающие  значения типа *int*).
 
 * *tblname* - имя таблицы в базе данных;
@@ -45,8 +45,8 @@
     mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
 
 
-**DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array**
-
+DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array
+==============================
 Функция возвращает массив со списком строковых значений одной колонки у записей таблицы, полученных по условиям указанным в **where**.
 
 * *tblname* - имя таблицы в базе данных;
@@ -64,8 +64,8 @@
                      10, 200, "My company")
                      
                      
-**DBGetTable(tblname string, columns string, offset int, limit int, order string, where string, params ...) array**
-
+DBGetTable(tblname string, columns string, offset int, limit int, order string, where string, params ...) array
+==============================
 Функция возвращает ассоциативных массивов типа map, содержащий список значений перечисленных колонок записей таблицы, полученных по условиям указанным в **where**. Все значения в ассоциативном массиве имеют тип **string**, поэтому впоследствии их следует приводить к нужному типу.
 
 * *tblname* - имя таблицы в базе данных;
@@ -90,8 +90,8 @@
         i++
     }
 
-**DBInsert(tblname string, params string, val ...) int**
-
+DBInsert(tblname string, params string, val ...) int
+==============================
 Функция добавляет запись в указанную таблицу и возвращает **id** вставленной записи.
 
 * *tblname* - имя таблицы в базе данных.
@@ -102,8 +102,8 @@
 
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
 
-**DBInt(tblname string, name string, id int) int**
-
+DBInt(tblname string, name string, id int) int
+==============================
 Функция возвращает числовое значение из таблицы базы данных по указанному **id** записи.
 
 * *tblname* - имя таблицы в базе данных.
@@ -115,8 +115,8 @@
     var val int
     val = DBInt(Table("mytable"), "counter", 1)
 
-**DBIntExt(tblname string, name string, val (int|string), column string) int**
-
+DBIntExt(tblname string, name string, val (int|string), column string) int
+==============================
 Функция возвращает числовое значение из таблицы базы данных с поиском записи по указанному полю и значению.
 
 * *tblname* - имя таблицы в базе данных.
@@ -129,8 +129,8 @@
     var val int
     val = DBIntExt(Table("mytable"), "balance", $wallet, "wallet_id")
 
-**DBIntWhere(tblname string, name string, where string, params ...) int**
-
+DBIntWhere(tblname string, name string, where string, params ...) int
+==============================
 Функция возвращает числовое значение из колонки таблицы базы данных с поиском записи по условиям указанным в **where**.
 
 * *tblname* - имя таблицы в базе данных.
@@ -143,8 +143,8 @@
     var val int
     val = DBIntWhere(Table("mytable"), "counter",  "idgroup = ? and statue=?", mygroup, 1 )
 
-**DBString(tblname string, name string, id int) string**
-
+DBString(tblname string, name string, id int) string
+==============================
 Функция возвращает строковое значение из колонки таблицы базы данных по **id** записи.
 
 * *tblname* - имя таблицы в базе данных.
@@ -156,8 +156,8 @@
     var val string
     val = DBString(Table("mytable"), "name", $citizen)
 
-**DBStringExt(tblname string, name string, val (int|string), column string) string**
-
+DBStringExt(tblname string, name string, val (int|string), column string) string
+==============================
 Функция возвращает строковое значение из таблицы базы данных с поиском записи по указанному полю и значению.
 
 * *tblname* - имя таблицы в базе данных;
@@ -170,8 +170,8 @@
     var val string
     val = DBStringExt(Table("mytable"), "address", $Company, "company" )
 
-**DBStringWhere(tblname string, name string, where string, params ...) string**
-
+DBStringWhere(tblname string, name string, where string, params ...) string
+==============================
 Функция возвращает строковое значение из колонки таблицы базы данных с поиском записи по условиям указанным в *where*.
 
 * *tblname* - имя таблицы в базе данных.
@@ -185,8 +185,8 @@
     val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?",
            mygroup, "My company" )
 
-**DBUpdate(tblname string, id int, params string, val...)**
-
+DBUpdate(tblname string, id int, params string, val...)
+==============================
 Функция изменяет значения столбцов в таблице в записи с указанным **id**.
 
 * *tblname* - имя таблицы в базе данных.
@@ -198,8 +198,8 @@
 
     DBUpdate(Table("mytable"), myid, "name,amount", "John Dow", 100)
 
-**DBUpdateExt(tblname string, column string, value (int|string), params string, val ...)**
-
+DBUpdateExt(tblname string, column string, value (int|string), params string, val ...)
+==============================
 Функция обновляет столбцы в записи, у которой колонка имеет заданное значение. Таблица должна иметь индекс по указанной колонке.
 
 * *tblname* - имя таблицы в базе данных.
@@ -212,8 +212,8 @@
 
     DBUpdateWhere(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
 
-**Float(val int|string) float**
-
+Float(val int|string) float
+==============================
 Функция преобразует целое число *int* или *string* в число с плавающей точкой.
 
 * *val* - целое число или строка.
@@ -222,8 +222,8 @@
 
     val = Float("567.989") + Float(232)
 
-**HexToBytes(hexdata string) bytes**
-
+HexToBytes(hexdata string) bytes
+==============================
 Функция преобразует строку с шестнадцатеричной кодировкой в значение  типа *bytes* (последовательность байт).
 
 * *hexdata* - строка, содержащая шестнадцатеричную запись.
@@ -233,8 +233,8 @@
     var val bytes
     val = HexToBytes("34fe4501a4d80094")
 
-**Int(val string) int**
-
+Int(val string) int
+==============================
 Функция преобразует строковое значение в целое число.
 
 * *val* - строка содержащая число.
@@ -244,8 +244,8 @@
     mystr = "-37763499007332"
     val = Int(mystr)
 
-**Len(val array) int**
-
+Len(val array) int
+==============================
 Функция возвращает количество элементов в указанном массиве.
 
 * *val* - массив типа *array*.
@@ -256,8 +256,8 @@
       ...
     }
 
-**PubToID(hexkey string) int**
-
+PubToID(hexkey string) int
+==============================
 Функция возвращает адрес кошелька по публичному ключу в шестнадцатеричной кодировке.
 
 * *hexkey* - публичный ключ в шестнадцатеричном виде.
@@ -267,8 +267,8 @@
     var wallet int
     wallet = PubToID("fa5e78.....34abd6")
 
-**Sha256(val string) string**
-
+Sha256(val string) string
+==============================
 Функция возвращает хэш **SHA256** от указанной строки.
 
 * *val* - входящая строка, для которой нужно вычислить хэш **Sha256**.
@@ -278,8 +278,8 @@
     var sha string
     sha = Sha256("Test message")
 
-**Sprintf(pattern string, val ...) string**
-
+Sprintf(pattern string, val ...) string
+==============================
 Функция формирует строку на основе указанного шаблона и параметров, можно использовать *%d (число), %s (строка), %f (float), %v* (для любых типов).
 
 * *pattern* - шаблон для формирования строки.
@@ -288,8 +288,8 @@
 
     out = Sprintf("%s=%d", mypar, 6448)
 
-**StateValue(name string) string**
-
+StateValue(name string) string
+==============================
 Функция возвращает значение указанного параметра из настроек государства (таблица *state_parameters*).
 
 * *name* - имя получаемого параметра.
@@ -298,8 +298,8 @@
 
     Println( StateValue("gov_account"))
 
-**Str(val int|float) string**
-
+Str(val int|float) string
+==============================
 Функция преобразует числовое значение типа *int* или *float* в строку.
 
 * *val* - целое или число с плавающей точкой.
@@ -309,8 +309,8 @@
     myfloat = 5.678
     val = Str(myfloat)
 
-**Table(tblname) string**
-
+Table(tblname) string
+==============================
 Функция возвращает полное имя таблицы с числовым префиксом номера государства, в котором вызывается контракт и со знаком подчеркивания между префиксом и именем. Позволяет делать контракты независимыми от государства.
 
 * *tblname* - часть имени таблицы в базе данных после знака подчеркивания.
@@ -319,8 +319,8 @@
 
     Println( Table("citizens")) // may be 1_citizens or 2_citizens etc.
 
-**UpdateContract(name string, value string, conditions string)**
-
+UpdateContract(name string, value string, conditions string)
+==============================
 Функция обновляет указанный контракт (не допускается изменение контракта через функции **DBUpdate**).
 
 * *name* - имя контракта;
@@ -331,8 +331,8 @@
 
     UpdateContract("MyContract", source, "СonditionsContract($citizen)")
 
-**UpdateMenu(name string, value string, conditions string)**
-
+UpdateMenu(name string, value string, conditions string)
+==============================
 Функция обновляет указанное меню (не допускается изменение меню через функции **DBUpdate**).
 
 * *name* - имя обновляемого меню.
@@ -343,8 +343,8 @@
 
     UpdateMenu("main_menu", mymenu, "СonditionsContract($citizen)")
 
-**UpdatePage(name string, value string, menu string, conditions string)**
-
+UpdatePage(name string, value string, menu string, conditions string)
+==============================
 Функция обновляет указанную страницу (не допускается изменение страницы через функции **DBUpdate**). 
 
 * *name* - имя обновляемой страницы;
@@ -356,8 +356,8 @@
 
     UpdatePage("default_dashboard",mypage, "main_menu", "СonditionsContract($citizen)")
 
-**UpdateParam(name string, value string, conditions string)**
-
+UpdateParam(name string, value string, conditions string)
+==============================
 Функция обновляет параметр государства в таблице *state_parameters* (не допускается изменение параметров через функции **DBUpdate**).
 
 * *name* - имя параметра;
