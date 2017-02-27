@@ -167,6 +167,7 @@
 	func conditions {}
 	func action {
 		MoneyTransfer("SenderAccountId,RecipientAccountId,Amount,Signature",$sender_id,$RecipientAccountId,$Amount,$Signature)
+		}
 	}
 
 Для созданных контрактов (кроме **MoneyTransfer** и **CentralBankConditions**, которые используются как вложенные) требуется создать интерфейсные формы для вода данных и вызова контракта. 
