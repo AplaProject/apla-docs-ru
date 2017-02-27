@@ -38,11 +38,11 @@
 * пополнение счетов Центральным банком;
 * перевод денег между счетами. 
 
- Первым делом создадим таблицу **accounts** с колонками: 
+Первым делом создадим таблицу **accounts** с колонками: 
 
-* id – номер счета, тип Numbers + Index; 
-* amount – количество денег на счету, тип Money + Index;
-* citizen_id – id гражданина, тип Numbers + Index.
+* **id** – номер счета, тип *Numbers + Index*; 
+* **amount** – количество денег на счету, тип *Money + Index*;
+* **citizen_id** – id гражданина, тип *Numbers + Index*.
 
 На следующем шаге создаем контракты, необходимые для реализации каждого из действий:
 
@@ -50,25 +50,25 @@
 
 .. code:: js
 
-contract AddCitizenAccount {
+	contract AddCitizenAccount {
 	data {
 		CitizenId string
 	}
 	func conditions {
 	    
-	    $citizen_id = AddressToId($CitizenId)
+	    	$citizen_id = AddressToId($CitizenId)
 		if $citizen_id == 0 {
 			warning "not valid citizen id"
 		}
 		
-CentralBankConditions()
+		CentralBankConditions()
 	
 	}
 	func action {
 		
 		DBInsert(Table("accounts"), "citizen_id", $citizen_id)
-	}
-} 
+		}
+	} 
 
 
 В секции conditions происходит проверка id гражданина и наличие прав на открытие счета у пользователя вызывающего  этот контракт.  Для этого создается специальный контракт CentralBankConditions.
