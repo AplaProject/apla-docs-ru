@@ -12,6 +12,29 @@
 Получение значений из базы данных
 ********************************************************************************
 
+DBAmount(tblname string, column string, id int) money
+==============================
+Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы. (Для получения данных типа money нельзя использовать  функции **DBInt()** и **DBIntExt()**, возвращающие  значения типа *int*).
+
+* *tblname* - имя таблицы в базе данных;
+* *column* - имя колонки, по которой будет идти поиск записи;
+* *id* - значение для поиска записи, выборка *column=id*.
+
+.. code:: js
+
+    mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
+	
+StateValue(name string) string
+==============================
+Функция возвращает значение указанного параметра из настроек государства (таблица *state_parameters*).
+
+* *name* - имя получаемого параметра.
+
+.. code:: js
+
+    Println( StateValue("gov_account"))
+
+
 DBInt(tblname string, name string, id int) int
 ==============================
 Функция возвращает числовое значение из таблицы базы данных по указанному **id** записи.
@@ -94,29 +117,6 @@ DBStringWhere(tblname string, name string, where string, params ...) string
     var val string
     val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?",
            mygroup, "My company" )
-
-DBAmount(tblname string, column string, id int) money
-==============================
-Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы. (Для получения данных типа money нельзя использовать  функции **DBInt()** и **DBIntExt()**, возвращающие  значения типа *int*).
-
-* *tblname* - имя таблицы в базе данных;
-* *column* - имя колонки, по которой будет идти поиск записи;
-* *id* - значение для поиска записи, выборка *column=id*.
-
-.. code:: js
-
-    mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
-	
-StateValue(name string) string
-==============================
-Функция возвращает значение указанного параметра из настроек государства (таблица *state_parameters*).
-
-* *name* - имя получаемого параметра.
-
-.. code:: js
-
-    Println( StateValue("gov_account"))
-
 
 DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array
 ==============================
