@@ -164,7 +164,13 @@
 		Amount money
 		Signature string "signature:MoneyTransfer"
 		}
-	func conditions {}
+	func conditions {
+	 	$sender_id = DBIntExt(Table("accounts"), "id", $citizen, "citizen_id")
+	    	if $sender_id==$RecipientAccountId
+	    	{
+	        	warning("You can not send money to your own account")
+	    	}    
+		}
 	func action {
 		MoneyTransfer("SenderAccountId,RecipientAccountId,Amount,Signature",$sender_id,$RecipientAccountId,$Amount,$Signature)
 		}
