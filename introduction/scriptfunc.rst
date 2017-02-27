@@ -198,7 +198,7 @@
 
     DBUpdate(Table("mytable"), myid, "name,amount", "John Dow", 100)
 
-**DBUpdateWhere(tblname string, column string, value (int|string), params string, val ...)**
+**DBUpdateExt(tblname string, column string, value (int|string), params string, val ...)**
 
 Функция обновляет столбцы в записи, у которой колонка имеет заданное значение. Таблица должна иметь индекс по указанной колонке.
 
