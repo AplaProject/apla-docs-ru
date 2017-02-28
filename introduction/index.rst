@@ -6,9 +6,9 @@
    :maxdepth: 2
 
    what-is-daylight.rst
-   templates.rst
    script.rst
    scriptfunc.rst
+   templates.rst
    appexample.rst
    
 
