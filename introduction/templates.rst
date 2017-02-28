@@ -544,7 +544,7 @@ MenuItem(title, page, [params], [icon])
 Функция создает пункт меню. 
 
 * *title* - имя пункта меню, если в таблице languages имеется языковой ресурс со значением, указанным в *title*, то текст будет автоматически переводиться;
-* *page* - имя страницы перехода;
+* *page* - имя страницы перехода. Для перехода на системные страницы необходмо указывать префиксы **sys-** или **app-**;
 * *params* - параметры, передаваемые странице в формате *var:value* через запятую.
 * *icon* - иконка.
 
@@ -559,8 +559,8 @@ MenuGroup(title,[idname],[icon]) … MenuEnd:
 .. code:: js
 
       MenuGroup(My Menu,mycitizen)
-            MenuItem(Interface, load_page, interface)
-            MenuItem(Dahsboard, load_template, dashboard_default)
+            MenuItem(Interface, sys-interface)
+            MenuItem(Dahsboard, dashboard_default)
       MenuEnd:
 
 MenuBack(title, [page]) 
