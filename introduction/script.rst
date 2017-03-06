@@ -292,7 +292,7 @@ MoneyTransfer("SenderAccountId,RecipientAccountId,Amount",sender_id,recipient_id
       data {
           Recipient int "hidden"
           Amount  money
-          Signature string "signature:send_money"
+          Signature string "signature:MoneyTransfer"
       }
       func action {
           MoneyTransfer("Recipient,Amount,Signature",$Recipient,$Amount,$Signature)
