@@ -14,10 +14,10 @@ eGaaS
    :align: center
 
 
-В настоящем документе приведено описание концепций, основных принципов и подходов технической реализации платформы eGaaS.
+The description of the basic principles and approaches of technical performance of eGaaS platform is presented in the current document:
 
 
-Описание платформы
+The description of platform
 ===============================================================================
 
 .. toctree::
