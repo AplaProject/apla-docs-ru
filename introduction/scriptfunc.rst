@@ -302,6 +302,10 @@ PubToID(hexkey string) int
 
     var wallet int
     wallet = PubToID("fa5e78.....34abd6")
+    
+ AddressToId(address string) int
+ ==============================
+ Функция возвращает идентификационный номер гражданина по строковому значению адреса его кошелька.
 
 Sha256(val string) string
 ==============================
