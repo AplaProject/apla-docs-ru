@@ -24,7 +24,7 @@ DBAmount(tblname string, column string, id int) money
 
     mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
 	
-StateValue(name string) string
+StateVal(name string) string
 ==============================
 Функция возвращает значение указанного параметра из настроек государства (таблица *state_parameters*).
 
@@ -32,7 +32,7 @@ StateValue(name string) string
 
 .. code:: js
 
-    Println( StateValue("gov_account"))
+    Println( StateVal("gov_account"))
 
 
 DBInt(tblname string, name string, id int) int
