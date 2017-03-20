@@ -205,7 +205,7 @@ DBUpdateExt(tblname string, column string, value (int|string), params string, va
 
 .. code:: js
 
-    DBUpdateWhere(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
+    DBUpdateExt(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
 
 ********************************************************************************
 Вызов контрактов
