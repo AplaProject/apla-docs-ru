@@ -102,6 +102,15 @@ DBStringExt(tblname string, name string, val (int|string), column string) string
 
     var val string
     val = DBStringExt(Table("mytable"), "address", $Company, "company" )
+    
+DBFreeRequest(tblname string, name string, val (int|string), column string) string
+==============================
+Функция эквивалентна функции **DBStringExt**, но имеет нулевую стоимость выполнения. Она предназначена для предварительной проверки параметров контракта с целью защиты от "спама". Данную функцию в контракте можно вызвать только один раз.
+
+* *tblname* - имя таблицы в базе данных;
+* *name* - имя колонки, значение которой будет возвращено;
+* *val* - значение, по которому будет искаться запись;
+* *column* - имя колонки, по которой будет искаться запись. Таблица должна иметь индекс по данной колонке.
 
 DBStringWhere(tblname string, name string, where string, params ...) string
 ==============================
