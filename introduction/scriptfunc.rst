@@ -415,4 +415,4 @@ UpdateParam(name string, value string, conditions string)
 
 .. code:: js
 
-    UpdateParam("state_flag", $flag, "ContractConditions(`CitizenCondition`)")
+    UpdateParam("state_flag", $flag, "ContractConditions(`MainCondition`)")
