@@ -188,6 +188,25 @@ Em(class,text)
 ==============================
 Функция создает контейнер <em>*text*</em> с указанными классами (*class*).
 
+Li(text, [class]) 
+==============================
+Функция создает контейнер <li>*text*</li> с указанными классами (*class*). Если вам необходимо указать общие классы и атрибуты, то вы можете третьим параметром в функции **UList**.
+
+LiBegin([class])...LiEnd 
+==============================
+Функция создает контейнер <li>...</li> с указанными классами и атрибутами (*class*). Если вам необходимо указать общие классы и атрибуты, то вы можете третьим параметром в функции **UList**.
+
+.. code:: js
+
+      UList: 
+          LiBegin(liclass id=first)
+             Div(The first item)
+          LiEnd:
+          LiBegin:
+             Div(The second item)
+          LiEnd:
+      UListEnd:
+
 Small(class,text) 
 ==============================
 Функция создает контейнер <small>*text*</small> с указанными классами  (*class*).
@@ -254,7 +273,7 @@ UList(class,[ol,liclass]) … UListEnd
       UList(md-5, ol) 
           Li(The first item)
           LiBegin:
-             The second item
+             Div(The second item)
           LiEnd:
       UListEnd:
 
