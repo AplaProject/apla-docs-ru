@@ -45,8 +45,7 @@ API запросы
 
 .. code:: 
 
-   {"error":"", "public":"b7880fa40779d673e7ea026377d7182744869c081b1d3a1d613fe661333ec67a74d985077555d80bc4aa65f5994f238def72881d6c2b6c60ffcc2ec7f050141d", "address":"0773-5161-7272-4133-0241", "wallet_id":7735161727241330241
-}
+   {"error":"", "public":"b7880fa40779d673e7ea026377d7182744869c081b1d3a1d613fe661333ec67a74d985077555d80bc4aa65f5994f238def72881d6c2b6c60ffcc2ec7f050141d", "address":"0773-5161-7272-4133-0241", "wallet_id":7735161727241330241}
 
 /exchange/send?sender=...&recipient=...&amount=...
 ==============================
