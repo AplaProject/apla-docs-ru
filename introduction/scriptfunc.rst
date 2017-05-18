@@ -126,7 +126,7 @@ DBStringWhere(tblname string, name string, where string, params ...) string
     val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?",
            mygroup, "My company" )
 
-DBGetList(tblname string, name string, offset int, limit int, order string, where string, params ...) array
+DBGetList(tblname string, column string, offset int, limit int, order string, where string, params ...) array
 ==============================
 Функция возвращает массив со списком строковых значений одной колонки у записей таблицы, полученных по условиям указанным в **where**.
 
