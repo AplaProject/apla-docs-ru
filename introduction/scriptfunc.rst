@@ -450,7 +450,7 @@ UpdateParam(name string, value string, conditions string)
 
    DBInsert(Table("mytable"), "name,timestamp mytime", "John Dow", 146724678424 )
 
-Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае, перед значением необходимо указать **timestamp**. 
+Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае,  **timestamp** необходимо указать перед самим значением. 
 
 .. code:: js
 
