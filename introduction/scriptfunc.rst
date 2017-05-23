@@ -432,3 +432,31 @@ UpdateParam(name string, value string, conditions string)
 .. code:: js
 
     UpdateParam("state_flag", $flag, "ContractConditions(`MainCondition`)")
+
+********************************************************************************
+Работа с PostgreSQL
+********************************************************************************
+
+Функции не дают возможности напрямую отправлять запросы с select, update и т.д., но они позволяют использовать возможности и функции PostgrеSQL при получении значений и описания условий where в выборках. Это относится в том числе и к функциям по работе с датами и временем. Например, необходимо сравнить колонку *date_column* и текущее время. Если *date_column* имеет тип timestamp, то выражение будет следующим *date_column > now()*, а если *date_column* хранит время в Unix формате в виде числа, то тогда выражение будет *to_timestamp(date_column) > now()*. 
+
+.. code:: js
+
+    to_timestamp(date_column) > now()
+    date_initial < now() - 30 * interval '1 day'
+
+Рассмотрим ситуацию, когда у нас есть значение в формате Unix и необходимо записать его в поле имеющее тип *timestamp*. В этом случае, при перечислении полей, перед именем данной колонки необходимо указать **timestamp**. 
+
+.. code:: js
+
+   DBInsert(Table("mytable"), "name,timestamp mytime", "John Dow", 146724678424 )
+
+Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае, перед значением необходимо указать **timestamp**. 
+
+.. code:: js
+
+   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp 2017-05-20 00:00:00" )
+   var date string
+   date = "2017-05-20 00:00:00"
+   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp " + date )
+   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp " + $txtime )
+
