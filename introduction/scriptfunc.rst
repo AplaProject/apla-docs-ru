@@ -203,6 +203,17 @@ DBInsert(tblname string, params string, val ...) int
 
     DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
 
+DBInsertReport(tblname string, params string, val ...) int
+==============================
+Функция добавляет запись в указанную таблицу с отчетами и возвращает **id** вставленной записи. Данная функция практически идентична функции DBInsert, но запись возможна только в таблицу отчетов своего государства.
+
+* *tblname* - имя таблицы в базе данных. Таблица для отчетов в базе данных должна иметь имя в формате **[state_id]_reports_[tblname]**.
+* *params* - список через запятую имен колонок, в которые будут записаны перечисленные в **val** значения. 
+* *val* - список через запятую значений для перечисленных в **params** столбцов; значения могут иметь строковый или числовой тип.
+
+.. code:: js
+
+    DBInsertReport(Table("mytable"), "name,amount", "John Dow", 100)
 
 DBUpdate(tblname string, id int, params string, val...)
 ==============================
