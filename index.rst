@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-eGaaS
+EGaaS Homestead Documentation
 ===============================================================================
 
 ..  image:: img/logo.png
@@ -17,7 +17,7 @@ eGaaS
 The description of the basic principles and approaches of technical performance of eGaaS platform is presented in the current document:
 
 
-The description of platform
+Contents
 ===============================================================================
 
 .. toctree::
