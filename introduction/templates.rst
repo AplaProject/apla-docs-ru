@@ -746,3 +746,30 @@ Json(data)
 .. code:: js
 
       var jdata = { param1: 1, param2: "string"}
+
+Include(pagename, [parameters]) 
+==============================
+Функция вставляет шаблон из указанной в параметре *pagename* страницы. Вы можете передавать необходимые переменные в подставляемый шаблон в виде *name=value*.
+
+.. code:: js
+
+      Include(mypage, mypar=Test, name=Test value)
+      Include(notification)
+      
+AutoUpdate(period) … AutoUpdateEnd 
+==============================
+Функция обновляет с указанной периодичностью шаблон заключенный между *AutoUpdate* и *AutoUpdateEnd*. Периодичность указывается в секундах. По умолчанию, период обновлений составляет 10 секунд.
+
+.. code:: js
+
+     AutoUpdate(5)
+       Table{
+         Table:  citizens
+         Order: id
+         Columns: [[Avatar, Image(#avatar#)],  [ID, Address(#id#)],  [Name, #name#]]
+       }
+     AutoUpdateEnd:
+
+     AutoUpdate(3)
+        Include(notification)
+     AutoUpdateEnd:
