@@ -39,7 +39,7 @@ API запросы
 Команда генерирует приватный ключ, записывает его в файл ключей и возвращает публичный ключ и адреса кошелька.
 Например,
 
-*/exchange/newkey?token=qweuytwuy347834*
+*/exchangeapi/newkey?token=qweuytwuy347834*
 
 Пример ответа:
 
@@ -47,13 +47,13 @@ API запросы
 
    {"error":"", "public":"b7880fa40779d673e7ea026377d7182744869c081b1d3a1d613fe661333ec67a74d985077555d80bc4aa65f5994f238def72881d6c2b6c60ffcc2ec7f050141d", "address":"0773-5161-7272-4133-0241", "wallet_id":7735161727241330241}
 
-/exchange/send?sender=...&recipient=...&amount=...
+/exchangeapi/send?sender=...&recipient=...&amount=...
 ==============================
 Команда отправляет деньги с кошелька (**sender**) из БД на указанный кошелек (**recipient**). Кошельки могут указываться в любом формате - *XXXX-....-XXXX, int64, uint64*. Следует заметить, что команда только отправляет транзакцию, но не дожидается подтверждения, что деньги перечислены. Величина переводимой суммы (**amount**) должна указываться в *qEGS*.
 
 Например,
 
-*/exchange/send?sender=1693-7869-8202-2463-0602&recipient=-3521799150320731671&amount=999000000000000*
+*/exchangeapi/send?sender=1693-7869-8202-2463-0602&recipient=-3521799150320731671&amount=999000000000000&token=mytoken*
 
 Пример ответа: 
 
@@ -68,7 +68,7 @@ API запросы
 
 Например,
 
-*/exchangeapi/balance?wallet=0773-5161-7272-4133-0241*
+*/exchangeapi/balance?wallet=0773-5161-7272-4133-0241&token=mytoken*
 
 Пример ответа: 
 
@@ -82,7 +82,7 @@ API запросы
 
 Например,
 
-*/exchangeapi/history?wallet=1693-7869-8202-2463-0602&count=10*
+*/exchangeapi/history?wallet=1693-7869-8202-2463-0602&count=10&token=mytoken*
 
 Пример ответа: 
 
