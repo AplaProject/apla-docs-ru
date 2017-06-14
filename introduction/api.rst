@@ -72,10 +72,10 @@ sendegs
     POST
     /api/v1/sendegs
     pubkey: hex публичный ключ
-	recipient - адрес получателя
-	amount - сумма перевода в qEGS
-	commission - комиссия qEGS
-	comment - комментарий
+    recipient - адрес получателя
+    amount - сумма перевода в qEGS
+    commission - комиссия qEGS
+    comment - комментарий
     signature - hex подпись
     
 Вариант ответа
@@ -98,10 +98,10 @@ prepare/{tx}
     POST
     /api/v1/prepare/sendegs
     pubkey: hex публичный ключ
-	recipient - адрес получателя
-	amount - сумма перевода в qEGS
-	commission - комиссия qEGS
-	comment - комментарий
+    recipient - адрес получателя
+    amount - сумма перевода в qEGS
+    commission - комиссия qEGS
+    comment - комментарий
     
 Вариант ответа
 
