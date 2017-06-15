@@ -10,6 +10,7 @@
    scriptfunc.rst
    templates.rst
    appexample.rst
+   api.rst
    exchangeapi.rst
    install.rst
    alphabetical_index.rst
