@@ -435,3 +435,35 @@ activatecontract/{id}/[global]
         "hash" : "67afbc435634.....",
         "error": ""
     }      
+
+contractlist/[limit]/[offset]/[global]
+==============================
+**GET** Возвращает список контрактов. Можно указать смещение и количество запрашиваемых контрактов. Если нужны глобальные контракты, то следует добавить параметр *global*.
+
+.. code:: 
+    
+    GET
+    /api/v1/contractlist/
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "list": [{ 
+            "id": 1,
+            "name": "MyContract",
+            "wallet": "XXXX-...-XXXX",
+            "active": 1
+        }, 
+        { 
+            "id": 2,
+            "name": "AnotherContract",
+            "wallet": "XXXX-...-XXXX",
+            "active": 1
+        }, 
+        ]
+        "error": ""
+    }      
