@@ -467,3 +467,27 @@ contractlist/[?limit=...&offset=...&global=1]
         ]
         "error": ""
     }      
+
+smartcontract/{name}
+==============================
+**GET** Получить информацию о смарт конракте с именем **{name}**. По умолчанию, смарт контракт ищется в текущей экосистеме. Для получения глобального смарт контракта указывайте перед именем *@0*, например, **@0GlobalContract**. В результате возвращается объект с полями *fields, name, active*, где **fields** в свою очередь массив, содержащий информацию о каждом параметре в разделе **data** контракта и содержит поля **name, htmltype, txtype, tags**.
+
+.. code:: 
+    
+    GET
+    /api/v1/smartcontract/mycontract
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "fields" : [
+            {"name":"amount", "htmltype":"textinput", "txtype":"int64", "tags": "optional"},
+            {"name":"name", "htmltype":"textinput", "txtype":"string" "tags": ""}
+        ],
+        "name": "@1mycontract",
+        "active": true
+    }      
