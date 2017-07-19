@@ -491,3 +491,22 @@ smartcontract/{name}
         "name": "@1mycontract",
         "active": true
     }      
+
+smartcontract/{name}
+==============================
+**POST** Вызвать смарт контракт с указанным именем **{name}**. Предварительно нужно вызывать команду **prepare/smartcontract/{name}** (POST) и подписывать возвращаемое поле forsign. В случае успешного выполнения возвращается хэш транзакции.
+
+.. code:: 
+ 
+POST
+/api/v1/smartcontract/mycontract
+параметры смарт контракта
+signature - hex подпись
+time - время, возвращенное prepare
+Вариант ответа
+
+200 (OK)
+Content-Type: application/json
+{
+    "hash" : "67afbc435634.....",
+}
