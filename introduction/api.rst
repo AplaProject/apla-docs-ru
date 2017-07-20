@@ -258,6 +258,29 @@ menu/{name}/[?global=1]
         "hash" : "67afbc435634.....",
         "error": ""
     }      
+    
+appendmenu/{name}/[?global=1]
+==============================
+**PUT** Добавить элементы к существующему меню с именем **{name}**. Предварительно нужно вызывать команду **prepare/appendmenu** (PUT) и подписывать возвращаемое поле forsign. Если изменяется глобальное меню, то следует добавить параметр *global*.
+
+.. code:: 
+    
+    PUT
+    /api/v1/appendmenu/government
+    value - добавляемый шаблон меню
+    signature - hex подпись
+    time - время, возвращенное prepare
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+        "error": ""
+    }          
 
 menulist/[?limit=...&offset=...&global=1]
 ==============================
