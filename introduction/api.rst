@@ -691,15 +691,46 @@ smartcontract/{name}
 
 .. code:: 
  
-POST
-/api/v1/smartcontract/mycontract
-параметры смарт контракта
-signature - hex подпись
-time - время, возвращенное prepare
+    POST
+    /api/v1/smartcontract/mycontract
+    параметры смарт контракта
+    signature - hex подпись
+    time - время, возвращенное prepare
+
 Вариант ответа
 
-200 (OK)
-Content-Type: application/json
-{
-    "hash" : "67afbc435634.....",
-}
+.. code:: 
+
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+    }
+
+********************************************************************************
+Команды API дл экосистем
+********************************************************************************
+
+newstate
+==============================
+**POST** Создать экосистему. Предварительно нужно вызывать команду **prepare/newstate** (POST) и подписывать возвращаемое поле forsign. В случае успешного выполнения возвращается хэш транзакции.
+
+.. code:: 
+ 
+    POST
+    /api/v1/newstate
+    name - имя экосистемы
+    currency - наименование валюты создаваемой экосистемы
+    signature - hex подпись
+    time - время, возвращенное prepare
+
+Вариант ответа
+
+.. code:: 
+
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+    }
+
