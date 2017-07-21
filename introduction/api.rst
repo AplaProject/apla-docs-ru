@@ -785,3 +785,32 @@ stateparams/{name}
         "value": "MYCUR",
         "condiitions": "true"
     }      
+
+stateparamslist/[?limit=...&offset=...]
+==============================
+**GET** Возвращает список параметров текущей экосистемы. Можно указать смещение и количество запрашиваемых записей. Каждый элемент содержит следующие параметры: **name, value, conditions**.
+
+.. code:: 
+    
+    GET
+    /api/v1/stateparamslist
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "list": [{ 
+            "name": "state_name",
+            "value": "MyState",
+            "conditions": "true",
+        }, 
+        { 
+            "name": "state_currency",
+            "value": "MY",
+            "conditions": "true",
+        }, 
+        ]
+    }      
