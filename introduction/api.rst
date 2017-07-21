@@ -814,3 +814,27 @@ stateparamslist/[?limit=...&offset=...]
         }, 
         ]
     }      
+
+stateparams
+==============================
+**POST** Добавить параметр в экосистему. Предварительно нужно вызывать команду **prepare/stateparams** (POST) и подписывать возвращаемое поле forsign. В случае успешного выполнения возвращается хэш транзакции.
+
+.. code:: 
+ 
+    POST
+    /api/v1/stateparams
+    name - имя параметра
+    value - значение параметра
+    conditions - условия для изменения прааметра
+    signature - hex подпись
+    time - время, возвращенное prepare
+
+Вариант ответа
+
+.. code:: 
+
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+    }
