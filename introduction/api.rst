@@ -838,3 +838,28 @@ stateparams
     {
         "hash" : "67afbc435634.....",
     }
+
+stateparams/{name}
+==============================
+**PUT** Изменить значение существующего параметра с именем **{name}**. Предварительно нужно вызывать команду **prepare/stateparams** (PUT) и подписывать возвращаемое поле forsign. 
+
+.. code:: 
+    
+    PUT
+    /api/v1/stateparams/myvalue
+    value - значение параметра
+    conditions - права на изменения
+    signature - hex подпись
+    time - время, возвращенное prepare
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+        "error": ""
+    }      
+    
