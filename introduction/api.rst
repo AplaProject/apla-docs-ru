@@ -764,3 +764,24 @@ statelist/[?limit=...&offset=...]
         }, 
         ]
     }      
+
+stateparams/{name}
+==============================
+**GET** Получить информацию о параметре с именем **{name}** в текущей экосистеме. Возвращаются значения: **name, value, conditions**.
+
+.. code:: 
+    
+    GET
+    /api/v1/stateparams/currency_name
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "name": "currency_name",
+        "value": "MYCUR",
+        "condiitions": "true"
+    }      
