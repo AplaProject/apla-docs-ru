@@ -989,3 +989,28 @@ tables/[?limit=...&offset=...&global=1]
         ]
     }      
     
+table/{name}[?global=1]
+==============================
+**GET** Возвращает информацию о таблице. Для получения информации о глобальной таблице необходимо добавить параметр global. Возвращаются следующие поля: "name" - имя таблицы, "insert" - права на вставку элементов, "new_column" - права на добавление клонки, "general_update": права на изменени прав, "columns" - массив колонок с полями *name, type, perm* - имя, тип, права на изменение.
+
+.. code:: 
+    
+    GET
+    /api/v1/table/mytable
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "name": "1_mytable",
+        "insert": "ContractConditions("MainCondition")",
+        "new_column": "ContractConditions("MainCondition")",
+        "general_update": "ContractConditions("MainCondition")",
+        "columns": [{"name": "mynum", "type": "numbers", "perm":"ContractConditions("MainCondition")" }, 
+            {"name": "mytext", "type": "text", "perm":"ContractConditions("MainCondition")" }
+        ]
+    }      
+    
