@@ -940,3 +940,25 @@ table/{tablename}
     {
         "hash" : "67afbc435634.....",
     }
+
+column/{tablename}/{columnname}
+==============================
+**PUT** Изменить права доступа к колонке таблицы. Предварительно нужно вызывать команду **prepare/table/{tablename}/{columnname}** (PUT) и подписывать возвращаемое поле forsign. В случае успешного выполнения возвращается хэш транзакции. В качестве *tablename* необходимо указать полное имя таблицы с префиксом, например, *1_mytable*.
+
+.. code:: 
+ 
+    POST
+    /api/v1/column/global_mytable/mycol
+    permissions - права доступа на изменени данной колонки 
+    signature - hex подпись
+    time - время, возвращенное prepare
+
+Вариант ответа
+
+.. code:: 
+
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash" : "67afbc435634.....",
+    }
