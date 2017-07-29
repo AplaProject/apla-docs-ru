@@ -694,7 +694,7 @@ ChartPie
 The function displays a pie chart. The function has the named parameters, which are displayed in the shape buttons:
 
 * *Data* - данные отражаемые диаграммой в виде списка [[value,color,label],....]; каждый элемент списка должен содержать три параметра: значение, цвет rrggbb и подпись; при наличии этого списка другие параметры будут игнорироваться;
-* *Columns* - список цветов rrggbb через запятую;
+* *Colors* - список цветов rrggbb через запятую;
 * *Table* - имя таблицы, откуда будут браться данные;
 * *FieldValue* - имя столбца со значениями;
 * *FieldLabel* - имя столбца с подписями;
