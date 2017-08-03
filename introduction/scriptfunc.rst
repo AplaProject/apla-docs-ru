@@ -463,7 +463,7 @@ UpdateParam(name string, value string, conditions string)
 Работа с системными таблицами
 ********************************************************************************
 
-SysParam(name string) string
+SysParamString(name string) string
 ==============================
 Функция возвращает значение указанного системного параметра.
 
@@ -471,7 +471,7 @@ SysParam(name string) string
 
 .. code:: js
 
-    url = SysParam(`blockchain_url`)
+    url = SysParamString(`blockchain_url`)
 
 SysParamInt(name string) int
 ==============================
@@ -482,6 +482,17 @@ SysParamInt(name string) int
 .. code:: js
 
     maxcol = SysParam(`max_columns`)
+
+SysCost(name string) int
+==============================
+Функция возвращает стоимость указанной встроенной транзакции.
+
+* *name* - имя параметра;
+
+.. code:: js
+
+    cost = SysCost(`dlt_transfer`)
+
 
 UpdateSysParam(name, value, conditions string)
 ==============================
