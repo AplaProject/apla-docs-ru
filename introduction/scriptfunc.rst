@@ -184,7 +184,7 @@ DBGetTable(tblname string, columns string, offset int, limit int, order string, 
     
         row = ret[i]
         myfunc(Sprintf("%s %s", row["name"], row["company"]), Int(row["idval"]) )
-        i++
+        i = i+1
     }
 	
 LangRes(idres string, lang string) string
