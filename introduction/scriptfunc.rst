@@ -92,6 +92,20 @@ DBIntWhere(tblname string, name string, where string, params ...) int
     var val int
     val = DBIntWhere(Table("mytable"), "counter",  "idgroup = ? and statue=?", mygroup, 1 )
 
+DBRowExt(tblname string, columns string, val (int|string), column string) map
+==============================
+Функция возвращает массив (map) значениий из таблицы базы данных с поиском записи по указанному полю и значению.
+
+* *tblname* - имя таблицы в базе данных;
+* *columns* - имя колонок, значение которых необходимо получить;
+* *val* - значение, по которому будет искаться запись;
+* *column* - имя колонки, по которой будет искаться запись. Таблица должна иметь индекс по данной колонке.
+
+.. code:: js
+
+    var vals map
+    vals = DBRowExt(Table("mytable"), "address,postindex,name", $Company, "company" )
+
 DBString(tblname string, name string, id int) string
 ==============================
 Функция возвращает строковое значение из колонки таблицы базы данных по **id** записи.
