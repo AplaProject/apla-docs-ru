@@ -352,6 +352,19 @@ AddressToId(address string) int
 .. code:: js
 
     wallet = AddressToId($Recipient)
+    
+Contains(s string, substr string) bool
+==============================
+Функция возвращает true, если строка *s* содержит подстроку *substr*.
+
+* *s* - проверяема строка.
+* *substr* - подстрока, которая ищется в указанной строке.
+
+.. code:: js
+
+    if Contains($Name, `my`) {
+    ...
+    }    
 
 Float(val int|string) float
 ==============================
@@ -432,6 +445,18 @@ PrefixTable(tblname string, global int) string
 
     Println( PrefixTable("pages", global)) // may be global_pages, 1_pages or 2_pages etc.
 
+Replace(s string, old string, new string) string
+==============================
+Функция заменять в строку *s* все вхождения строки *old* на строку *new* и возвращает полученный результат.
+
+* *s* - исходная строка.
+* *old* - заменяемая строка.
+* *new* - новая строка.
+
+.. code:: js
+
+    s = Replace($Name, `me`, `you`)
+
 Sha256(val string) string
 ==============================
 Функция возвращает хэш **SHA256** от указанной строки.
@@ -466,7 +491,7 @@ Str(val int|float) string
     myfloat = 5.678
     val = Str(myfloat)
 
-Table(tblname) string
+Table(tblname string) string
 ==============================
 Функция возвращает полное имя таблицы с числовым префиксом номера государства, в котором вызывается контракт и со знаком подчеркивания между префиксом и именем. Позволяет делать контракты независимыми от государства.
 
@@ -475,6 +500,18 @@ Table(tblname) string
 .. code:: js
 
     Println( Table("citizens")) // may be 1_citizens or 2_citizens etc.
+
+UpdateLang(name string, trans string)
+==============================
+Функция обновляет языковой ресурс в памяти. Используется в транзакциях, которые меняют языковые ресурсы.
+
+* *name* - имя языкового ресурса.
+* *trans* - ресурс с переводами.
+
+.. code:: js
+
+    UpdateLang($Name, $Trans)
+
 
 ********************************************************************************
 Обновление элементов платформы
