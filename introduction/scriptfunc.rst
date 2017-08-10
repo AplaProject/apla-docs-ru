@@ -457,6 +457,17 @@ Replace(s string, old string, new string) string
 
     s = Replace($Name, `me`, `you`)
 
+Size(val string) int
+==============================
+Функция возвращает размер указанной строки.
+
+* *val* - строка, для которой нужно вычислить размер.
+
+.. code:: js
+
+    var len int
+    len = Size($Name)
+
 Sha256(val string) string
 ==============================
 Функция возвращает хэш **SHA256** от указанной строки.
@@ -490,6 +501,19 @@ Str(val int|float) string
 
     myfloat = 5.678
     val = Str(myfloat)
+
+Substr(s string, offset int, length int) string
+==============================
+Функция возвращает подстроку от указанной строки начиная со смещения *offset* (cчитается с 0) и длиной *length*. В случае некорректных смещений или длины возвращается пустая строка. Если сумма смещения и *length* больше размера строки, то возвратится подстрока от смещения до конца строки.
+
+* *val* - строка.
+* *offset* - смещение подстроки.
+* *length* - размер подстроки.
+
+.. code:: js
+
+    var s string
+    s = Substr($Name, 1, 10)
 
 Table(tblname string) string
 ==============================
