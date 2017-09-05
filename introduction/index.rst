@@ -11,6 +11,7 @@
    templates.rst
    appexample.rst
    api.rst
+   api2.rst
    exchangeapi.rst
    install.rst
    alphabetical_index.rst
