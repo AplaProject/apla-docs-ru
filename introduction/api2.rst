@@ -59,7 +59,8 @@ login
 Ответ
 .. code:: 
 
-   token - JWT токен
+   token - JWT токен.
+   refresh - JWT токен для продления сессии. Необходимо передавать в команду **refresh**.
    state - идентификатор экосистемы.
    wallet - идентификатор  кошелька.
    address - адрес кошелька в формате XXXX-XXXX-.....-XXXX.
@@ -72,9 +73,39 @@ login
     Content-Type: application/json
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODplQXbVu0Y"
+        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
         "state":"1",
         "wallet":"12345",
         "address": "1234-....-3424"
+    }      
+
+refresh
+==============================
+**POST** Команда выдает новые токены и продляет сессию пользователя. В случае успешного завершения нужно полученный в ответе токен передавать во всех запросах в заголовке *Authorization*.
+
+Запрос
+.. code:: 
+
+    POST
+    /api/v1/refresh
+   [expire] - время длительности JWT токена в секундах. По умолчанию, 36000.
+   token - токен обновления из предыдущего вызова **login** или **refresh**.
+
+Ответ
+.. code:: 
+
+   token - JWT токен.
+   refresh - JWT токен для продления сессии. Необходимо передавать в команду **refresh**.
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODplQXbVu0Y"
+        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
     }      
 
 signtest
