@@ -135,3 +135,45 @@ signtest
         "pubkey": "324bd7..."
     }      
 
+********************************************************************************
+Служебные команды
+********************************************************************************
+
+install
+==============================
+**POST** Команда производит установку системы. После успешной установки систему требуется перезапустить. 
+
+Запрос
+
+.. code:: 
+
+    POST
+    /api/v1/install
+    type - тип установки: **Private-net, nodes, file**.
+	logLevel - уровень логгирования: **ERROR, DEBUG**.
+	firstLoadBlockchainURL - адрес для получения блокчейна. Указывается в случае *type* равным *file*.
+	host - хост для БД PostgreSQL. Например, *localhost*
+	port - порт для БД PostgreSQL. Например, *5432*
+	db_name - имя БД PostgreSQL. Например, *mydb*
+	username - имя пользователя для подключения к БД PostgreSQL. Например, *postgres*
+	password - пароль для подключения к БД PostgreSQL. Например, *postgres*
+	generate_first_block - Может быть равен 0 или 1 когда *type* равен *Private-net*. 
+    first_block_dir - директория где хранится файл *1block* с первым блоком. Указывается когда *generate_first_block* равен 0 
+                      и *type* равен *Private-net*.
+
+Ответ
+
+.. code:: 
+
+   success - true в случае успешного завершения.
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "success": true
+    }      
+
