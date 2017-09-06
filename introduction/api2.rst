@@ -33,6 +33,7 @@ REST API v2
 * **E_DBNIL** - DB is nil
 * **E_INSTALLED** - Apla is already installed
 * **E_INVALIDWALLET** - Wallet %s is not valid
+* **E_NOTINSTALLED** - Apla is not installed. В этом случае нужно запустить установку командно *install*.
 * **E_RECOVERED** - API recovered. Возвращается в случае panic error.
 * **E_REFRESHTOKEN** - Refresh token is not valid
 * **E_SERVER** - Server error. Возвращается в случае ошибки в библиотечных функциях golang. Поле *msg* содержит текст ошибки.
@@ -60,7 +61,7 @@ getuid
     
 Ответ
 
-* *uid* - строка для подписи. Если поля *uid* и *wallet* отсутствуют, то значит требуется установка сервера.
+* *uid* - строка для подписи.
 * *token* - временный токен для передачи в login.
 
 В случае, когда авторизация не требуется, то возвращаются
