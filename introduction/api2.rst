@@ -43,7 +43,7 @@ getuid
     Content-Type: application/json
     {
         "uid": "28726874268427424",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODplQXbVu0Y"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYTDplQXbVu0Y"
     }
 
 login
@@ -56,10 +56,11 @@ login
 
     POST
     /api/v1/login
-   [state] - идентификатор экосистемы. Если не указан, то берется первая экосистема.
-   [expire] - время длительности JWT токена в секундах. По умолчанию, 36000.
-   pubkey - публичный ключ hex.
-   signature - подпись uid полученного через getuid hex.
+    
+* [state] - идентификатор экосистемы. Если не указан, то берется первая экосистема.
+* [expire] - время длительности JWT токена в секундах. По умолчанию, 36000.
+* pubkey - публичный ключ hex.
+* signature - подпись uid полученного через getuid hex.
 
 Ответ
 
@@ -76,7 +77,7 @@ login
     200 (OK)
     Content-Type: application/json
     {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODplQXbVu0Y"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODp0Y"
         "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
         "state":"1",
         "wallet":"12345",
@@ -93,8 +94,9 @@ refresh
 
     POST
     /api/v1/refresh
-   [expire] - время длительности JWT токена в секундах. По умолчанию, 36000.
-   token - токен обновления из предыдущего вызова **login** или **refresh**.
+    
+* [expire] - время длительности JWT токена в секундах. По умолчанию, 36000.
+* token - токен обновления из предыдущего вызова **login** или **refresh**.
 
 Ответ
 
@@ -120,9 +122,10 @@ signtest
     
     POST
     /api/v1/signtest
-    private: hex приватный ключ
-    forsign: строка для подписи
-    pubkey: hex публичный ключ
+ 
+* private: hex приватный ключ
+* forsign: строка для подписи
+* pubkey: hex публичный ключ
     
 Вариант ответа
 
@@ -149,17 +152,17 @@ install
 
     POST
     /api/v1/install
-    type - тип установки: **Private-net, nodes, file**.
-    logLevel - уровень логгирования: **ERROR, DEBUG**.
-    firstLoadBlockchainURL - адрес для получения блокчейна. Указывается в случае *type* равным *file*.
-    host - хост для БД PostgreSQL. Например, *localhost*
-    port - порт для БД PostgreSQL. Например, *5432*
-    db_name - имя БД PostgreSQL. Например, *mydb*
-    username - имя пользователя для подключения к БД PostgreSQL. Например, *postgres*
-    password - пароль для подключения к БД PostgreSQL. Например, *postgres*
-    generate_first_block - Может быть равен 0 или 1 когда *type* равен *Private-net*. 
-    first_block_dir - директория где хранится файл *1block* с первым блоком. Указывается когда *generate_first_block* равен 0 
-                      и *type* равен *Private-net*.
+ 
+* type - тип установки: **Private-net, nodes, file**.
+* logLevel - уровень логгирования: **ERROR, DEBUG**.
+* firstLoadBlockchainURL - адрес для получения блокчейна. Указывается в случае *type* равным *file*.
+* host - хост для БД PostgreSQL. Например, *localhost*
+* port - порт для БД PostgreSQL. Например, *5432*
+* db_name - имя БД PostgreSQL. Например, *mydb*
+* username - имя пользователя для подключения к БД PostgreSQL. Например, *postgres*
+* password - пароль для подключения к БД PostgreSQL. Например, *postgres*
+* generate_first_block - Может быть равен 0 или 1 когда *type* равен *Private-net*. 
+* first_block_dir - директория где хранится файл *1block* с первым блоком. Указывается когда *generate_first_block* равен 0     и *type* равен *Private-net*.
 
 Ответ
 
