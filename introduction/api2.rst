@@ -6,7 +6,42 @@ REST API v2
 
 Вызов команды происходит при обращении к **/api/v2/command/[param]**, где **command** - имя команды, **param** - дополнительный параметр, например, имя изменяемого или получаемого ресурса. Отправлять параметры запросов следует с **Content-Type: x-www-form-urlencoded**. Ответ сервера представлен в JSON формате.
 
-В случае успешного выполнения возвращается статус 200. В случае ошибки, кроме ошибочного статуса возвращается объект JSON c полем **error**, которое содержит текст ошибки. 
+********************************************************************************
+Обработка ошибок
+********************************************************************************
+
+В случае успешного выполнения запроса возвращается статус 200. В случае ошибки, кроме ошибочного статуса возвращается объект JSON c полями:
+
+* **error** - идентификатор ошибки. 
+* **msg** - текст ошибки. 
+* **params** - массив дополнительных параметров ошибки, которые могут быть подставлены в сообщение об ошибке.
+
+Пример ответа
+
+.. code:: 
+
+    400 (Bad Request)
+    Content-Type: application/json
+    {
+        "err": "E_INVALIDWALLET",
+        "msg": "Wallet 1111-2222-3333 is not valid",
+        "params": ["1111-2222-3333"]
+    }
+
+Список ошибок
+
+* **E_DBNIL** - DB is nil
+* **E_INSTALLED** - Apla is already installed
+* **E_INVALIDWALLET** - Wallet %s is not valid
+* **E_RECOVERED** - API recovered. Возвращается в случае panic error.
+* **E_REFRESHTOKEN** - Refresh token is not valid
+* **E_SERVER** - Server error. Возвращается в случае ошибки в библиотечных функциях golang. Поле *msg* содержит текст ошибки.
+* **E_SIGNATURE** - Signature is incorrect
+* **E_STATELOGIN** - %s is not a membership of ecosystem %s
+* **E_TOKEN** - Token is not valid
+* **E_UNAUTHORIZED** - Unauthorized
+* **E_UNDEFINEVAL** - Value %s is undefined
+* **E_UNKNOWNUID** - Unknown uid
 
 ********************************************************************************
 Аутентификация
