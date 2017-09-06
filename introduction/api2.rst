@@ -57,7 +57,7 @@ getuid
 .. code:: 
     
     GET
-    /api/v1/getuid
+    /api/v2/getuid
     
 Ответ
 
@@ -91,7 +91,7 @@ login
 .. code:: 
 
     POST
-    /api/v1/login
+    /api/v2/login
     
 * *[state]* - идентификатор экосистемы. Если не указан, то берется первая экосистема.
 * *[expire]* - время длительности JWT токена в секундах. По умолчанию, 36000.
@@ -129,7 +129,7 @@ refresh
 .. code:: 
 
     POST
-    /api/v1/refresh
+    /api/v2/refresh
     
 * *[expire]* - время длительности JWT токена в секундах. По умолчанию, 36000.
 * *token* - токен обновления из предыдущего вызова **login** или **refresh**.
@@ -157,7 +157,7 @@ signtest
 .. code:: 
     
     POST
-    /api/v1/signtest
+    /api/v2/signtest
  
 * *private* - hex приватный ключ
 * *forsign* - строка для подписи
@@ -191,7 +191,7 @@ install
 .. code:: 
 
     POST
-    /api/v1/install
+    /api/v2/install
  
 * *type* - тип установки: **Private-net, nodes, file**.
 * *logLevel* - уровень логгирования: **ERROR, DEBUG**.
