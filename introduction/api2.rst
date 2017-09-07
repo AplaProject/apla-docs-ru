@@ -382,7 +382,7 @@ tables/[?limit=...&offset=...]
 * *count* - общее количество записей в таблице.
 * *list* - массив, каждый элемент которого содержит следующие параметры.
 
-  * *name* - наименование таблицы.
+  * *name* - наименование таблицы. Имя таблицы возвращается без префикса.
 
 Вариант ответа
 
@@ -393,10 +393,56 @@ tables/[?limit=...&offset=...]
     {
         "count": "100"
         "list": [{ 
-            "name": "1_accounts",
+            "name": "accounts",
         }, 
         { 
-            "name": "1_citizens",
+            "name": "citizens",
        }, 
         ]
     }    
+
+table/{name}
+==============================
+**GET** Возвращает информацию о таблице с указанным именем в текущей экосистеме.
+
+Для получения информации о глобальной таблице необходимо добавить параметр global. Возвращаются следующие поля: "name" - имя таблицы, "insert" - права на вставку элементов, "new_column" - права на добавление клонки, "general_update": права на изменени прав, "columns" - массив колонок с полями *name, type, perm* - имя, тип, права на изменение.
+
+Запрос
+
+.. code:: 
+    
+    GET
+    /api/v2/table/mytable
+    
+* *name* - имя таблицы (без префикса-идентифкатора экосистемы).
+
+Ответ
+
+* *name* - имя таблицы (без префикса-идентифкатора экосистемы).
+* *insert* - условие на добавление записей.
+* *new_column* - условие на добавление колонки.
+* *update* - условие на изменение записей.
+* *conditions* - условие на изменение настроек таблицы.
+* *columns* - массив информации о колонках.
+
+   * *name* - имя столбца.
+   * *type* - тип колонки.
+   * *perm* - Условие на изменения записе в столбце.
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "name": "mytable",
+        "insert": "ContractConditions("MainCondition")",
+        "new_column": "ContractConditions("MainCondition")",
+        "update": "ContractConditions("MainCondition")",
+        "conditions": "ContractConditions("MainCondition")",
+        "columns": [{"name": "mynum", "type": "numbers", "perm":"ContractConditions("MainCondition")" }, 
+            {"name": "mytext", "type": "text", "perm":"ContractConditions("MainCondition")" }
+        ]
+    }      
+    
