@@ -286,3 +286,43 @@ ecosystems
         "number": 100,
     }      
 
+ecosystemparams/
+==============================
+**GET** Возвращает список параметров экосистемы. 
+
+Запрос
+
+.. code:: 
+    
+    GET
+    /api/v1/ecosystemparams/[id]
+
+* *id* - идентификатор экосистемы. Если не указан, то будут возвращены параметры текущей экосистемы.
+
+Ответ 
+
+* *list* - массив, каждый элемент содержит следующие параметры: **name, value, conditions**.
+  * *name* - наименование параметра.
+  * *value* - значение параметра.
+  * *conditions* - условие изменения параметра
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "list": [{ 
+            "name": "state_name",
+            "value": "MyState",
+            "conditions": "true",
+        }, 
+        { 
+            "name": "state_currency",
+            "value": "MY",
+            "conditions": "true",
+        }, 
+        ]
+    }      
+
