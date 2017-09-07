@@ -286,7 +286,7 @@ ecosystems
         "number": 100,
     }      
 
-ecosystemparams/
+ecosystemparams/[id]
 ==============================
 **GET** Возвращает список параметров экосистемы. 
 
@@ -295,13 +295,15 @@ ecosystemparams/
 .. code:: 
     
     GET
-    /api/v1/ecosystemparams/[id]
+    /api/v2/ecosystemparams/[id][?names=...]
 
 * *id* - идентификатор экосистемы. Если не указан, то будут возвращены параметры текущей экосистемы.
+* *[names]* - список получаемых параметров. При желании можно указать через запятую список имен получаемых параметров. Например, */api/v2/ecosystemparams/?names=name,currency,logo*.
+
 
 Ответ 
 
-* *list* - массив, каждый элемент содержит следующие параметры: **name, value, conditions**.
+* *list* - массив, каждый элемент которого содержит следующие параметры.
 
   * *name* - наименование параметра.
   * *value* - значение параметра.
@@ -315,15 +317,46 @@ ecosystemparams/
     Content-Type: application/json
     {
         "list": [{ 
-            "name": "state_name",
+            "name": "name",
             "value": "MyState",
             "conditions": "true",
         }, 
         { 
-            "name": "state_currency",
+            "name": "currency",
             "value": "MY",
             "conditions": "true",
         }, 
         ]
     }      
 
+ecosystemparam/{name}
+==============================
+**GET** Получить информацию о параметре с именем **{name}** в текущей или указанной экосистеме. 
+
+Запрос
+
+.. code:: 
+    
+    GET
+    /api/v2/ecosystemparam/{name}[?id=1]
+    
+* *name* - имя запрашиваемого параметра.
+* *[id]* - можно указать идентификатор экосистемы. По умолчанию, возвратится значение текущей экосистемы.
+
+Ответ
+    
+* *name* - наименование параметра.
+* *value* - значение параметра.
+* *conditions* - условие изменения параметра    
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "name": "currency",
+        "value": "MYCUR",
+        "conditions": "true"
+    }      
