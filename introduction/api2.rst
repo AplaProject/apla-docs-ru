@@ -519,3 +519,44 @@ row/{tablename}/{id}[?columns=]
         "id": "10",
         "name": "John",
     }   
+
+contract/{name}
+==============================
+**GET** Получить информацию о смарт конракте с именем **{name}**. По умолчанию, смарт контракт ищется в текущеq экосистеме.
+
+Запрос
+
+* *name* - имя смарт контракта.
+
+.. code:: 
+    
+    GET
+    /api/v2/contract/mycontract
+
+Ответ
+
+* *name* - имя смарт контракта с дентификатором экосистемы. Например, *@{idecosystem}name.
+* *active* - true если контракт активирован и false в противном случае.
+* *tableid* - идентификатор записи в таблице contracts, где хрнаится исходный код данного контракта.
+* *fields* -  массив, содержащий информацию о каждом параметре в разделе **data** контракта и содержит поля:
+
+  * *name* - имя поля.
+  * *htmltype* - html тип.
+  * *type* - тип парметра.
+  * *tags* - тэги параметра.
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "fields" : [
+            {"name":"amount", "htmltype":"textinput", "type":"int64", "tags": "optional"},
+            {"name":"name", "htmltype":"textinput", "type":"string" "tags": ""}
+        ],
+        "name": "@1mycontract",
+        "tableid" : 10,
+        "active": true
+    }      
