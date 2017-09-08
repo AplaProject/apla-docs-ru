@@ -644,3 +644,28 @@ txstatus/{hash}
         "error": ""
     }      
     
+
+content/{menu|page}/{name}
+==============================
+**GET** Возвращает JSON представление кода указанной страницы или меню с именем **{name}**, которое получается после обработки шаблонизатором.
+
+.. code:: 
+    
+    GET
+    /api/v2/content/page/default
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "tree": {"type":"......", 
+              "children": [
+                   {...},
+                   {...}
+              ]
+        },
+    }      
+
