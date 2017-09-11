@@ -203,7 +203,7 @@ install
     POST
     /api/v2/install
  
-* *type* - тип установки: **Private-net, nodes, file**.
+* *type* - тип установки: **PRIVATE_NET, TESTNET_NODE, TESTNET_URL**.
 * *logLevel* - уровень логгирования: **ERROR, DEBUG**.
 * *firstLoadBlockchainURL* - адрес для получения блокчейна. Указывается в случае *type* равным *file*.
 * *host* - хост для БД PostgreSQL. Например, *localhost*
