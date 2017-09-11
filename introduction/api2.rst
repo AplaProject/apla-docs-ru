@@ -437,12 +437,12 @@ table/{name}
     Content-Type: application/json
     {
         "name": "mytable",
-        "insert": "ContractConditions("MainCondition")",
-        "new_column": "ContractConditions("MainCondition")",
-        "update": "ContractConditions("MainCondition")",
-        "conditions": "ContractConditions("MainCondition")",
-        "columns": [{"name": "mynum", "type": "numbers", "perm":"ContractConditions("MainCondition")" }, 
-            {"name": "mytext", "type": "text", "perm":"ContractConditions("MainCondition")" }
+        "insert": "ContractConditions(`MainCondition`)",
+        "new_column": "ContractConditions(`MainCondition`)",
+        "update": "ContractConditions(`MainCondition`)",
+        "conditions": "ContractConditions(`MainCondition`)",
+        "columns": [{"name": "mynum", "type": "numbers", "perm":"ContractConditions(`MainCondition`)" }, 
+            {"name": "mytext", "type": "text", "perm":"ContractConditions(`MainCondition`)" }
         ]
     }      
     
