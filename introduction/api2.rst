@@ -286,7 +286,7 @@ ecosystems
         "number": 100,
     }      
 
-ecosystemparams/[idstate]
+ecosystemparams
 ==============================
 **GET** Возвращает список параметров экосистемы. 
 
@@ -295,9 +295,9 @@ ecosystemparams/[idstate]
 .. code:: 
     
     GET
-    /api/v2/ecosystemparams/[idstate][?names=...]
+    /api/v2/ecosystemparams/[?idstate=...&names=...]
 
-* *idstate* - идентификатор экосистемы. Если не указан, то будут возвращены параметры текущей экосистемы.
+* *[idstate]* - идентификатор экосистемы. Если не указан, то будут возвращены параметры текущей экосистемы.
 * *[names]* - список получаемых параметров. При желании можно указать через запятую список имен получаемых параметров. Например, */api/v2/ecosystemparams/?names=name,currency,logo*.
 
 
