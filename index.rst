@@ -7,14 +7,14 @@ EGaaS Homestead Documentation
 ===============================================================================
 
 ..  image:: img/logo.png
-..   :height: 156 px
-..   :width: 235 px
+..   :height: 200 px
+..   :width: 695 px
    :scale: 100 %
-   :alt: daylight-logo
+   :alt: apla-logo
    :align: center
 
 
-The description of the basic principles and approaches of technical performance of eGaaS platform is presented in the current document:
+The description of the basic principles and approaches of technical performance of Apla platform is presented in the current document:
 
 
 Contents
@@ -23,5 +23,14 @@ Contents
 .. toctree::
    :maxdepth: 4
 
-   introduction/index.rst
+   introduction/what-is-Apla.rst
+   introduction/script.rst
+   introduction/scriptfunc.rst
+   introduction/templates.rst
+   introduction/appexample.rst
+   introduction/api.rst
+   introduction/api2.rst
+   introduction/exchangeapi.rst
+   introduction/install.rst
+   introduction/alphabetical_index.rst
 
