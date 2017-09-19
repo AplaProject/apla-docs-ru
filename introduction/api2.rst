@@ -31,6 +31,10 @@ REST API v2
 Список ошибок
 
 * **E_DBNIL** - DB is nil
+* **E_EMPTYPUBLIC** - Public key is undefined
+* **E_EMPTYSIGN** - Signature is undefined
+* **E_HASHWRONG** - Hash is incorrect
+* **E_HASHNOTFOUND** - Hash has not been found
 * **E_INSTALLED** - Apla is already installed
 * **E_INVALIDWALLET** - Wallet %s is not valid
 * **E_NOTINSTALLED** - Apla is not installed. В этом случае нужно запустить установку командно *install*.
@@ -204,15 +208,15 @@ install
     /api/v2/install
  
 * *type* - тип установки: **PRIVATE_NET, TESTNET_NODE, TESTNET_URL**.
-* *logLevel* - уровень логгирования: **ERROR, DEBUG**.
-* *firstLoadBlockchainURL* - адрес для получения блокчейна. Указывается в случае *type* равным *file*.
-* *host* - хост для БД PostgreSQL. Например, *localhost*
-* *port* - порт для БД PostgreSQL. Например, *5432*
+* *log_level* - уровень логгирования: **ERROR, DEBUG**.
+* *first_load_blockchain_url* - адрес для получения блокчейна. Указывается в случае *type* равным *TESTNET_URL*.
+* *db_host* - хост для БД PostgreSQL. Например, *localhost*
+* *db_port* - порт для БД PostgreSQL. Например, *5432*
 * *db_name* - имя БД PostgreSQL. Например, *mydb*
-* *username* - имя пользователя для подключения к БД PostgreSQL. Например, *postgres*
-* *password* - пароль для подключения к БД PostgreSQL. Например, *postgres*
+* *db_user* - имя пользователя для подключения к БД PostgreSQL. Например, *postgres*
+* *db_pass* - пароль для подключения к БД PostgreSQL. Например, *postgres*
 * *generate_first_block* - Может быть равен 0 или 1 когда *type* равен *Private-net*. 
-* *first_block_dir* - директория где хранится файл *1block* с первым блоком. Указывается когда *generate_first_block* равен 0     и *type* равен *Private-net*.
+* *first_block_dir* - директория где хранится файл *1block* с первым блоком. Указывается когда *generate_first_block* равен 0     и *type* равен *PRIVATE_NET*.
 
 Ответ
 
