@@ -30,6 +30,7 @@ Contents
    introduction/appexample.rst
    introduction/api.rst
    introduction/api2.rst
+   introduction/contracts.rst
    introduction/exchangeapi.rst
    introduction/install.rst
    introduction/alphabetical_index.rst
