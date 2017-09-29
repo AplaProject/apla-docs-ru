@@ -26,11 +26,12 @@
 
 Форматы функций
 ==============================
-Язык построения шаблонов страниц по сути явяляется функциональным языком, где вы вызывает функции в виде FuncName(parameters) и причем функции могут вкладываться друг в друга. Параметры можно не заключать в кавычки.
+Язык построения шаблонов страниц по сути явяляется функциональным языком, где вы вызывает функции в виде FuncName(parameters) и причем функции могут вкладываться друг в друга. Параметры можно не заключать в кавычки. Если параметр не нужен, то его можно никак не обозначать.
 
 .. code:: js
 
       Text MyFunc(parameter number 1, parameter number 2) another text.
+      MyFunc(parameter 1,,,parameter 4)
 
 Если параметр содержит запятую, то тогда его нужно заключить в обратные или двойные кавычки. Также кавычки нужно использовать если в параметре имеется непарная закрывающая скобка.
 
@@ -45,4 +46,17 @@
 
       MyFunc("parameter number 1, ""the second part of first"" paremeter")
       MyFunc(`parameter number 1, "the second part of first" paremeter`)
+
+При описании функций каждый параметр имеет определенное имя. Вы можете вызывать функции и указывать параметры в том порядке как они описаны, а можете явно указывать только нужные параметры по их именам в любом порядке. Например, пусть у нас есть функция, которая описана как **MyFunc(Class,Value,Body)**, то все эти вызовы будут корректными с точки зрения языка.
+
+.. code:: js
+
+      MyFunc(myclass, This is value, Div(divclass, This is paragraph.))
+      MyFunc(Body: Div(divclass, This is paragraph.))
+      MyFunc(myclass, Body: Div(divclass, This is paragraph.))
+      MyFunc(Value: This is value, Body: 
+           Div(divclass, This is paragraph.)
+      )
+      MyFunc(myclass, Value without Body)
+      
 
