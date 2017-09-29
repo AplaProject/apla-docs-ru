@@ -83,6 +83,28 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
+Em(Body, Class)
+==========================
+Создает HTML элемент **em**.
+
+* *Body* - дочерний текст или элементы.
+* *Class* - классы для данного *em*.
+
+.. code:: js
+
+      This is an Em(important news).
+
+Label(Body, Class)
+==========================
+Создает HTML элемент **label**.
+
+* *Body* - дочерний текст или элементы.
+* *Class* - классы для данного *label*.
+
+.. code:: js
+
+      Label(The first item).
+
 P(Body, Class)
 ==========================
 Создает HTML элемент **p**.
@@ -94,3 +116,14 @@ P(Body, Class)
 
       P(This is the first line.
         This is the second line.)
+
+Span(Body, Class)
+==========================
+Создает HTML элемент **span**.
+
+* *Body* - дочерний текст или элементы.
+* *Class* - классы для данного *span*.
+
+.. code:: js
+
+      This is Span(the first item, myclass1).
