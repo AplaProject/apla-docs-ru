@@ -94,6 +94,20 @@ Em(Body, Class)
 
       This is an Em(important news).
 
+Input(Id,Class,Placeholder,Type,Value)
+==========================
+Создает HTML элемент **input**.
+
+* *Id* - идентификатор элемента.
+* *Class* - классы для данного *input*.
+* *Placeholder* - *placeholder* для данного *input*.
+* *Type* - типа для данного *input*.
+* *Value* - значение элемента.
+
+.. code:: js
+
+      Input(Id: name, Type: text, Placeholder: Enter your name)
+
 Label(Body, Class)
 ==========================
 Создает HTML элемент **label**.
