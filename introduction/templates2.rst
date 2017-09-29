@@ -28,24 +28,21 @@
 ==============================
 Язык построения шаблонов страниц по сути явяляется функциональным языком, где вы вызывает функции в виде FuncName(parameters) и причем функции могут вкладываться друг в друга. Параметры можно не заключать в кавычки.
 
-* *Text MyFunc(parameter number 1, parameter number 2) another text.*
+.. code:: js
+
+      Text MyFunc(parameter number 1, parameter number 2) another text.
 
 Если параметр содержит запятую, то тогда его нужно заключить в обратные или двойные кавычки. Также кавычки нужно использовать если в параметре имеется непарная закрывающая скобка.
 
-* *MyFunc("parameter number 1, the second part of first paremeter")*
-* *MyFunc(`parameter number 1, the second part of first paremeter`)*
+.. code:: js
+
+      MyFunc("parameter number 1, the second part of first paremeter")
+      MyFunc(`parameter number 1, the second part of first paremeter`)
 
 Если вы заключили параметр в кавычки, но там также используются кавычки, то можно использовать разные кавычки или дублировать их в тексте.
 
-* *MyFunc("parameter number 1, ""the second part of first"" paremeter")*
-* *MyFunc(`parameter number 1, "the second part of first" paremeter`)*
-
-Например,
-
 .. code:: js
 
-      FuncName( string 1, string 2, "Text, text")
+      MyFunc("parameter number 1, ""the second part of first"" paremeter")
+      MyFunc(`parameter number 1, "the second part of first" paremeter`)
 
-.. code:: js
-
-      FuncName{ ParamName1: string 1, ParamName2: string 2, ParamName3: "Text, text" }
