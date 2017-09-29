@@ -94,6 +94,17 @@ Em(Body, Class)
 
       This is an Em(important news).
 
+Form(Class, Body)
+==========================
+Создает HTML элемент **form**.
+
+* *Class* - классы для данного *form*.
+* *Body* - дочерние элементы.
+
+.. code:: js
+
+      Form(class1 class2, Input(myid))
+
 Input(Id,Class,Placeholder,Type,Value)
 ==========================
 Создает HTML элемент **input**.
