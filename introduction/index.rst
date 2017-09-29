@@ -9,6 +9,7 @@
    script.rst
    scriptfunc.rst
    templates.rst
+   templates2.rst
    appexample.rst
    api.rst
    api2.rst
