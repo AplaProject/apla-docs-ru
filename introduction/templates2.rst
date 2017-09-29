@@ -83,6 +83,18 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
+Button(Body, Page, Class)
+==========================
+Создает HTML элемент **button**.
+
+* *Body* - дочерний текст или элементы.
+* *Page* - название страницы для перехода.
+* *Class* - классы для данной кнопки.
+
+.. code:: js
+
+      Button(Submit, default_page, mybtn_class).
+
 Em(Body, Class)
 ==========================
 Создает HTML элемент **em**.
