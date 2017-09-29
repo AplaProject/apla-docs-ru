@@ -127,3 +127,14 @@ Span(Body, Class)
 .. code:: js
 
       This is Span(the first item, myclass1).
+
+Strong(Body, Class)
+==========================
+Создает HTML элемент **strong**.
+
+* *Body* - дочерний текст или элементы.
+* *Class* - классы для данного *strong*.
+
+.. code:: js
+
+      This is Strong(the first item, myclass1).
