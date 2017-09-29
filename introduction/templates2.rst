@@ -74,7 +74,6 @@
 
 Div(Class, Body)
 ==========================
-
 Создает HTML элемент **div**.
 
 * *Class* - классы для данного *div*.
@@ -84,3 +83,14 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
+P(Body, Class)
+==========================
+Создает HTML элемент **p**.
+
+* *Body* - дочерниbq текст или элементы.
+* *Class* - классы для данного *p*.
+
+.. code:: js
+
+      P(This is the first line.
+        This is the second line.)
