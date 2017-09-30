@@ -94,31 +94,23 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
-Button(Body, Page, Class)
+Button(Body, Page, Class, Contract, Params, PageParams, Alert)
 ==========================
-Создает HTML элемент **button**.
+Создает HTML элемент **button**. Этот элемент должен создавать кнопку, которая будет отправлять на выполнение указанный контракт.
 
 * *Body* - дочерний текст или элементы.
 * *Page* - название страницы для перехода.
 * *Class* - классы для данной кнопки.
-
-.. code:: js
-
-      Button(Submit, default_page, mybtn_class).
-
-ContractButton(Contract, Body, Class, Inputs)
-==========================
-Создает элемент **contractbtn**. Этот элемент должен создавать кнопку, которая будет отправлять на выполнение указанный контракт.
-
 * *Contract* - Имя вызываемого контракта.
-* *Body* - дочерний текст или элементы.
-* *Class* - классы для данной кнопки.
-* *Inputs* - список передаваемых в контракт значений. По умолчанию, значения параметров контракта (секция data) берутся из HTML элементов (скажем, полей формы) с одноименными идентификаторами (id). Если идентификаторы элементов отличаются от названий параметров контракта, то используется присваивание в формате *contractField1=idname1, contractField2=idname2*. Данный параметр возвращается в *attr* в виде объекта *{field1: idname1, field2: idname2}*.
+* *Params* - список передаваемых в контракт значений. По умолчанию, значения параметров контракта (секция data) берутся из HTML элементов (скажем, полей формы) с одноименными идентификаторами (id). Если идентификаторы элементов отличаются от названий параметров контракта, то используется присваивание в формате *contractField1=idname1, contractField2=idname2*. Данный параметр возвращается в *attr* в виде объекта *{field1: idname1, field2: idname2}*.
 **ПРИМЕЧАНИЕ** В случае, когда Inputs не указан, то реализация на фронтенде может брать все контролы в form, где находится кнопка или самостоятельно запрашивать из API список параметров и брать значения *input* c такими же идентификаторами.
+* *PageParams* - параметры для перехода на страницу.
+* *Alert* - текст сообщения.
 
 .. code:: js
 
-      ContractButton(MyContract, My Contract, myclass, "Name=myid,Id=i10,Value")
+      Button(Submit, default_page, mybtn_class)
+      Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 
 Em(Body, Class)
 ==========================
@@ -142,7 +134,7 @@ Form(Class, Body)
 
       Form(class1 class2, Input(myid))
 
-Input(Id,Class,Placeholder,Type,Value)
+Input(Id,Class,Placeholder,Type,Value,Validate)
 ==========================
 Создает HTML элемент **input**.
 
@@ -151,6 +143,7 @@ Input(Id,Class,Placeholder,Type,Value)
 * *Placeholder* - *placeholder* для данного *input*.
 * *Type* - типа для данного *input*.
 * *Value* - значение элемента.
+* *Validate* - параметр валидации.
 
 .. code:: js
 
