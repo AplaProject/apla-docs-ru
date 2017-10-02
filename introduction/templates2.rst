@@ -147,11 +147,11 @@ Form(Class, Body)
 
       Form(class1 class2, Input(myid))
 
-Input(Id,Class,Placeholder,Type,Value,Validate)
+Input(Name,Class,Placeholder,Type,Value,Validate)
 ==========================
 Создает HTML элемент **input**.
 
-* *Id* - идентификатор элемента.
+* *Name* - имя элемента.
 * *Class* - классы для данного *input*.
 * *Placeholder* - *placeholder* для данного *input*.
 * *Type* - типа для данного *input*.
@@ -162,12 +162,13 @@ Input(Id,Class,Placeholder,Type,Value,Validate)
 
       Input(Id: name, Type: text, Placeholder: Enter your name)
 
-Label(Body, Class)
+Label(Body, Class, For)
 ==========================
 Создает HTML элемент **label**.
 
 * *Body* - дочерний текст или элементы.
 * *Class* - классы для данного *label*.
+* *For* - значение *for* для данного *label*.
 
 .. code:: js
 
