@@ -194,7 +194,9 @@ InputErr(Name,validation errors)]
 
 .. code:: js
 
-      InputErr(Name: name, minLength: Value is too short, maxLength: The length of the value must be less than 20 characters)
+      InputErr(Name: name, 
+          minLength: Value is too short, 
+          maxLength: The length of the value must be less than 20 characters)
 
 Label(Body, Class, For)
 ==========================
