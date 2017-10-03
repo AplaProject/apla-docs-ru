@@ -169,7 +169,7 @@ If(Condition){ Body }[.ElseIf(Condition){ Body }][.Else{ Body }]
          Span(Nothing)
       }
 
-Input(Name,Class,Placeholder,Type,Value,Validate)
+Input(Name,Class,Placeholder,Type,Value)[.Validate(validation parameters)]
 ==========================
 Создает HTML элемент **input**.
 
@@ -178,11 +178,13 @@ Input(Name,Class,Placeholder,Type,Value,Validate)
 * *Placeholder* - *placeholder* для данного *input*.
 * *Type* - типа для данного *input*.
 * *Value* - значение элемента.
-* *Validate* - параметр валидации.
+
+**Validate** - параметры валидации.
 
 .. code:: js
 
       Input(Id: name, Type: text, Placeholder: Enter your name)
+      Input(Id: num, Type: text).Validate(minLength: 6, maxLength: 20)
 
 Label(Body, Class, For)
 ==========================
