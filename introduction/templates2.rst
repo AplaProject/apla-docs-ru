@@ -107,7 +107,7 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
-Button(Body, Page, Class, Contract, Params, PageParams)[.Alert(Text,ConfirmButton,CancelButton,Icon)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButton,CancelButton,Icon)]
 ==========================
 Создает HTML элемент **button**. Этот элемент должен создавать кнопку, которая будет отправлять на выполнение указанный контракт.
 
@@ -153,7 +153,7 @@ Form(Class, Body)
 
       Form(class1 class2, Input(myid))
       
-If(Condition){ Body }[.ElseIf(Condition){ Body }][.Else{ Body }]
+If(Condition){ Body } [.ElseIf(Condition){ Body }] [.Else{ Body }]
 ==========================
 Условный оператор. Возвращаются дочерние элементы первого *If* или *ElseIf* у которого выполнено условие *Condition*. В противном случае, возвращаются дочерние элементы *Else*, если он присутствует.
 
@@ -169,7 +169,7 @@ If(Condition){ Body }[.ElseIf(Condition){ Body }][.Else{ Body }]
          Span(Nothing)
       }
 
-Input(Name,Class,Placeholder,Type,Value)[.Validate(validation parameters)]
+Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)]
 ==========================
 Создает HTML элемент **input**.
 
@@ -183,8 +183,18 @@ Input(Name,Class,Placeholder,Type,Value)[.Validate(validation parameters)]
 
 .. code:: js
 
-      Input(Id: name, Type: text, Placeholder: Enter your name)
-      Input(Id: num, Type: text).Validate(minLength: 6, maxLength: 20)
+      Input(Name: name, Type: text, Placeholder: Enter your name)
+      Input(Name: num, Type: text).Validate(minLength: 6, maxLength: 20)
+
+InputErr(Name,validation errors)]
+==========================
+Создает элемент **inputerr** c текстами для ошибок валидации.
+
+* *Name* - имя соответствующего элемента **Input**.
+
+.. code:: js
+
+      InputErr(Name: name, minLength: Value is too short, maxLength: The length of the value must be less than 20 characters)
 
 Label(Body, Class, For)
 ==========================
