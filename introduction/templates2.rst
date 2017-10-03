@@ -146,6 +146,22 @@ Form(Class, Body)
 .. code:: js
 
       Form(class1 class2, Input(myid))
+      
+If(Condition){Body}[.ElseIf(Condition){Body}].[Else{Body}]
+==========================
+Условный оператор. Возвращаются дочерние элементы первого *If* или *ElseIf* у которого выполнено условие *Condition*. В противном случае, возвращаются дочерние элементы *Else*, если он присутствует.
+
+* *Condition* - Условие. Считается не выполненным если равно *пустой строке*, *0* или *false*.
+* *Body* - дочерние элементы.
+
+.. code:: js
+
+      If(#value#){
+         Span(Value)
+      }.ElseIf(#value2#){Span(Value 2)
+      }.ElseIf(#value3#){Span(Value 3)}.Else{
+         Span(Nothing)
+      }
 
 Input(Name,Class,Placeholder,Type,Value,Validate)
 ==========================
