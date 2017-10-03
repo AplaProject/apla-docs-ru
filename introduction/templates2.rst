@@ -147,7 +147,7 @@ Form(Class, Body)
 
       Form(class1 class2, Input(myid))
       
-If(Condition){Body}[.ElseIf(Condition){Body}].[Else{Body}]
+If(Condition){ Body }[.ElseIf(Condition){ Body }][.Else{ Body }]
 ==========================
 Условный оператор. Возвращаются дочерние элементы первого *If* или *ElseIf* у которого выполнено условие *Condition*. В противном случае, возвращаются дочерние элементы *Else*, если он присутствует.
 
