@@ -40,6 +40,7 @@ REST API v2
 * **E_INSTALLED** - Apla is already installed
 * **E_INVALIDWALLET** - Wallet %s is not valid
 * **E_NOTINSTALLED** - Apla is not installed. В этом случае нужно запустить установку командно *install*.
+* **E_QUERY** - DB query is wrong
 * **E_RECOVERED** - API recovered. Возвращается в случае panic error.
 * **E_REFRESHTOKEN** - Refresh token is not valid
 * **E_SERVER** - Server error. Возвращается в случае ошибки в библиотечных функциях golang. Поле *msg* содержит текст ошибки.
