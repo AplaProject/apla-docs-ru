@@ -107,7 +107,7 @@ Div(Class, Body)
 
       Div(class1 class2, This is a paragraph.)
 
-Button(Body, Page, Class, Contract, Params, PageParams, Alert)
+Button(Body, Page, Class, Contract, Params, PageParams)[.Alert(Text,ConfirmButton,CancelButton,Icon)]
 ==========================
 Создает HTML элемент **button**. Этот элемент должен создавать кнопку, которая будет отправлять на выполнение указанный контракт.
 
@@ -118,11 +118,17 @@ Button(Body, Page, Class, Contract, Params, PageParams, Alert)
 * *Params* - список передаваемых в контракт значений. По умолчанию, значения параметров контракта (секция data) берутся из HTML элементов (скажем, полей формы) с одноименными идентификаторами (id). Если идентификаторы элементов отличаются от названий параметров контракта, то используется присваивание в формате *contractField1=idname1, contractField2=idname2*. Данный параметр возвращается в *attr* в виде объекта *{field1: idname1, field2: idname2}*.
 **ПРИМЕЧАНИЕ** В случае, когда Inputs не указан, то реализация на фронтенде может брать все контролы в form, где находится кнопка или самостоятельно запрашивать из API список параметров и брать значения *input* c такими же идентификаторами.
 * *PageParams* - параметры для перехода на страницу.
-* *Alert* - текст сообщения.
+
+**Alert** - указывается для вывода сообщений.
+
+* *Text* - текст сообщения.
+* *ConfirmButton* - текст кнопки подтверждения.
+* *CancelButton* - текст кнопки отмены.
+* *Icon* - иконка.
 
 .. code:: js
 
-      Button(Submit, default_page, mybtn_class)
+      Button(Submit, default_page, mybtn_class).Alert(Alert message)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 
 Em(Body, Class)
@@ -151,7 +157,7 @@ If(Condition){ Body }[.ElseIf(Condition){ Body }][.Else{ Body }]
 ==========================
 Условный оператор. Возвращаются дочерние элементы первого *If* или *ElseIf* у которого выполнено условие *Condition*. В противном случае, возвращаются дочерние элементы *Else*, если он присутствует.
 
-* *Condition* - Условие. Считается не выполненным если равно *пустой строке*, *0* или *false*.
+* *Condition* - Условие. Считается не выполненным если равно *пустой строке*, *0* или *false*. В остальных случаях, условие считается истинным.
 * *Body* - дочерние элементы.
 
 .. code:: js
