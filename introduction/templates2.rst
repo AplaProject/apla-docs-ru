@@ -210,6 +210,34 @@ Label(Body, Class, For)
 
       Label(The first item).
 
+MenuGroup(Title,Body,Page,Icon) 
+==============================
+Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. 
+
+* *Title* - имя пункта меню.
+* *Body* - дочерние элементы подменю;
+* *Icon* - иконка.
+
+.. code:: js
+
+      MenuGroup(My Menu,mycitizen){
+          MenuItem(Interface, sys-interface)
+          MenuItem(Dahsboard, dashboard_default)
+      }
+
+MenuItem(Title, Page, Params, Icon) 
+==============================
+Служит для создания пункта меню и возвращает элемент **menuitem**. 
+
+* *Title* - имя пункта меню;
+* *Page* - имя страницы перехода.;
+* *Params* - параметры, передаваемые странице в формате *var:value* через запятую.
+* *Icon* - иконка.
+
+.. code:: js
+
+       MenuItem(Interface, interface)
+
 P(Body, Class)
 ==========================
 Создает HTML элемент **p**.
