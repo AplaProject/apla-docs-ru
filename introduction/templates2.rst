@@ -210,7 +210,7 @@ Label(Body, Class, For)
 
       Label(The first item).
 
-MenuGroup(Title,Body,Page,Icon) 
+MenuGroup(Title, Body, Page, Icon) 
 ==============================
 Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. 
 
