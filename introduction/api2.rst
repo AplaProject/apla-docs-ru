@@ -445,7 +445,7 @@ table/{name}
 * *columns* - массив информации о колонках.
 
   * *name* - имя столбца.
-  * *type* - тип колонки.
+  * *type* - тип колонки. Возможны следующие значения: **varchar,bytea,number,money,text,double,character**.
   * *perm* - Условие на изменения записе в столбце.
     
 Вариант ответа
@@ -460,7 +460,7 @@ table/{name}
         "new_column": "ContractConditions(`MainCondition`)",
         "update": "ContractConditions(`MainCondition`)",
         "conditions": "ContractConditions(`MainCondition`)",
-        "columns": [{"name": "mynum", "type": "numbers", "perm":"ContractConditions(`MainCondition`)" }, 
+        "columns": [{"name": "mynum", "type": "number", "perm":"ContractConditions(`MainCondition`)" }, 
             {"name": "mytext", "type": "text", "perm":"ContractConditions(`MainCondition`)" }
         ]
     }      
