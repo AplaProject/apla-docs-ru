@@ -106,21 +106,12 @@
 * *attr* Object - объект состоящий из пар ключ - значение передаваемых атрибутов. Как правило сюда попадают все параметры, с именами в нижнем регистре. Например, **class, value, id**.
 * *text* String - обычный текст. В этом случае, *tag* равен **text**. 
 * *children* Array - массив вложенных объектов *Node*. Сюда попадают все элементы, описанные в параметре **Body**.     
+* *columns* Array - массив имен колонок, возвращаемых командой *DBFind*. 
+* *data* Array - массив имен колонок, возвращаемых командой *DBFind*. 
 
 ********************************************************************************
 Функции
 ********************************************************************************
-
-Div(Class, Body)
-==========================
-Создает HTML элемент **div**.
-
-* *Class* - классы для данного *div*.
-* *Body* - дочерние элементы.
-
-.. code:: js
-
-      Div(class1 class2, This is a paragraph.)
 
 Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButton,CancelButton,Icon)]
 ==========================
@@ -145,6 +136,36 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 
       Button(Submit, default_page, mybtn_class).Alert(Alert message)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
+
+DBFind(Name) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)]
+==========================
+Создает элемент **data** и возвращает данные из таблицы базы данных. Возвращаются два массива - *columns* c именами колонок и *data* с записями.
+
+* *Name* - имя таблицы.
+
+* **Columns** - список возвращаемых колонок. Если не указано, то возвратятся все колонки. 
+* **Where** - условие поиска. Например, *.Where(name = '#myval#')*
+* **WhereId** - условие поиска по идентификатору. Достаточно указать значение идентификатора.  Например, *.WhereId(1)*
+* **Order** - поле, по которому нужно отсортировать. 
+* **Limit** - количество возвращаемыхх записей. По умолчанию, 25. Максимально возможно количество - 250.
+* **Offset** - смещение возвращаемых записей.
+* **Ecosystem** - идентификатор экосистемы. По умолчанию, берутся данные из таблицы в текущей экосистеме.
+
+.. code:: js
+
+    DBFind(parameters)
+    DBFind(parameters).Columns(name,value).Where(name='money')
+
+Div(Class, Body)
+==========================
+Создает HTML элемент **div**.
+
+* *Class* - классы для данного *div*.
+* *Body* - дочерние элементы.
+
+.. code:: js
+
+      Div(class1 class2, This is a paragraph.)
 
 Em(Body, Class)
 ==========================
