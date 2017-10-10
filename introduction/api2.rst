@@ -591,18 +591,19 @@ contracts[?limit=...&offset=...]
             "name": "MainCondition",
             "token_id":"1", 
             "wallet_id":"2061870654370469385", 
-            "active":"0Эб
+            "active":"0",
             "value":"contract MainCondition {
   conditions {
-    if(StateVal("founder_account")!=$citizen)
-    {
-      warning \"Sorry, you don`t have access to this action.\"
-    }
-  }
-}",
+      if(StateVal(`founder_account`)!=$citizen)
+      {
+          warning `Sorry, you dont have access to this action.`
+        }
+      }
+    }",
     "address":"0206-1870-6543-7046-9385",
-    "conditions":"ContractConditions(`MainCondition`)"        }, 
-...
+    "conditions":"ContractConditions(`MainCondition`)"        
+     }, 
+    ...
       ]
     }   
 
