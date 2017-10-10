@@ -266,13 +266,13 @@ Label(Body, Class, For)
 
       Label(The first item).
 
-MenuGroup(Title,Icon, Body) 
+MenuGroup(Title, Body, Icon) 
 ==============================
 Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. 
 
 * *Title* - имя пункта меню.
-* *Icon* - иконка.
 * *Body* - дочерние элементы подменю;
+* *Icon* - иконка.
 
 .. code:: js
 
