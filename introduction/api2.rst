@@ -39,6 +39,7 @@ REST API v2
 * **E_HASHNOTFOUND** - Hash has not been found
 * **E_INSTALLED** - Apla is already installed
 * **E_INVALIDWALLET** - Wallet %s is not valid
+* **E_NOTFOUND** - Content page or menu has not been found
 * **E_NOTINSTALLED** - Apla is not installed. В этом случае нужно запустить установку командно *install*.
 * **E_QUERY** - DB query is wrong
 * **E_RECOVERED** - API recovered. Возвращается в случае panic error.
@@ -691,7 +692,7 @@ txstatus/{hash}
 
 content/{menu|page}/{name}
 ==============================
-**POST** Возвращает JSON представление кода указанной страницы или меню с именем **{name}**, которое получается после обработки шаблонизатором. При запросе можно передавать дополнительные параметры, которые можно использовать в шаблонизаторе.
+**POST** Возвращает JSON представление кода указанной страницы или меню с именем **{name}**, которое получается после обработки шаблонизатором. При запросе можно передавать дополнительные параметры, которые можно использовать в шаблонизаторе. Если страница или меню не найдены, то возвращается ошибка 404.
 
 .. code:: 
     
@@ -718,3 +719,4 @@ content/{menu|page}/{name}
         },
     }      
 
+Ошибки: *E_NOTFOUND*
