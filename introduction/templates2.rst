@@ -214,6 +214,16 @@ If(Condition){ Body } [.ElseIf(Condition){ Body }] [.Else{ Body }]
       }.ElseIf(#value3#){Span(Value 3)}.Else{
          Span(Nothing)
       }
+      
+Include(Name)
+==========================
+Команда вставляет шаблон с именем *Name* из таблицы *blocks*. При вставке происходит разбор шаблона и происходит вставка разобранных элементов.
+
+* *Name* - Имя вставляемого шаблона из таблицы *blocks*.
+
+.. code:: js
+
+      Div(myclass, Include(mywidget))
 
 Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)]
 ==========================
