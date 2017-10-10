@@ -266,17 +266,17 @@ Label(Body, Class, For)
 
       Label(The first item).
 
-MenuGroup(Title, Body, Page, Icon) 
+MenuGroup(Title,Icon, Body) 
 ==============================
 Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. 
 
 * *Title* - имя пункта меню.
-* *Body* - дочерние элементы подменю;
 * *Icon* - иконка.
+* *Body* - дочерние элементы подменю;
 
 .. code:: js
 
-      MenuGroup(My Menu,mycitizen){
+      MenuGroup(My Menu){
           MenuItem(Interface, sys-interface)
           MenuItem(Dahsboard, dashboard_default)
       }
