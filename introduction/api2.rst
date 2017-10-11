@@ -764,7 +764,8 @@ content/{menu|page}/{name}
 
 Ответ
 
-* *menu* - имя меню для страницы.
+* *menu* - имя меню для страницы *content/page/...*.
+* *title* - заголовк для меню *content/menu/...*.
 * *tree* - JSON дерево объектов.
 
 Вариант ответа
