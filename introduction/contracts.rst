@@ -79,6 +79,7 @@ NewMenu
 
 * *Name string* - имя меню.
 * *Value string* - текст меню.
+* *Title string "optional"* - заголовок меню.
 * *Conditions string* - условие изменения меню.
 
 EditMenu
@@ -89,6 +90,7 @@ EditMenu
 
 * *Id int* - идентификатор изменяемого меню.
 * *Value string* - новое значение меню.
+* *Title string "optional"* - заголовок меню.
 * *Conditions string* - новое условие изменения меню.
 
 AppendMenu
