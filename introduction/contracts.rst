@@ -162,7 +162,7 @@ NewTable
 * *Columns string* - массив колонок в JSON формате *[{"name":"...", "type":"...","index": "0", "conditions":"..."},...]*.
 
   * *name* - наименование колонки - латинские символы.
-  * *type* - тип **varchar,bytea,number,money,text,double,character**.
+  * *type* - тип **varchar,bytea,number,datetime,money,text,double,character**.
   * *index* - неиндексируемое поле  - "0", создать индекс - "1".
   * *conditions* - условие изменения колонки.
 
@@ -193,7 +193,7 @@ NewColumn
 
 * *TableName string* - имя таблицы - латинские символы. 
 * *Name* - наименование колонки - латинские символы.
-* *Type* - тип **varchar,bytea,number,money,text,double,character**.
+* *Type* - тип **varchar,bytea,number,money,datetime,text,double,character**.
 * *Index* - неиндексируемое поле  - "0", создать индекс - "1".
 * *Permissions* - условие изменения колонки.
 
