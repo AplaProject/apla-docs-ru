@@ -129,7 +129,7 @@
       
       while i < Len(values) {
          res = res + values[i]
-         i++
+         i = i + 1
       }
       Println(out, res)
   }
