@@ -142,14 +142,14 @@
 
 .. code:: js
  
-     func DBFind(table string).Columns(columns string).Where(format string, tail ...)
+    func DBFind(table string).Columns(columns string).Where(format string, tail ...)
              .Limit(limit int).Offset(offset int) string  {
-             ...
-	    }
+       ...
+    }
      
-     func names() string {
-         ...
-		     return DBFind("table").Columns("name").Where("id=?", 100).Limit(1)
+    func names() string {
+       ...
+       return DBFind("table").Columns("name").Where("id=?", 100).Limit(1)
     }
 
 
