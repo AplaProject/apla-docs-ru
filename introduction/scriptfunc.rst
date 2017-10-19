@@ -28,6 +28,30 @@
 Получение значений из базы данных
 ********************************************************************************
 
+DBFind(table string) [.Columns(columns string)] [.Where(where string, params ...)] [.WhereId(id int)] [.Order(order string)] [.Limit(limit int)] [.Offset(offset int)] [.Ecosystem(ecosystemid int)] array
+==========================
+Функция получает данные из таблицы базы данных в соответствии с указанным запросом. Возвращается массив *array* состоящий из ассоциативных массивов *map*.
+
+* *table* - имя таблицы.
+* *сolumns* - список возвращаемых колонок. Если не указано, то возвратятся все колонки. 
+* *Where* - условие поиска. Например, *.Where("name = 'John'")* или  *.Where("name = ?", "John")*
+* *id* - поиск по идентификатору. Достаточно указать значение идентификатора.  Например, *.WhereId(1)*
+* *order* - поле, по которому нужно отсортировать. Пол умолчанию, сортируется по *id*.
+* *limit* - количество возвращаемыхх записей. По умолчанию, 25. Максимально возможно количество - 250.
+* *offset* - смещение возвращаемых записей.
+* *ecosystemid* - идентификатор экосистемы. По умолчанию, берутся данные из таблицы в текущей экосистеме.
+
+.. code:: js
+
+   var i int
+   ret = DBFind("contracts").Columns("id,value").Where("id> ? and id < ?", 3, 8).Order("id")
+   while i < Len(ret) {
+       var vals map
+       vals = ret[0]
+       Println(vals["value"])
+       i = i + 1
+   }
+
 DBAmount(tblname string, column string, id int) money
 ==============================
 Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы. (Для получения данных типа money нельзя использовать  функции **DBInt()** и **DBIntExt()**, возвращающие  значения типа *int*).
@@ -117,7 +141,7 @@ DBString(tblname string, name string, id int) string
 .. code:: js
 
     var val string
-    val = DBString(Table("mytable"), "name", $citizen)
+    val = DBString("mytable", "name", $citizen)
 
 DBStringExt(tblname string, name string, val (int|string), column string) string
 ==============================
