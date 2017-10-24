@@ -43,13 +43,13 @@
 7. Зайдите на страницу https://git-scm.com/download/win и скачайте там соответствующую (32 или 64) версию Git for Windows и запустите
    эту установку. Все опции при установке можно оставлять без изменений.
 
-8. Теперь запустите команду **go get -u github.com/Apla/go-apla-mvp**. Она может выполняться несколько минут и после ее выполнения у
-   вас должна появиться директория c:\\MyGo\\src\\github.com\\Apla\\go-apla-mvp с исходными файлами. Есть еще один способ для получения
-   исходных файлов - зайдите на github.com/Apla/go-apla-mvp, Нажмите Clone & Download и нажмите Download ZIP. После этого, просто
-   распакуйте содержимое директории go-apla-mvp-master этого zip в директорию *c:\\MyGo\\src\\github.com\\Apla\\go-apla-mvp*.
+8. Теперь запустите команду **go get -u github.com/Apla/go-apla**. Она может выполняться несколько минут и после ее выполнения у
+   вас должна появиться директория c:\\MyGo\\src\\github.com\\Apla\\go-apla с исходными файлами. Есть еще один способ для получения
+   исходных файлов - зайдите на github.com/Apla/go-apla, Нажмите Clone & Download и нажмите Download ZIP. После этого, просто
+   распакуйте содержимое директории go-apla-master этого zip в директорию *c:\\MyGo\\src\\github.com\\Apla\\go-apla*.
    
 9. Запустите команду **go get -u github.com/jteeuwen/go-bindata** и затем зайдите в директорию *c:\\MyGo\\src\\github.com\\jteeuwen\\go-bindata\\go-bindata* и запустите там **go install**. В директории *c:\\MyGo\\bin* должен создаться файл go-bindata.exe.
 
-10. Зайдите в директорию *c:\\MyGo\\src\\github.com\\Apla\\go-apla-mvp* и запустите там файл *bindata.sh* или можно запустить    **C:\\MyGo\\bin\\go-bindata -o="packages/static/static.go" -pkg="static" static/...**. После этого выполните там же команду **go install**. Если все установлено нормально, то в директории c:\myGo\bin будет создан файл *go-apla-mvp.exe*.
+10. Зайдите в директорию *c:\\MyGo\\src\\github.com\\Apla\\go-apla* и запустите там файл *bindata.sh* или можно запустить    **C:\\MyGo\\bin\\go-bindata -o="packages/static/static.go" -pkg="static" static/...**. После этого выполните там же команду **go install**. Если все установлено нормально, то в директории c:\myGo\bin будет создан файл *go-apla.exe*.
    
-11. Скопируйте go-apla-mvp.exe в какую-нибудь директорию, например, *c:\\Apla* и запустите его.
+11. Скопируйте go-apla.exe в какую-нибудь директорию, например, *c:\\Apla* и запустите его.
