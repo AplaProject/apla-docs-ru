@@ -562,59 +562,6 @@ UpdateLang(name string, trans string)
 
 
 ********************************************************************************
-Обновление элементов платформы
-********************************************************************************
-
-UpdateContract(name string, value string, conditions string)
-==============================
-Функция обновляет указанный контракт (не допускается изменение контракта через функции **DBUpdate**).
-
-* *name* - имя контракта;
-* *value* - текст контракта;
-* *conditions* - права доступа на изменение контракта.
-
-.. code:: js
-
-    UpdateContract("MyContract", source, "СonditionsContract($citizen)")
-
-UpdateMenu(name string, value string, conditions string)
-==============================
-Функция обновляет указанное меню (не допускается изменение меню через функции **DBUpdate**).
-
-* *name* - имя обновляемого меню.
-* *value* - текст меню.
-* *conditions* - права доступа на изменение меню.
-
-.. code:: js
-
-    UpdateMenu("main_menu", mymenu, "СonditionsContract($citizen)")
-
-UpdatePage(name string, value string, menu string, conditions string)
-==============================
-Функция обновляет указанную страницу (не допускается изменение страницы через функции **DBUpdate**). 
-
-* *name* - имя обновляемой страницы;
-* *value* - текст страницы;
-* *menu* - имя привязанного к странице меню;
-* *conditions* - права доступа на изменение страницы.
-
-.. code:: js
-
-    UpdatePage("default_dashboard",mypage, "main_menu", "СonditionsContract($citizen)")
-
-UpdateParam(name string, value string, conditions string)
-==============================
-Функция обновляет параметр государства в таблице *state_parameters* (не допускается изменение параметров через функции **DBUpdate**).
-
-* *name* - имя параметра;
-* *value* - значение параметра;
-* *conditions* - права доступа на изменение параметра.
-
-.. code:: js
-
-    UpdateParam("state_flag", $flag, "ContractConditions(`MainCondition`)")
-
-********************************************************************************
 Работа с системными таблицами
 ********************************************************************************
 
