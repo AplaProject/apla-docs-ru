@@ -392,3 +392,15 @@ Style(Css)
 		color: #f00;
 		margin: 10px 5px;
 	})
+
+Table(Source, Columns)
+==========================
+Создает HTML элемент **table**.
+
+* *Source* - имя источника данных. Например, из команды *DBFind*.
+* *Columns* - Заголовки и соответствующие имена колонок в виде **Title1=column1,Title2=column2**.
+
+.. code:: js
+
+      DBFind(mytable, mysrc)
+      Table(mysrc,"ID=id,Name=name")
