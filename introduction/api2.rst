@@ -760,7 +760,7 @@ content/{menu|page}/{name}
 
 .. code:: 
     
-    GET
+    POST
     /api/v2/content/page/default
 
 Ответ
