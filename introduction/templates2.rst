@@ -173,8 +173,8 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
 
 .. code:: js
 
-    DBFind(parameters)
-    DBFind(parameters).Columns(name,value).Where(name='money')
+    DBFind(parameters,myparam)
+    DBFind(parameters,myparam).Columns(name,value).Where(name='money')
 
 Div(Class, Body)
 ==========================
