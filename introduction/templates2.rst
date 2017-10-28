@@ -132,7 +132,7 @@ And(parameters)
       If(And(#myval1#,#myval2#), Span(OK))
 
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButton,CancelButton,Icon)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButton,CancelButton,Icon)] [.Style(Style)]
 ==========================
 Создает HTML элемент **button**. Этот элемент должен создавать кнопку, которая будет отправлять на выполнение указанный контракт.
 
@@ -150,6 +150,10 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 * *ConfirmButton* - текст кнопки подтверждения.
 * *CancelButton* - текст кнопки отмены.
 * *Icon* - иконка.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -176,12 +180,16 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
     DBFind(parameters,myparam)
     DBFind(parameters,myparam).Columns(name,value).Where(name='money')
 
-Div(Class, Body)
+Div(Class, Body) [.Style(Style)]
 ==========================
 Создает HTML элемент **div**.
 
 * *Class* - классы для данного *div*.
 * *Body* - дочерние элементы.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -198,12 +206,16 @@ Em(Body, Class)
 
       This is an Em(important news).
 
-Form(Class, Body)
+Form(Class, Body) [.Style(Style)]
 ==========================
 Создает HTML элемент **form**.
 
 * *Class* - классы для данного *form*.
 * *Body* - дочерние элементы.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -245,7 +257,7 @@ Include(Name)
 
       Div(myclass, Include(mywidget))
 
-Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)]
+Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)] [.Style(Style)]
 ==========================
 Создает HTML элемент **input**.
 
@@ -256,6 +268,10 @@ Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)]
 * *Value* - значение элемента.
 
 **Validate** - параметры валидации.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -274,13 +290,17 @@ InputErr(Name,validation errors)]
           minLength: Value is too short, 
           maxLength: The length of the value must be less than 20 characters)
 
-Label(Body, Class, For)
+Label(Body, Class, For) [.Style(Style)]
 ==========================
 Создает HTML элемент **label**.
 
 * *Body* - дочерний текст или элементы.
 * *Class* - классы для данного *label*.
 * *For* - значение *for* для данного *label*.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -334,12 +354,16 @@ Or(parameters)
 
       If(Or(#myval1#,#myval2#), Span(OK))
 
-P(Body, Class)
+P(Body, Class) [.Style(Style)]
 ==========================
 Создает HTML элемент **p**.
 
 * *Body* - дочерний текст или элементы.
 * *Class* - классы для данного *p*.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -358,12 +382,16 @@ SetVar(Name, Value)
      SetVar(name, John Smith).(out, I am #name#)
      Span(#out#)
 
-Span(Body, Class)
+Span(Body, Class) [.Style(Style)]
 ==========================
 Создает HTML элемент **span**.
 
 * *Body* - дочерний текст или элементы.
 * *Class* - классы для данного *span*.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -380,25 +408,16 @@ Strong(Body, Class)
 
       This is Strong(the first item, myclass1).
 
-Style(Css)
-==========================
-Функция служит для добавления своих CSS стиле и создает элемент **style**.
-
-* *Css* - описание стилей.
-
-.. code:: js
-
-      Style(.mydiv, .myspan {
-		color: #f00;
-		margin: 10px 5px;
-	})
-
-Table(Source, Columns)
+Table(Source, Columns) [.Style(Style)]
 ==========================
 Создает HTML элемент **table**.
 
 * *Source* - имя источника данных. Например, из команды *DBFind*.
 * *Columns* - Заголовки и соответствующие имена колонок в виде **Title1=column1,Title2=column2**.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
 
 .. code:: js
 
