@@ -174,7 +174,7 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
 * **Limit** - количество возвращаемыхх записей. По умолчанию, 25. Максимально возможно количество - 250.
 * **Offset** - смещение возвращаемых записей.
 * **Ecosystem** - идентификатор экосистемы. По умолчанию, берутся данные из таблицы в текущей экосистеме.
-* **Custom** - позволяет определять вычисляемые столбцы для данных. Например, можно указывать шаблон для кнопок и дополнительного оформления. Можно определять несколько таких вычисляемых столбцов.
+* **Custom** - позволяет определять вычисляемые столбцы для данных. Например, можно указывать шаблон для кнопок и дополнительного оформления. Можно определять несколько таких вычисляемых столбцов. Как правило, такие поля определяются для вывода в *Table* и других командах, которые используют полученные данные.
 
   * *Column* - имя колонки. Нужно определить любое уникальное имя.
   * *Body* - укажите шаблон. В нем можно получать значения из других колонок в данной записи с помощью **#columnname#**.
@@ -183,7 +183,7 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
 
     DBFind(parameters,myparam)
     DBFind(parameters,myparam).Columns(name,value).Where(name='money')
-    DBFind(parameters,myparam).Custom(myid){Strong(#id#)}.Custom(myname){Strong(Em(#name#))}
+    DBFind(parameters,myparam).Custom(myid){Strong(#id#)}.Custom(myname){Strong(Em(#name#))Div(myclass, #company#)}
 
 Div(Class, Body) [.Style(Style)]
 ==========================
