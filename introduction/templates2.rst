@@ -160,7 +160,7 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
       Button(Submit, default_page, mybtn_class).Alert(Alert message)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 
-DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)]
+DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)] [.Custom(Column,Body)]
 ==========================
 Создает элемент **data** и возвращает данные из таблицы базы данных. В *attr* возвращаются два массива - *columns* c именами колонок и *data* с записями. Последовательность в именах колонок соответствует последовательности значений в записях в *data*.
 
@@ -174,11 +174,16 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
 * **Limit** - количество возвращаемыхх записей. По умолчанию, 25. Максимально возможно количество - 250.
 * **Offset** - смещение возвращаемых записей.
 * **Ecosystem** - идентификатор экосистемы. По умолчанию, берутся данные из таблицы в текущей экосистеме.
+* **Custom** - позволяет определять вычисляемые столбцы для данных. Например, можно указывать шаблон для кнопок и дополнительного оформления. Можно определять несколько таких вычисляемых столбцов.
+
+  * *Column* - имя колонки. Нужно определить любое уникальное имя.
+  * *Body* - укажите шаблон. В нем можно получать значения из других колонок в данной записи с помощью **#columnname#**.
 
 .. code:: js
 
     DBFind(parameters,myparam)
     DBFind(parameters,myparam).Columns(name,value).Where(name='money')
+    DBFind(parameters,myparam).Custom(myid){Strong(#id#)}.Custom(myname){Strong(Em(#name#))}
 
 Div(Class, Body) [.Style(Style)]
 ==========================
