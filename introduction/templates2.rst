@@ -356,6 +356,23 @@ LangRes(Name, Lang)
       LangRes(name)
       LangRes(myres, fr)
 
+LinkPage(Body, Page, Class, PageParams) [.Style(Style)]
+==========================
+Создает элемент **linkpage** для ссылки на страницу. 
+
+* *Body* - дочерний текст или элементы.
+* *Page* - название страницы для перехода.
+* *Class* - классы для данной кнопки.
+* *PageParams* - параметры для перехода на страницу.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
+
+.. code:: js
+
+      LinkPage(My Page, default_page, mybtn_class)
+
 MenuGroup(Title, Body, Icon) 
 ==============================
 Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. 
