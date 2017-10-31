@@ -272,7 +272,19 @@ If(Condition){ Body } [.ElseIf(Condition){ Body }] [.Else{ Body }]
       }.ElseIf(#value3#){Span(Value 3)}.Else{
          Span(Nothing)
       }
-      
+
+Image(Src,Alt,Class) [.Style(Style)]
+==============================
+Создает HTML элемент **image**.
+ 
+* *Src* - указатель источник изображения;
+* *Alt* - альтернативный текст для изображения; 
+* *Сlass* - список классов.
+
+.. code:: js
+
+    Image(\images\myphoto.jpg)
+
 Include(Name)
 ==========================
 Команда вставляет шаблон с именем *Name* из таблицы *blocks*. При вставке происходит разбор шаблона и происходит вставка разобранных элементов.
