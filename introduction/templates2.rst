@@ -396,6 +396,22 @@ P(Body, Class) [.Style(Style)]
       P(This is the first line.
         This is the second line.)
 
+Select(Source, Column, Class) [.Style(Style)]
+==========================
+Создает HTML элемент **select**.
+
+* *Source* - имя источника данных. Например, из команды *DBFind* или *Data*.
+* *Column* - Имя колонки, из которой будут браться данные.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
+
+.. code:: js
+
+      DBFind(mytable, mysrc)
+      Select(mysrc, name)
+
 SetVar(Name, Value)
 ==========================
 Присваивает переменной с именем *Name* значение *Value*. Элемент с именем **setvar** создается только при запросе дерева для редактирования.
