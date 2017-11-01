@@ -437,13 +437,15 @@ P(Body, Class) [.Style(Style)]
       P(This is the first line.
         This is the second line.)
 
-Select(Name, Source, Column, Class) [.Validate(validation parameters)] [.Style(Style)]
+Select(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validation parameters)] [.Style(Style)]
 ==========================
 Создает HTML элемент **select**.
 
 * *Name* - имя элемента.
 * *Source* - имя источника данных. Например, из команды *DBFind* или *Data*.
-* *Column* - Имя колонки, из которой будут браться данные.
+* *NameColumn* - Имя колонки, из которой будeт браться текст для элементов.
+* *ValueColumn* - Имя колонки, из которой будут браться значения для элементов.
+* *Value* - Значение по умолчанию.
 * *Class* - Классы для элемента.
 
 **Validate** - параметры валидации.
