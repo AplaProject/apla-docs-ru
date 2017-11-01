@@ -305,6 +305,31 @@ ecosystems
         "number": 100,
     }      
 
+vde/create
+==============================
+**POST** Создает Virtal Dedicated Ecosystem для текущей экосистемы.
+
+.. code:: 
+    
+    POST
+    /api/v2/vde/create
+
+Ответ
+
+* *result* - возвращаетcz *true*, если VDE успешно создалась.
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "result": true,
+    }     
+    
+Ошибки: *E_VDECREATED*
+
 ecosystemparams
 ==============================
 **GET** Возвращает список параметров экосистемы. 
