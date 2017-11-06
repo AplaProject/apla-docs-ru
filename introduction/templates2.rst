@@ -221,6 +221,17 @@ Div(Class, Body) [.Style(Style)]
 
       Div(class1 class2, This is a paragraph.)
 
+EcosysParam(Name, Index) 
+==============================
+Функция выводит значение параметра из таблицы parameters текущей экосистемы. Если есть языковый ресурс c полученным именем, то подставится его значение.
+ 
+* *Name* - имя значения;
+* *Index* - вы можете указать порядковый номер значения c 1, если параметр является список с элементами раззделенными запятыми. например, *gender = male,female*, тогда EcosysParam(gender, 2) возвратит *female*.  
+
+.. code:: js
+
+     Address(EcosysParam(founder_account))
+ 
 Em(Body, Class)
 ==========================
 Создает HTML элемент **em**.
