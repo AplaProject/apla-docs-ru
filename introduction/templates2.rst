@@ -181,7 +181,7 @@ Data(Source,Columns,Data) [.Custom(Column,Body)]
 	3,"Unknown ""Person"""
      }
 
-DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)] [.Custom(Column,Body)]
+DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)] [.Custom(Column,Body)] [.Vars(Prefix)]
 ==========================
 Создает элемент **dbfind** и возвращает данные из таблицы базы данных. В *attr* возвращаются три массива - *columns* c именами колонок, *types*, где для обычной колонки указан *text*, а для Custom колонок указан тип *tags* и массив *data* с записями. Последовательность в именах колонок соответствует последовательности значений в записях в *data*.
 
@@ -200,11 +200,17 @@ DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.O
   * *Column* - имя колонки. Нужно определить любое уникальное имя.
   * *Body* - укажите шаблон. В нем можно получать значения из других колонок в данной записи с помощью **#columnname#**.
 
+* **Vars** - Функция формирует множество переменных со значениями из записи таблицы базы данных, полученной по данному запросу. При указании этой функции, параметр *Limit* автоматически становится равным 1 и возвращается только одна запись.
+
+* *Prefix* - префикс, используемый для образования имен переменных, в которые записываются значения полученной записи: переменные имеют вид *#prefix_id#, #prefix_name#*, где после знака подчеркивания указывается имя колонки таблицы.
+
 .. code:: js
 
     DBFind(parameters,myparam)
     DBFind(parameters,myparam).Columns(name,value).Where(name='money')
-    DBFind(parameters,myparam).Custom(myid){Strong(#id#)}.Custom(myname){Strong(Em(#name#))Div(myclass, #company#)}
+    DBFind(parameters,myparam).Custom(myid){Strong(#id#)}.Custom(myname){
+       Strong(Em(#name#))Div(myclass, #company#)
+    }
 
 Div(Class, Body) [.Style(Style)]
 ==========================
