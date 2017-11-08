@@ -160,6 +160,19 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
       Button(Submit, default_page, mybtn_class).Alert(Alert message)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 
+CmpTime(Time1, Time2) 
+==============================
+Функция сравнивает два значения времени в одинаковом формате (желательно стандартном - YYYY-MM-DD HH:MM:SS, но можно и в произвольном при условии соблюдения последовательности от годов к секундам, например, YYYYMMDD). Возвращает: 
+
+* **-1** - Time1 < Time2, 
+* **0** - Time1 = Time2, 
+* **1** - Time1 > Time2.
+
+.. code:: js
+
+     If(CmpTime(#time1#, #time2#)<0){...}
+
+ 
 Data(Source,Columns,Data) [.Custom(Column,Body)]
 ==========================
 Создает элемент **data** и заполняет его указанными данными. В *attr* возвращаются три массива - *columns* c именами колонок, *types*, где для обычной колонки указан *text*, а для Custom колонок указан тип *tags* и массив *data* с записями. Последовательность в именах колонок соответствует последовательности значений в записях в *data*.
@@ -180,6 +193,18 @@ Data(Source,Columns,Data) [.Custom(Column,Body)]
 	2,"Mark, Smith"
 	3,"Unknown ""Person"""
      }
+
+DateTime(DateTime, Format) 
+==============================
+Функция выводит значение даты и времени в заданном формате. 
+ 
+*  *DateTime* - время в стандартном формате 2006-01-02T15:04:05.
+*  *Format* -  шаблон формата : YY короткий год, YYYY полный год, MM - месяц, DD - день, HH - часы, MM - минуты, SS – секунды, например, YY/MM/DD HH:MM. Если формат не указан, то будет использовано значение параметра  *timeformat* определенное в таблице *languages*, если его нет, то YYYY-MM-DD HH:MI:SS.
+
+.. code:: js
+
+    DateTime(2017-11-07T17:51:08)
+    DateTime(#mytime#,HH:MI DD.MM.YYYY)
 
 DBFind(Name, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Ecosystem(id)] [.Custom(Column,Body)] [.Vars(Prefix)]
 ==========================
