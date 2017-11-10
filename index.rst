@@ -33,5 +33,6 @@ Contents
    introduction/exchangeapi.rst
    introduction/install.rst
    introduction/alphabetical_index.rst
+   introduction/faq.rst
    introduction/thesaurus.rst
 
