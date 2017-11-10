@@ -14,5 +14,6 @@
    exchangeapi.rst
    install.rst
    alphabetical_index.rst
+   thesaurus.rst
    
 
