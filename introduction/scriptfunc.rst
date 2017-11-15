@@ -180,50 +180,6 @@ DBStringWhere(tblname string, name string, where string, params ...) string
     val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?",
            mygroup, "My company" )
 
-DBGetList(tblname string, column string, offset int, limit int, order string, where string, params ...) array
-==============================
-Функция возвращает массив со списком строковых значений одной колонки у записей таблицы, полученных по условиям указанным в **where**.
-
-* *tblname* - имя таблицы в базе данных;
-* *column* - имя колонки, из которого будут браться значения;
-* *offset* - смещение для начала выборки записей;
-* *limit* - количество получаемых записей, если ограничение не нужно значение параметра **-1**;
-* *order* - сортировка по колонкам; может быть пустой строкой;
-* *where* - условия запроса для выборки записей; имена полей располагаются слева от знаков сравнения; для подстановки параметров используются символы **?** или **$**;
-* *params* - параметры, подставляемые в условия запроса в заданной последовательности.
-
-.. code:: js
-
-    var ret array
-    ret = DBGetList(Table("mytable"), "name", 0, -1, "", "idval > ? and idval <= ? and company=?", 
-                     10, 200, "My company")
-                     
-                     
-DBGetTable(tblname string, columns string, offset int, limit int, order string, where string, params ...) array
-==============================
-Функция возвращает ассоциативных массивов типа map, содержащий список значений перечисленных колонок записей таблицы, полученных по условиям указанным в **where**. Все значения в ассоциативном массиве имеют тип **string**, поэтому впоследствии их следует приводить к нужному типу.
-
-* *tblname* - имя таблицы в базе данных;
-* *columns* - имена получаемых колонок разделенные запятой;
-* *offset* - смещение для начала выборки записей;
-* *limit* - количество получаемых записей, если ограничение не нужно значение параметра **-1**;
-* *order* - сортировка по колонкам; может быть пустой строкой;
-* *where* - условия запроса для выборки записей; имена полей располагаются слева от знаков сравнения; для подстановки параметров используются символы **?** или **$**;
-* *params* - параметры, подставляемые в условия запроса в заданной последовательности.
-
-.. code:: js
-
-    var ret array
-    ret = DBGetTable(Table("mytable"), "name,idval,company", 0, -1, "", "idval > ? and idval <= ? and company=?",
-                     10, 200, "My company")
-    var i int
-    while i<Len(ret) {
-        var row map
-    
-        row = ret[i]
-        myfunc(Sprintf("%s %s", row["name"], row["company"]), Int(row["idval"]) )
-        i = i+1
-    }
 	
 LangRes(idres string, lang string) string
 ==============================
