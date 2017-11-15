@@ -63,15 +63,15 @@ DBAmount(tblname string, column string, id int) money
 
     mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
 	
-StateVal(name string) string
+EcosysParam(name string) string
 ==============================
-Функция возвращает значение указанного параметра из настроек государства (таблица *parameters*).
+Функция возвращает значение указанного параметра из настроек экосистемы (таблица *parameters*).
 
 * *name* - имя получаемого параметра.
 
 .. code:: js
 
-    Println( StateVal("gov_account"))
+    Println( EcosysParam("gov_account"))
 
 
 DBInt(tblname string, name string, id int) int
