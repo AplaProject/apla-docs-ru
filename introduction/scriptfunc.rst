@@ -85,7 +85,7 @@ DBInt(tblname string, name string, id int) int
 .. code:: js
 
     var val int
-    val = DBInt(Table("mytable"), "counter", 1)
+    val = DBInt("mytable", "counter", 1)
 
 DBIntExt(tblname string, name string, val (int|string), column string) int
 ==============================
@@ -99,7 +99,7 @@ DBIntExt(tblname string, name string, val (int|string), column string) int
 .. code:: js
 
     var val int
-    val = DBIntExt(Table("mytable"), "balance", $wallet, "wallet_id")
+    val = DBIntExt("mytable", "balance", $wallet, "wallet_id")
 
 DBIntWhere(tblname string, name string, where string, params ...) int
 ==============================
@@ -113,7 +113,7 @@ DBIntWhere(tblname string, name string, where string, params ...) int
 .. code:: js
 
     var val int
-    val = DBIntWhere(Table("mytable"), "counter",  "idgroup = ? and statue=?", mygroup, 1 )
+    val = DBIntWhere("mytable", "counter",  "idgroup = ? and statue=?", mygroup, 1 )
 
 DBRowExt(tblname string, columns string, val (int|string), column string) map
 ==============================
@@ -127,7 +127,7 @@ DBRowExt(tblname string, columns string, val (int|string), column string) map
 .. code:: js
 
     var vals map
-    vals = DBRowExt(Table("mytable"), "address,postindex,name", $Company, "company" )
+    vals = DBRowExt("mytable", "address,postindex,name", $Company, "company" )
 
 DBString(tblname string, name string, id int) string
 ==============================
@@ -154,7 +154,7 @@ DBStringExt(tblname string, name string, val (int|string), column string) string
 .. code:: js
 
     var val string
-    val = DBStringExt(Table("mytable"), "address", $Company, "company" )
+    val = DBStringExt("mytable", "address", $Company, "company" )
     
 DBFreeRequest(tblname string, val (int|string), column string)
 ==============================
@@ -176,7 +176,7 @@ DBStringWhere(tblname string, name string, where string, params ...) string
 .. code:: js
 
     var val string
-    val = DBStringWhere(Table("mytable"), "address",  "idgroup = ? and company=?",
+    val = DBStringWhere("mytable", "address",  "idgroup = ? and company=?",
            mygroup, "My company" )
 
 	
@@ -206,7 +206,7 @@ DBInsert(tblname string, params string, val ...) int
 
 .. code:: js
 
-    DBInsert(Table("mytable"), "name,amount", "John Dow", 100)
+    DBInsert("mytable", "name,amount", "John Dow", 100)
 
 DBInsertReport(tblname string, params string, val ...) int
 ==============================
@@ -218,7 +218,7 @@ DBInsertReport(tblname string, params string, val ...) int
 
 .. code:: js
 
-    DBInsertReport(Table("mytable"), "name,amount", "John Dow", 100)
+    DBInsertReport("mytable", "name,amount", "John Dow", 100)
 
 DBUpdate(tblname string, id int, params string, val...)
 ==============================
@@ -231,7 +231,7 @@ DBUpdate(tblname string, id int, params string, val...)
 
 .. code:: js
 
-    DBUpdate(Table("mytable"), myid, "name,amount", "John Dow", 100)
+    DBUpdate("mytable", myid, "name,amount", "John Dow", 100)
 
 DBUpdateExt(tblname string, column string, value (int|string), params string, val ...)
 ==============================
@@ -245,7 +245,7 @@ DBUpdateExt(tblname string, column string, value (int|string), params string, va
 
 .. code:: js
 
-    DBUpdateExt(Table("mytable"), "address", addr, "name,amount", "John Dow", 100)
+    DBUpdateExt("mytable", "address", addr, "name,amount", "John Dow", 100)
 
 FindEcosystem(name string) int
 ==============================
@@ -305,7 +305,7 @@ EvalCondition(tablename string, name string, condfield string)
 
 .. code:: js
 
-    EvalCondition(PrefixTable(`menu`, $Global), $Name, `condition`)  
+    EvalCondition(`menu`, $Name, `condition`)  
 
 ValidateCondition(condition string, state int) 
 ==============================
@@ -413,17 +413,6 @@ PubToID(hexkey string) int
     var wallet int
     wallet = PubToID("fa5e78.....34abd6")
 
-PrefixTable(tblname string, global int) string
-==============================
-Функция возвращает полное имя таблицы с числовым префиксом номера государства, в котором вызывается контракт, или с префиксом **global**, если значение параметра *global* равно 1.
-
-* *tblname* - часть имени таблицы в базе данных после знака подчеркивания.
-* *global* - если равно 1, то будет добавлен префикс **global**.
-
-.. code:: js
-
-    Println( PrefixTable("pages", global)) // may be global_pages, 1_pages or 2_pages etc.
-
 Replace(s string, old string, new string) string
 ==============================
 Функция заменять в строку *s* все вхождения строки *old* на строку *new* и возвращает полученный результат.
@@ -493,16 +482,6 @@ Substr(s string, offset int, length int) string
 
     var s string
     s = Substr($Name, 1, 10)
-
-Table(tblname string) string
-==============================
-Функция возвращает полное имя таблицы с числовым префиксом номера государства, в котором вызывается контракт и со знаком подчеркивания между префиксом и именем. Позволяет делать контракты независимыми от государства.
-
-* *tblname* - часть имени таблицы в базе данных после знака подчеркивания.
-
-.. code:: js
-
-    Println( Table("citizens")) // may be 1_citizens or 2_citizens etc.
 
 UpdateLang(name string, trans string)
 ==============================
@@ -578,15 +557,15 @@ UpdateSysParam(name, value, conditions string)
 
 .. code:: js
 
-   DBInsert(Table("mytable"), "name,timestamp mytime", "John Dow", 146724678424 )
+   DBInsert("mytable", "name,timestamp mytime", "John Dow", 146724678424 )
 
 Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае,  **timestamp** необходимо указать перед самим значением. 
 
 .. code:: js
 
-   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp 2017-05-20 00:00:00" )
+   DBInsert("mytable", "name,mytime", "John Dow", "timestamp 2017-05-20 00:00:00" )
    var date string
    date = "2017-05-20 00:00:00"
-   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp " + date )
-   DBInsert(Table("mytable"), "name,mytime", "John Dow", "timestamp " + $txtime )
+   DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + date )
+   DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + $txtime )
 
