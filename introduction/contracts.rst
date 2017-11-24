@@ -248,6 +248,7 @@ NewSign
 * *Conditions string* - условие изменения записи.
 
 Пример значения *Value*
+
 **{"title": "Would you like to sign?", "params":[{"name": "Receipient", "text": "Wallet"},{"name": "Amount", "text": "Amount(EGS)"}]}**
 
 EditSign
