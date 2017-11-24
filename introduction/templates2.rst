@@ -507,6 +507,29 @@ P(Body, Class) [.Style(Style)]
       P(This is the first line.
         This is the second line.)
 
+
+RadioGroup(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validation parameters)] [.Style(Style)]
+==========================
+Команда служит для создания набора радиокнопок. Создает элемент **radiogroup**.
+
+* *Name* - имя элемента.
+* *Source* - имя источника данных. Например, из команды *DBFind* или *Data*.
+* *NameColumn* - Имя колонки, из которой будeт браться текст для элементов.
+* *ValueColumn* - Имя колонки, из которой будут браться значения для элементов. В этом параметре нельзя указывать имена колонок созданных через Custom.
+* *Value* - Значение по умолчанию.
+* *Class* - Классы для элемента.
+
+**Validate** - параметры валидации.
+
+**Style** - служит для указания css стилей.
+
+* *Style* - css стили.
+
+.. code:: js
+
+      DBFind(mytable, mysrc)
+      RadioGroup(mysrc, name)
+
 Select(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validation parameters)] [.Style(Style)]
 ==========================
 Создает HTML элемент **select**.
