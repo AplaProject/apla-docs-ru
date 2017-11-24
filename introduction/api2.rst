@@ -122,6 +122,9 @@ login
 * *wallet* - идентификатор  кошелька.
 * *address* - адрес кошелька в формате XXXX-XXXX-.....-XXXX.
 * *notify_key* - ключ для получения уведомлений.
+* *isnode* - true или false - является ли владельцем данной ноды.
+* *isowner* - true или false - является ли владельцем данной экосистемы.
+* *vde* - true или false - есть ли у экосистемы virtual dedicated ecosystem.
 
 Вариант ответа
 
