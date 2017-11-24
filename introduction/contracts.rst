@@ -242,17 +242,13 @@ NewSign
 * *Name string* - имя контракта, который будет использовать дополнительную подпись. 
 * *Value string* - описание параметров в виде JSON строки. 
     
-    * *title* - Текст сообщения
-    * *params* - массив параметров, которые показываются пользователю, где **name** - имя поля, **text** - описание поараметра.
+  * *title* - Текст сообщения
+  * *params* - массив параметров, которые показываются пользователю, где **name** - имя поля, **text** - описание поараметра.
     
 * *Conditions string* - условие изменения записи.
 
-Пример значения
-**{"title": "Would you like to sign",
-     "params":[
-	{"name": "Receipient", "text": "Wallet"},
-	{"name": "Amount", "text": "Amount(EGS)"}
-]}**
+Пример значения *Value*
+**{"title": "Would you like to sign?", "params":[{"name": "Receipient", "text": "Wallet"},{"name": "Amount", "text": "Amount(EGS)"}]}**
 
 EditSign
 ==============================
