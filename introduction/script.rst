@@ -243,8 +243,8 @@
         $ownerId = 1232
     }
     func action {
-        DBUpdate(Table("mytable"), $ownerId, "name,amount", $Name, $Amount - 10 )
-        DBUpdate(Table("mytable2"), $citizen, "amount", 10 )
+        DBUpdate("mytable", $ownerId, "name,amount", $Name, $Amount - 10 )
+        DBUpdate("mytable2", $citizen, "amount", 10 )
     }
   }
   
