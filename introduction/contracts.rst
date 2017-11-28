@@ -172,7 +172,7 @@ NewTable
   * *name* - наименование колонки - латинские символы.
   * *type* - тип **varchar,bytea,number,datetime,money,text,double,character**.
   * *index* - неиндексируемое поле  - "0", создать индекс - "1".
-  * *conditions* - условие изменения колонки.
+  * *conditions* - условие изменения данных в столбце. Если необходимо указать права доступа на чтение, то нужно использовать JSON формат. Например, *{"update":"ContractConditions(`MainCondition`)", "read":"ContractConditions(`MainCondition`)"}*
 
 * *Permissions string* - Разрешения на доступ в JSON формате *{"insert": "...", "new_column": "...", "update": "..."}*.
 
@@ -203,7 +203,7 @@ NewColumn
 * *Name* - наименование колонки - латинские символы.
 * *Type* - тип **varchar,bytea,number,money,datetime,text,double,character**.
 * *Index* - неиндексируемое поле  - "0", создать индекс - "1".
-* *Permissions* - условие изменения колонки.
+* *Permissions* - условие изменения данных в столбце. Если необходимо указать права доступа на чтение, то нужно использовать JSON формат. Например, *{"update":"ContractConditions(`MainCondition`)", "read":"ContractConditions(`MainCondition`)"}*
 
 EditColumn
 ==============================
@@ -213,7 +213,8 @@ EditColumn
 
 * *TableName string* - имя таблицы - латинские символы. 
 * *Name* - наименование колонки - латинские символы.
-* *Permissions* - условие изменения колонки.
+* *Permissions* - условие изменения колонки. Если необходимо указать права доступа на чтение, то нужно использовать JSON формат. Например, *{"update":"ContractConditions(`MainCondition`)", "read":"ContractConditions(`MainCondition`)"}*
+
 
 NewLang
 ==============================
