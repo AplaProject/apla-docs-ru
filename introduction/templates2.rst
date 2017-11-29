@@ -289,6 +289,17 @@ Em(Body, Class)
 
       This is an Em(important news).
 
+ForList(Source, Body)
+==========================
+Выводит блок *Body* для каждого элемента из источника данных *Source*. Создает элемент **forlist**.
+
+* *Source* - источник данных. Например от *DBFind* или *Data*.
+* *Body* - шаблон, который необходимо вывести для каждого элемента.
+
+.. code:: js
+
+      ForList(mysrc){Span(#name#)}
+
 Form(Class, Body) [.Style(Style)]
 ==========================
 Создает HTML элемент **form**.
