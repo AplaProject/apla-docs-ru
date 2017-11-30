@@ -373,6 +373,32 @@ HexToBytes(hexdata string) bytes
     var val bytes
     val = HexToBytes("34fe4501a4d80094")
 
+Join(in array, sep string) string
+==============================
+Функция объединяет элементы массива *in* в строку с указанным разделителем *sep*.
+
+* *in* - массив типа *array*, элементы которого необходимо объеденить.
+* *sep* - строка-разделитель.
+
+.. code:: js
+
+    var val string, myarr array
+    myarr[0] = "first"
+    myarr[1] = 10
+    val = Join(myarr, ",")
+
+Split(in string, sep string) array
+==============================
+Функция разбивает строку *in* на элементы массива в соответствии с указанным разделителем *sep*.
+
+* *in* - строка, которую необходимо разбить.
+* *sep* - строка-разделитель.
+
+.. code:: js
+
+    var myarr array
+    myarr = Split("first,second,third", ",")
+
 Int(val string) int
 ==============================
 Функция преобразует строковое значение в целое число.
