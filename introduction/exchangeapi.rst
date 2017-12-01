@@ -48,7 +48,7 @@ API запросы
    {"error":"", 
     "public":"b7880fa40779d673e7....238def72881d6c2b6c60ffcc2ec7f050141d", 
     "address":"0773-5161-7272-4133-0241", 
-    "wallet_id":7735161727241330241
+    "key_id":7735161727241330241
     }
 
 /exchangeapi/send?sender=...&recipient=...&amount=...
@@ -67,13 +67,13 @@ API запросы
      "error":""}
 
 
-/exchangeapi/balance?wallet=....
+/exchangeapi/balance?key_id=....
 ==============================
 Команда возвращает баланс любого кошелька.
 
 Например,
 
-*/exchangeapi/balance?wallet=0773-5161-7272-4133-0241&token=mytoken*
+*/exchangeapi/balance?key_id=0773-5161-7272-4133-0241&token=mytoken*
 
 Пример ответа: 
 
@@ -81,7 +81,7 @@ API запросы
 
      {"error":"","amount":"99992318000000000000","egs":"99.992318"}
 
-/exchangeapi/history?wallet=...&count=...
+/exchangeapi/history?key_id=...&count=...
 ==============================
 Команда возвращает последнюю историю движений средств в указанном кошельке. **count** - является необязательным параметром и определяет количество возвращаемых записей (может возвращаться на 1 больше). По умолчанию, будет возвращаться 50 записей, максимальное количество 200.
 
@@ -99,7 +99,7 @@ API запросы
 
 Например,
 
-*/exchangeapi/history?wallet=1693-7869-8202-2463-0602&count=10&token=mytoken*
+*/exchangeapi/history?key_id=1693-7869-8202-2463-0602&count=10&token=mytoken*
 
 Пример ответа: 
 
