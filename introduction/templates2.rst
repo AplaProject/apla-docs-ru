@@ -283,6 +283,9 @@ EcosysParam(Name, Index, Source)
      Address(EcosysParam(founder_account))
      EcosysParam(gender, Source: mygender)
  
+     EcosysParam(Name: gender_list, Source: src_gender)
+     Select(Name: gender, Source: src_gender, NameColumn: name, ValueColumn: id)
+     
 Em(Body, Class)
 ==========================
 Создает HTML элемент **em**.
