@@ -69,18 +69,6 @@ DBRow(table string) [.Columns(columns string)] [.Where(where string, params ...)
    var ret map
    ret = DBRow("contracts").Columns("id,value").Where("id = ?", 1)
    Println(map)
-
-DBAmount(tblname string, column string, id int) money
-==============================
-Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы.
-
-* *tblname* - имя таблицы в базе данных;
-* *column* - имя колонки, по которой будет идти поиск записи;
-* *id* - значение для поиска записи, выборка *column=id*.
-
-.. code:: js
-
-    mymoney = DBAmount("dlt_wallets"), "wallet_id", $wallet)
 	
 EcosysParam(name string) string
 ==============================
