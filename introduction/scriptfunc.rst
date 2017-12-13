@@ -72,7 +72,7 @@ DBRow(table string) [.Columns(columns string)] [.Where(where string, params ...)
 
 DBAmount(tblname string, column string, id int) money
 ==============================
-Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы. (Для получения данных типа money нельзя использовать  функции **DBInt()** и **DBIntExt()**, возвращающие  значения типа *int*).
+Функция возвращает значение колонки **amount** с типом *money* c поиском записи по значению указанной колонки таблицы.
 
 * *tblname* - имя таблицы в базе данных;
 * *column* - имя колонки, по которой будет идти поиск записи;
@@ -91,20 +91,6 @@ EcosysParam(name string) string
 .. code:: js
 
     Println( EcosysParam("gov_account"))
-
-DBString(tblname string, name string, id int) string
-==============================
-Функция возвращает строковое значение из колонки таблицы базы данных по **id** записи.
-
-* *tblname* - имя таблицы в базе данных.
-* *name* - имя колонки, значение которой будет возвращено.
-* *id* - идентификатор поля **id** записи, из которой будет взято значение.
-
-.. code:: js
-
-    var val string
-    val = DBString("mytable", "name", $citizen)
-
 	
 LangRes(label string, lang string) string
 ==============================
@@ -133,18 +119,6 @@ DBInsert(tblname string, params string, val ...) int
 .. code:: js
 
     DBInsert("mytable", "name,amount", "John Dow", 100)
-
-DBInsertReport(tblname string, params string, val ...) int
-==============================
-Функция добавляет запись в указанную таблицу с отчетами и возвращает **id** вставленной записи. Данная функция практически идентична функции DBInsert, но запись возможна только в таблицу отчетов своего государства.
-
-* *tblname* - имя таблицы в базе данных. Таблица для отчетов в базе данных должна иметь имя в формате **[state_id]_reports_[tblname]**.
-* *params* - список через запятую имен колонок, в которые будут записаны перечисленные в **val** значения. 
-* *val* - список через запятую значений для перечисленных в **params** столбцов; значения могут иметь строковый или числовой тип.
-
-.. code:: js
-
-    DBInsertReport("mytable", "name,amount", "John Dow", 100)
 
 DBUpdate(tblname string, id int, params string, val...)
 ==============================
