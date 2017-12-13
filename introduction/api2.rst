@@ -595,7 +595,7 @@ systemparams
     GET
     /api/v2/systemparams/[?names=...]
 
-* *[names]* - список получаемых параметров. При желании можно указать через запятую список имен получаемых параметров. Например, */api/v2/systemparams/?names=max_columns?max_indexes*.
+* *[names]* - список получаемых параметров. При желании можно указать через запятую список имен получаемых параметров. Например, */api/v2/systemparams/?names=max_columns,max_indexes*.
 
 Ответ 
 
