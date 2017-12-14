@@ -474,7 +474,7 @@ MenuGroup(Title, Body, Icon)
           MenuItem(Dahsboard, dashboard_default)
       }
 
-MenuItem(Title, Page, Params, Icon) 
+MenuItem(Title, Page, Params, Icon, Vde) 
 ==============================
 Служит для создания пункта меню и возвращает элемент **menuitem**. 
 
@@ -482,6 +482,7 @@ MenuItem(Title, Page, Params, Icon)
 * *Page* - имя страницы перехода.;
 * *Params* - параметры, передаваемые странице в формате *var:value* через запятую.
 * *Icon* - иконка.
+* *Vde* - параметр, определяющий переход на виртуальную экосистему.
 
 .. code:: js
 
