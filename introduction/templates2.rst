@@ -621,6 +621,16 @@ Strong(Body, Class)
 
       This is Strong(the first item, myclass1).
 
+SysParam(Name) 
+==============================
+Функция выводит значение системного параметра из таблицы system_parameters.
+ 
+* *Name* - имя значения;
+
+.. code:: js
+
+     Address(SysParam(founder_account))
+
 Table(Source, Columns) [.Style(Style)]
 ==========================
 Создает HTML элемент **table**.
