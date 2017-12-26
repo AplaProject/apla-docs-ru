@@ -210,6 +210,16 @@ AddressToId(address string) int
 
     wallet = AddressToId($Recipient)
     
+IdToAddress(id int) string
+==============================
+Функция возвращает адрес кошелька по идентификационному номеру. Если указан неверный айди, то возвращается 'invalid'.
+
+* *id* - идентификационный номер в виде числа.
+
+.. code:: js
+
+    $address = IdToAddress($id)
+
 Contains(s string, substr string) bool
 ==============================
 Функция возвращает true, если строка *s* содержит подстроку *substr*.
