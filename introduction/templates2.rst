@@ -551,17 +551,6 @@ RadioGroup(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(valid
       DBFind(mytable, mysrc)
       RadioGroup(mysrc, name)
 
-Random(Min, Max) 
-==============================
-Функция возвращает случайное число в диапазоне между Min и Max (Min <= result < Max). Min и Max должны быть положительными числами.
-
-* *Min* - минимальное значение случайного числа;
-* *Max* - Случайное значение будет меньше этого числа;
-
-.. code:: js
-
-       Span(Random(10,5000))
-
 Select(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validation parameters)] [.Style(Style)]
 ==========================
 Создает HTML элемент **select**.
