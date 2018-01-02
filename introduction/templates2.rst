@@ -190,6 +190,17 @@ CmpTime(Time1, Time2)
 
      If(CmpTime(#time1#, #time2#)<0){...}
 
+Code(Text)
+==========================
+Создает элемент **code** для вывода указанного кода.
+
+* *Text* - исходный код, который необходимо вывести.
+
+.. code:: js
+
+      Code( P(This is the first line.
+          Span(This is the second line.))
+      )
  
 Data(Source,Columns,Data) [.Custom(Column,Body)]
 ==========================
