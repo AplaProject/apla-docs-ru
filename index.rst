@@ -27,6 +27,7 @@ Contents
    introduction/script.rst
    introduction/scriptfunc.rst
    introduction/templates2.rst
+   introduction/mobile.rst
    introduction/appexample.rst
    introduction/api2.rst
    introduction/contracts.rst
