@@ -5,11 +5,11 @@
 
 ### Typography
 
-#### Headings
+** Headings**
 
 * `h1` ... `h6`
 
-#### Emphasis Classes
+** Emphasis Classes**
 
 * `.text-muted`
 * `.text-primary`
@@ -18,7 +18,7 @@
 * `.text-warning`
 * `.text-danger`
 
-#### [Colors](http://themicon.co/theme/angle/v3.4/backend-angular/#/app/colors)
+** [Colors](http://themicon.co/theme/angle/v3.4/backend-angular/#/app/colors)**
 
 * `.bg-danger-dark`
 * `.bg-danger`
@@ -41,24 +41,24 @@
 * `.bg-gray-light`
 * `.bg-gray-lighter`
 
-### Grid
+** Grid**
 
 * `.row`
 * `.row.row-table`
 * `.col-xs-1` ... `.col-xs-12` works only when the parent has `.row.row-table` class
 
-### Panel
+** Panel**
 
 * `.panel`
 * `.panel.panel-heading`
 * `.panel.panel-body`
 * `.panel.panel-footer`
 
-### Form
+** Form**
 
 * `.form-control`
 
-### Button
+** Button**
 
 * `.btn.btn-default`
 * `.btn.btn-link`
@@ -68,7 +68,7 @@
 * `.btn.btn-warning`
 * `.btn.btn-danger`
 
-### Icons
+** Icons**
 
 All icons from FontAwesome: `fa fa-<icon-name></icon-name>`
 
