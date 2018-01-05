@@ -11,7 +11,8 @@ Headings
 
 * `h1` ... `h6`
 
-** Emphasis Classes**
+Emphasis Classes
+==============================
 
 * `.text-muted`
 * `.text-primary`
@@ -20,7 +21,7 @@ Headings
 * `.text-warning`
 * `.text-danger`
 
-[Colors](http://themicon.co/theme/angle/v3.4/backend-angular/#/app/colors)
+Colors
 ==============================
 
 * `.bg-danger-dark`
