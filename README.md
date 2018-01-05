@@ -1,1 +1,1 @@
-http://apla.readthedocs.io/en/latest/
+http://apla.readthedocs.io/ru/latest/
