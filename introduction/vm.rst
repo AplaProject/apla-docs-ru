@@ -421,22 +421,22 @@
     if isauto, ok := ext.AutoPars[fobj.In(i).String()]; ok {
          data.Auto[i] = isauto
     }
-               
+          
 Заполняем информацию о параметрах
 
 .. code:: 
 
-       data.Params[i] = fobj.In(i)
-   }
-          
+   data.Params[i] = fobj.In(i)
+  }
+       
 и о типах возвращаемых значений
 
 .. code:: 
 
    for i := 0; i < fobj.NumOut(); i++ {
-      data.Results[i] = fobj.Out(i)
+      data.Results[i] = fobj.Out(i)
    }
-         
+     
 Добавление функции в корневой Objects позволят компилятору в дальнейшем находить их при использовании из контрактов.
 
 .. code:: 
