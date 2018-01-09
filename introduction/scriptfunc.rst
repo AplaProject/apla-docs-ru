@@ -514,4 +514,21 @@ HTTPRequest(url string, method string, heads map, pars map) string
 	ret = HTTPRequest("http://localhost:7079/api/v2/content/page/default_page", "POST", heads, pars)
 	json = JSONToMap(ret)
 
+HTTPPostJSON(url string, heads map, pars string) string
+==============================
+Функция подобна функции *HTTPRequest*, но она отправляет *POST* запрос и параметры передаются одной строкой.
+
+* *url* - адрес, куда будет отправлен запрос.
+* *heads* - массив данных для формирования заголовка.
+* *pars* - параметр в виде json строки.
+
+.. code:: js
+
+	var ret string 
+	var heads, json map
+	heads["Authorization"] = "Bearer " + $Auth
+	ret = HTTPPostJSON("http://localhost:7079/api/v2/content/page/default_page", heads, `{"vde":"true"}`)
+	json = JSONToMap(ret)
+
+
 
