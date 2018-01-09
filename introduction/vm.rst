@@ -409,25 +409,25 @@
 
 .. code:: 
 
-    data := ExtFuncInfo{key, make([]reflect.Type, fobj.NumIn()),
-         make([]reflect.Type, fobj.NumOut()), make([]string, fobj.NumIn()),
-         fobj.IsVariadic(), item}
-    for i := 0; i < fobj.NumIn(); i++ {
+  data := ExtFuncInfo{key, make([]reflect.Type, fobj.NumIn()),
+    make([]reflect.Type, fobj.NumOut()), make([]string, fobj.NumIn()),
+    fobj.IsVariadic(), item}
+  for i := 0; i < fobj.NumIn(); i++ {
 
 У нас есть так называемые **Auto** параметры. Как правило, это первый параметр, например sc *SmartContract или rt *Runtime . Мы не можем передавать их из языка Simvolio, но они нам необходимы при выполнении некоторых golang функций.Поэтому мы указываем какие переменные будут автоматически подставляться в момент вызова функции. В данном случае,  функции **ExecContract**, **CallContract** имеют такой параметр rt *Runtime.
 
 .. code:: 
 
-    if isauto, ok := ext.AutoPars[fobj.In(i).String()]; ok {
-         data.Auto[i] = isauto
-    }
+  if isauto, ok := ext.AutoPars[fobj.In(i).String()]; ok {
+     data.Auto[i] = isauto
+  }
 
 Заполняем информацию о параметрах
 
 .. code:: 
 
-   data.Params[i] = fobj.In(i)
-  }
+  data.Params[i] = fobj.In(i)
+}
 
 и о типах возвращаемых значений
 
