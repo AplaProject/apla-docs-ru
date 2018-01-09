@@ -297,57 +297,57 @@
 
 .. code:: 
 
-    start := len(rt.stack)
-    varoff := len(rt.vars)
-    for vkey, vpar := range block.Vars {
-        rt.cost--
-       var value interface{}
+   start := len(rt.stack)
+   varoff := len(rt.vars)
+   for vkey, vpar := range block.Vars {
+      rt.cost--
+      var value interface{}
 
 Так как у нас переменные функции тоже являются переменными, то мы должны взять их из последних элементов стека в том же порядке, в каком они описаны в самой функции.
 
 .. code:: 
 
-    if block.Type == ObjFunc && vkey < len(block.Info.(*FuncInfo).Params) {
-        value = rt.stack[start-len(block.Info.(*FuncInfo).Params)+vkey]
-    } else {
+   if block.Type == ObjFunc && vkey < len(block.Info.(*FuncInfo).Params) {
+      value = rt.stack[start-len(block.Info.(*FuncInfo).Params)+vkey]
+   } else {
     
 Здесь мы инициализируем локальные переменные начальными значениями.
 
 .. code:: 
 
-            value = reflect.New(vpar).Elem().Interface()
-            if vpar == reflect.TypeOf(map[string]interface{}{}) {
-                 value = make(map[string]interface{})
-           } else if vpar == reflect.TypeOf([]interface{}{}) {
-                value = make([]interface{}, 0, len(rt.vars)+1)
-           }
+        value = reflect.New(vpar).Elem().Interface()
+        if vpar == reflect.TypeOf(map[string]interface{}{}) {
+           value = make(map[string]interface{})
+        } else if vpar == reflect.TypeOf([]interface{}{}) {
+           value = make([]interface{}, 0, len(rt.vars)+1)
         }
-        rt.vars = append(rt.vars, value)
-    }
+     }
+     rt.vars = append(rt.vars, value)
+   }
     
     
 Далее нам необходимо обновить значения у параметров-переменных, которые были переданы в "хвостовых" функциях.
 
 .. code:: 
 
-    if namemap != nil {
-      for key, item := range namemap {
-        params := (*block.Info.(*FuncInfo).Names)[key]
-        for i, value := range item {
-             if params.Variadic && i >= len(params.Params)-1 {
+   if namemap != nil {
+     for key, item := range namemap {
+       params := (*block.Info.(*FuncInfo).Names)[key]
+       for i, value := range item {
+          if params.Variadic && i >= len(params.Params)-1 {
              
 Если у нас может передаваться переменное количество параметров, то мы объединяем их в одну переменную массив.
 
 .. code:: 
 
-                    off := varoff + params.Offset[len(params.Params)-1]
-                   rt.vars[off] = append(rt.vars[off].([]interface{}), value)
+                 off := varoff + params.Offset[len(params.Params)-1]
+                 rt.vars[off] = append(rt.vars[off].([]interface{}), value)
              } else {
-                  rt.vars[varoff+params.Offset[i]] = value
-            }
+                 rt.vars[varoff+params.Offset[i]] = value
+           }
         }
-     }
-    }
+      }
+   }
 
 После этого нам остается только сдвинуть стек убрав из вершины значения, которые были переданы как параметры функции. Их значения мы уже скопировали выше в массив переменных.
 
@@ -374,20 +374,20 @@
 
 .. code:: 
 
-    if last.Block.Type == ObjFunc {
-        for count := len(last.Block.Info.(*FuncInfo).Results); count > 0; count-- {
-           rt.stack[start] = rt.stack[len(rt.stack)-count]
-           start++
-       }
-      status = statusNormal
-    } else {
+   if last.Block.Type == ObjFunc {
+       for count := len(last.Block.Info.(*FuncInfo).Results); count > 0; count-- {
+          rt.stack[start] = rt.stack[len(rt.stack)-count]
+          start++
+      }
+     status = statusNormal
+   } else {
     
 Как видно если у нас выполняется не функция, то мы не восстанавливаем состояние стека, а выходим из функции как есть. Дело в том, что блоком  с байт-кодом также являются циклы и условные конструкции, которые уже выполняются внутри какой-то функции.
 
 .. code:: 
 
-          return
-        }
+        return
+      }
     }
     rt.stack = rt.stack[:start]
 
@@ -395,47 +395,47 @@
 
 .. code:: 
 
-    for key, item := range ext.Objects {
-          fobj := reflect.ValueOf(item).Type()
+   for key, item := range ext.Objects {
+       fobj := reflect.ValueOf(item).Type()
 
 Мы перебираем все передаваемые объекты и смотрим только функции. 
 
 .. code:: 
 
-    switch fobj.Kind() {
-             case reflect.Func:
+   switch fobj.Kind() {
+   case reflect.Func:
 
 По информации, полученной о функции мы заполняем структуру **ExtFuncInfo** и добавляем её в map **Objects** верхнего уровня по ее имени.
 
 .. code:: 
 
     data := ExtFuncInfo{key, make([]reflect.Type, fobj.NumIn()),
-                            make([]reflect.Type, fobj.NumOut()), make([]string, fobj.NumIn()),
-                            fobj.IsVariadic(), item}
-              for i := 0; i < fobj.NumIn(); i++ {
+         make([]reflect.Type, fobj.NumOut()), make([]string, fobj.NumIn()),
+         fobj.IsVariadic(), item}
+    for i := 0; i < fobj.NumIn(); i++ {
 
 У нас есть так называемые **Auto** параметры. Как правило, это первый параметр, например sc *SmartContract или rt *Runtime . Мы не можем передавать их из языка Simvolio, но они нам необходимы при выполнении некоторых golang функций.Поэтому мы указываем какие переменные будут автоматически подставляться в момент вызова функции. В данном случае,  функции **ExecContract**, **CallContract** имеют такой параметр rt *Runtime.
 
 .. code:: 
 
     if isauto, ok := ext.AutoPars[fobj.In(i).String()]; ok {
-                     data.Auto[i] = isauto
-               }
+         data.Auto[i] = isauto
+    }
                
 Заполняем информацию о параметрах
 
 .. code:: 
 
-              data.Params[i] = fobj.In(i)
-          }
+       data.Params[i] = fobj.In(i)
+   }
           
 и о типах возвращаемых значений
 
 .. code:: 
 
-          for i := 0; i < fobj.NumOut(); i++ {
-              data.Results[i] = fobj.Out(i)
-         }
+   for i := 0; i < fobj.NumOut(); i++ {
+      data.Results[i] = fobj.Out(i)
+   }
          
 Добавление функции в корневой Objects позволят компилятору в дальнейшем находить их при использовании из контрактов.
 
