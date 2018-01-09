@@ -509,7 +509,7 @@ HTTPRequest(url string, method string, heads map, pars map) string
 
 	var ret string 
 	var pars, heads, json map
-	heads["Authorization"] = "Bearer " + $Auth
+	heads["Authorization"] = "Bearer " + $auth_token
 	pars["vde"] = "true"
 	ret = HTTPRequest("http://localhost:7079/api/v2/content/page/default_page", "POST", heads, pars)
 	json = JSONToMap(ret)
@@ -526,7 +526,7 @@ HTTPPostJSON(url string, heads map, pars string) string
 
 	var ret string 
 	var heads, json map
-	heads["Authorization"] = "Bearer " + $Auth
+	heads["Authorization"] = "Bearer " + $auth_token
 	ret = HTTPPostJSON("http://localhost:7079/api/v2/content/page/default_page", heads, `{"vde":"true"}`)
 	json = JSONToMap(ret)
 
