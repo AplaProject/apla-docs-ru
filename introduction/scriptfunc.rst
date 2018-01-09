@@ -490,3 +490,28 @@ UpdateSysParam(name, value, conditions string)
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + date )
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + $txtime )
 
+********************************************************************************
+Функции для VDE
+********************************************************************************
+
+Данные функции можно использовать только в контрактах для virtual dedicated ecosystems.
+
+HTTPRequest(url string, method string, heads map, pars map) string
+==============================
+Функция отправляет HTTP запрос на указанный адрес.
+
+* *url* - адрес, куда будет отправлен запрос.
+* *method* - метод запроса - GET или POST.
+* *heads* - массив данных для формирования заголовка.
+* *pars* - параметры.
+
+.. code:: js
+
+	var ret string 
+	var pars, heads, json map
+	heads["Authorization"] = "Bearer " + $Auth
+	pars["vde"] = "true"
+	ret = HTTPRequest("http://localhost:7079/api/v2/content/page/default_page", "POST", heads, pars)
+	json = JSONToMap(ret)
+
+
