@@ -39,7 +39,7 @@
 
 DBFind(table string) [.Columns(columns string)] [.Where(where string, params ...)] [.WhereId(id int)] [.Order(order string)] [.Limit(limit int)] [.Offset(offset int)] [.Ecosystem(ecosystemid int)] array
 ==========================
-Функция получает данные из таблицы базы данных в соответствии с указанным запросом. Возвращается массив *array* состоящий из ассоциативных массивов *map*.
+Функция получает данные из таблицы базы данных в соответствии с указанным запросом. Возвращается массив *array* состоящий из ассоциативных массивов *map*. Для получения map от первого элемента можно использовать дополнительно функцию **.Row()**, а для получения конкретного значения функцию **.One(column string)**.
 
 * *table* - имя таблицы.
 * *сolumns* - список возвращаемых колонок. Если не указано, то возвратятся все колонки. 
@@ -61,6 +61,33 @@ DBFind(table string) [.Columns(columns string)] [.Where(where string, params ...
        i = i + 1
    }
 
+Row(list array) map
+==========================
+Функция возвращает первый ассоциативный массив *map* из массива *list*. Если список *list* пустой, то результат вернет пустой *map*. Может использоваться одновременно с функцией DBFind, в этом случае параметр не указывается. 
+
+* *list* - массив map, возвращаемый функцией **DBFind**.
+
+.. code:: js
+
+   var ret map
+   ret = DBFind("contracts").Columns("id,value").WhereId(10).Row()
+   Println(ret)
+
+One(list array, column string) string
+==========================
+Функция возвращает значение колонки с именем *column* из первой записи массива *list*. Если список *list* пустой, то в результате вернется nil. Может использоваться одновременно с функцией DBFind, в этом случае параметр *list* не указывается. 
+
+* *list* - массив map, возвращаемый функцией **DBFind**.
+* *column* - имя возвращаемой колонки.
+
+.. code:: js
+
+   var ret string
+   ret = DBFind("contracts").Columns("id,value").WhereId(10).One("value")
+   if ret != nil {
+      Println(ret)
+   }
+
 DBRow(table string) [.Columns(columns string)] [.Where(where string, params ...)] [.WhereId(id int)] [.Order(order string)] [.Ecosystem(ecosystemid int)] map
 ==========================
 Функция возвращает ассоциативный массив *map*, с данными полученными из таблицы базы данных в соответствии с указанным запросом. * *table* - имя таблицы.
@@ -76,7 +103,7 @@ DBRow(table string) [.Columns(columns string)] [.Where(where string, params ...)
 
    var ret map
    ret = DBRow("contracts").Columns("id,value").Where("id = ?", 1)
-   Println(map)
+   Println(ret)
 	
 EcosysParam(name string) string
 ==============================
