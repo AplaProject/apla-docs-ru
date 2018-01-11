@@ -59,7 +59,7 @@
     mymap["param"] = "Parameter"
 
     s = Sprintf("%v, %v, %v", myarr[0] + mymap["value"], myarr[1], mymap["param"])
-    // s = 877, This is a line, Parameter
+    // s = 877, This is a line, Parameter 
 
 Конструкции if и while
 ==========================
