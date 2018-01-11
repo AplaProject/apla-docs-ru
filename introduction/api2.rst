@@ -35,6 +35,7 @@ REST API v2
 * **E_EMPTYSIGN** - Signature is undefined
 * **E_HASHWRONG** - Hash is incorrect
 * **E_HASHNOTFOUND** - Hash has not been found
+* **E_HEAVYPAGE** - This page is heavy
 * **E_INSTALLED** - Apla is already installed
 * **E_INVALIDWALLET** - Wallet %s is not valid
 * **E_NOTFOUND** - Content page or menu has not been found
