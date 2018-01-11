@@ -416,7 +416,7 @@ ValidateCondition(condition string, ecosystemid int)
     ValidateCondition(`ContractAccess("@1MyContract")`, 1)  
 
 ********************************************************************************
-Операции со адресами аккаунтов
+Операции с адресами аккаунтов
 ********************************************************************************
     
 AddressToId(address string) int
