@@ -216,7 +216,8 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 * *Icon* - иконка.
 
 **Style** - служит для указания css стилей
-  * *Style* - css стили.
+
+* *Style* - css стили.
 
 .. code:: js
 
@@ -319,7 +320,7 @@ Div(Class, Body) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -372,7 +373,7 @@ Form(Class, Body) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -453,7 +454,7 @@ Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)] [.St
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -482,7 +483,7 @@ Label(Body, Class, For) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -511,7 +512,7 @@ LinkPage(Body, Page, Class, PageParams) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -576,7 +577,7 @@ P(Body, Class) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -599,7 +600,7 @@ RadioGroup(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(valid
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -621,7 +622,7 @@ Select(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validatio
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -659,7 +660,7 @@ Span(Body, Class) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
@@ -695,7 +696,7 @@ Table(Source, Columns) [.Style(Style)]
 
 **Style** - служит для указания css стилей
 
-  * *Style* - css стили.
+* *Style* - css стили.
 
 .. code:: js
 
