@@ -713,3 +713,22 @@ Table(Source, Columns) [.Style(Style)]
 
       DBFind(mytable, mysrc)
       Table(mysrc,"ID=id,Name=name")
+      
+Chart(Type, Source, FieldLabel, FieldValue, Colors)
+===================================================
+Создает HTML диаграмму.
+
+* *Type* - тип диаграммы,
+* *Source* - имя источника данных, например, из команды *DBFind*,
+* *FieldLabel* - название поля, используемого для заголовков,
+* *FieldValue* - название поля, используемого для значений,
+* *Colors* - список используемых цветов
+
+.. code:: js
+
+      Data(mysrc,"name,count"){
+          John Silver,10
+          "Mark, Smith",20
+          "Unknown ""Person""",30
+      }
+      Chart(Type: "bar", Source: mysrc, FieldLabel: "name", FieldValue: "count", Colors: "red, green")
