@@ -215,9 +215,9 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 * *CancelButton* - текст кнопки отмены,
 * *Icon* - иконка.
 
-**Style** - служит для указания css стилей.
+**Style** - служит для указания css стилей
 
-* *Style* - css стили.
+  * *Style* - css стили.
 
 .. code:: js
 
