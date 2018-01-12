@@ -216,7 +216,6 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 * *Icon* - иконка.
 
 **Style** - служит для указания css стилей
-
   * *Style* - css стили.
 
 .. code:: js
