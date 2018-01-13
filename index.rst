@@ -28,7 +28,6 @@ Contents
    introduction/templates2.rst
    introduction/appexample.rst
    introduction/api2.rst
-   introduction/contracts.rst
    introduction/vm.rst
    introduction/exchangeapi.rst
    introduction/install.rst
