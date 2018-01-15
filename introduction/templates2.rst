@@ -191,8 +191,6 @@ SetVar(Name, Value)
      SetVar(name, John Smith).(out, I am #name#)
      Span(#out#)
 
-
-
 Навигация
 ==============================
 AddToolButton(Title, Icon, Page, PageParams)
@@ -393,39 +391,7 @@ MenuItem(Title, Page, Params, Icon, Vde)
 .. code:: js
 
        MenuItem(Interface, interface)
-
-MenuGroup(Title, Body, Icon) 
-------------------------------
-Функция формирует в меню вложенное подменю и возвращает элемент **menugroup**. В параметре *name* также будет возвращено значение *Title* до подстановки языковых ресурсов.
-
-* *Title* - имя пункта меню,
-* *Body* - дочерние элементы подменю,
-* *Icon* - иконка.
-
-.. code:: js
-
-      MenuGroup(My Menu){
-          MenuItem(Interface, sys-interface)
-          MenuItem(Dahsboard, dashboard_default)
-      }
-
-MenuItem(Title, Page, Params, Icon, Vde) 
-------------------------------
-Служит для создания пункта меню и возвращает элемент **menuitem**. 
-
-* *Title* - имя пункта меню,
-* *Page* - имя страницы перехода,
-* *Params* - параметры, передаваемые странице в формате *var:value* через запятую,
-* *Icon* - иконка,
-* *Vde* - параметр, определяющий переход на виртуальную выделеную экосистему; если ``Vde: true``, то ссылка ведёт в VDE, если ``Vde: false``, то в блокчейн, если параметр не указан, то решается в зависимости от того, где было загружено меню.
-
-.. code:: js
-
-       MenuItem(Interface, interface)
-
-
-	
-
+       
 Table(Source, Columns) [.Style(Style)]
 ------------------------------
 Создает HTML элемент **table**.
@@ -535,7 +501,7 @@ LangRes(Name, Lang)
 	  
 
 SysParam(Name) 
-------------------------------====
+------------------------------
 Функция выводит значение системного параметра из таблицы system_parameters.
  
 * *Name* - имя значения.
@@ -543,7 +509,6 @@ SysParam(Name)
 .. code:: js
 
      Address(SysParam(founder_account))
-
 
 Элементы форматирования данных
 ============================== 
@@ -561,8 +526,6 @@ Div(Class, Body) [.Style(Style)]
 .. code:: js
 
       Div(class1 class2, This is a paragraph.)
-
-
      
 Em(Body, Class)
 ------------------------------
@@ -590,7 +553,6 @@ P(Body, Class) [.Style(Style)]
 
       P(This is the first line.
         This is the second line.)
-
 
 SetTitle(Title)
 ------------------------------
