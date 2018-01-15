@@ -849,7 +849,7 @@ SysParamInt(name string) int
 
     maxcol = SysParam(`max_columns`)
 
-UpdateSysParam(name, value, conditions string)
+DBUpdateSysParam(name, value, conditions string)
 ------------------------------
 Функция обновляет значение и условие системного параметра. Если значение или условие менять не нужно, то в соответствующем параметре следует указать пустую строку.
 
@@ -859,7 +859,7 @@ UpdateSysParam(name, value, conditions string)
 
 .. code:: js
 
-    UpdateSysParam(`fuel_rate`, `400000000000`, ``)
+    DBUpdateSysParam(`fuel_rate`, `400000000000`, ``)
 
 
 Операции датой/временем в запросах к PostgreSQL
