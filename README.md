@@ -1,3 +1,1 @@
-http://apla.readthedocs.io/ru/latest/
-
-
+https://genesiskernel.readthedocs.io/ru/latest/
