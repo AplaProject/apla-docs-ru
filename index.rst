@@ -27,7 +27,6 @@ Contents
    introduction/appexample.rst
    introduction/api2.rst
    introduction/vm.rst
-   introduction/exchangeapi.rst
    introduction/install.rst
    introduction/alphabetical_index.rst
    introduction/faq.rst
