@@ -32,4 +32,5 @@ Contents
    introduction/alphabetical_index.rst
    introduction/faq.rst
    introduction/thesaurus.rst
+   introduction/tools.rst
 
