@@ -281,6 +281,8 @@ balance
         "money": "123.45"
     }      
 
+Ошибки: *E_SERVER, E_INVALIDWALLET* 
+
 ********************************************************************************
 Работа с экосистемами
 ********************************************************************************
@@ -308,6 +310,8 @@ ecosystems
         "number": 100,
     }      
 
+Ошибки: *E_SERVER* 
+
 vde/create
 ==============================
 **POST**/ Создает Virtal Dedicated Ecosystem (VDE) для текущей экосистемы.
@@ -331,7 +335,7 @@ vde/create
         "result": true,
     }     
     
-Ошибки: *E_VDECREATED*
+Ошибки: *E_VDECREATED, E_PERMISSION, E_SERVER*
 
 ecosystemparams
 ==============================
@@ -555,6 +559,8 @@ list/{name}[?limit=...&offset=...&columns=]
         ]
     }   
 
+Ошибки: *E_TABLENOTFOUND,E_VDE*    
+
 row/{tablename}/{id}[?columns=]
 ==============================
 **GET**/ Возвращает запись таблицы с указанным id в текущей экосистеме. Можно указать возвращаемые колонки. 
@@ -590,6 +596,8 @@ row/{tablename}/{id}[?columns=]
         "name": "John",
         }
     }   
+
+Ошибки: *E_QUERY*    
 
 systemparams
 ==============================
@@ -812,6 +820,8 @@ contract/{name}
         "hash" : "67afbc435634.....",
     }
 
+Ошибки: *E_CONTRACT, E_EMPTYPUBLIC, E_EMPTYSIGN*
+
 
 prepare/{name}
 ==============================
@@ -846,6 +856,9 @@ prepare/{name}
         "time": 423523768,
         "forsign": "......", 
     }      
+
+
+Ошибки: *E_CONTRACT*
     
 txstatus/{hash}
 ==============================
@@ -876,6 +889,8 @@ txstatus/{hash}
         "blockid": "4235237",
         "result": ""
     }      
+
+Ошибки: *E_HASHWRONG, E_HASHNOTFOUND*
     
 
 content/{menu|page}/{name}
@@ -915,7 +930,7 @@ content/{menu|page}/{name}
         },
     }      
 
-Ошибки: *E_NOTFOUND*
+Ошибки: *E_NOTFOUND, E_SERVER, E_HEAVYPAGE*
 
 node/{name}
 ==============================
@@ -949,3 +964,72 @@ node/{name}
         "hash" : "67afbc435634.....",
     }
 
+Ошибки: *E_CONTRACT, E_EMPTYPUBLIC, E_EMPTYSIGN*
+
+
+maxblockid
+==============================
+**GET**/ Возвращает максимальный id блока на текущей ноде. 
+
+Запрос
+
+.. code:: 
+ 
+    GET
+    /api/v2/maxblockid
+
+Ответ
+
+* *max_block_id* - максимальный id блока на текущей ноде.
+
+Вариант ответа
+
+.. code:: 
+
+    200 (OK)
+    Content-Type: application/json
+    {
+        "max_block_id" : 341,
+    }
+
+Ошибки: *E_NOTFOUND*
+
+block/{id}
+==============================
+**GET**/ Возвращает информацию о блоке с указанным ID.
+
+Запрос
+
+* *id* - id запрашиваемого блока.
+
+.. code:: 
+    
+    POST
+    /api/v2/block/32
+
+Ответ
+
+* *hash* - хэш блока.
+* *ecosystem_id* - id экосистемы.
+* *key_id* - каким ключом был подписан блок.
+* *time* - timestamp генерации блока.
+* *tx_count* - количество транзакции в блоке.
+* *rollbacks_hash* - хэш роллбеков, созданных транзакциями блока.
+
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "hash": "\x1214451d1144a51",
+        "ecosystem_id": 1,
+        "key_id": -13646477,
+        "time": 134415251,
+        "tx_count": 3,
+        "rollbacks_hash": "\xa1234b1234"
+    }      
+
+Ошибки: *E_NOTFOUND*
