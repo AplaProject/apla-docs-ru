@@ -857,6 +857,22 @@ DBUpdateSysParam(name, value, conditions string)
 
     DBUpdateSysParam(`fuel_rate`, `400000000000`, ``)
 
+Работа с JSON в запросах к PostgreSQL
+==============================
+
+В качестве типа колонок вы можете указывать тип **JSON**. В этом случае, если вы хотите обращаться к полям записи, вам следует использовать запись вида **имяколонки->имяполя**. Полученное значение будет записано в колонку с именем **имяколонки.имяполя**. Обращение **имяколонки->имяполя** можно использовать в параметрах *Columns,One,Where* при запросах **DBFind**.
+
+.. code:: js
+
+	var ret map
+	var val str
+	var list array
+	ret = DBFind("mytable").Columns("myname,doc,doc->ind").WhereId($Id).Row()
+	val = ret["doc.ind"]
+	val = DBFind("mytable").Columns("myname,doc->type").WhereId($Id).One("doc->type")
+	list = DBFind("mytable").Columns("myname,doc,doc->ind").Where("doc->ind = ?", "101")
+	val = DBFind("mytable").WhereId($Id).One("doc->check")
+		
 
 Операции датой/временем в запросах к PostgreSQL
 ==============================
