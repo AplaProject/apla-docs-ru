@@ -651,7 +651,7 @@ ImageInput(Name, Width, Ratio, Format)
 
    ImageInput(avatar, 100, 2/1)
    
-Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)] [.Style(Style)]
+Input(Name,Class,Placeholder,Type,Value,Disabled) [.Validate(validation parameters)] [.Style(Style)]
 ------------------------------
 Создает HTML элемент **input**.
 
@@ -660,6 +660,7 @@ Input(Name,Class,Placeholder,Type,Value) [.Validate(validation parameters)] [.St
 * *Placeholder* - *placeholder* для элемента,
 * *Type* - типа элемента,
 * *Value* - значение элемента.
+* *Disabled* - задизейблен ли элемент.
 
 **Validate** - параметры валидации.
 
