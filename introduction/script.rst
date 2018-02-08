@@ -620,6 +620,28 @@ EvalCondition(table string, name string, condfield string)
 
     EvalCondition(`menu`, $Name, `condition`)  
 
+GetContractById(id int) string
+------------------------------
+Функция возвращает имя контракта по его идентификатору. Если контракт не найден, то возвращается пустая строка.
+
+* *id* - идентификатор контракта в таблице *contracts*.
+
+.. code:: js
+
+    var id int
+    id = GetContractById(`NewBlock`)  
+
+GetContractByName(name string) int
+------------------------------
+Функция возвращает идентификатор контракта в таблице *contracts* по его имени. Если контракт не найден, то возвращается ноль.
+
+* *name* - идентификатор контракта в таблице *contracts*.
+
+.. code:: js
+
+    var name string
+    name = GetContractByName($IdContract)  
+
 ValidateCondition(condition string, ecosystemid int) 
 ------------------------------
 Функция пытается скомпилировать условие, указанное в параметре *condition*. Если в процессе компиляции условия возникнет ошибка, то будет сгенерирована ошибка и вызывающий контракт закончит свою работу. Данная функция предназначена для проверки правильности условий при их изменении.
