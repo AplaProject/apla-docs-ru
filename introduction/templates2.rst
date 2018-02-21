@@ -353,16 +353,17 @@ Chart(Type, Source, FieldLabel, FieldValue, Colors)
       }
       Chart(Type: "bar", Source: mysrc, FieldLabel: "name", FieldValue: "count", Colors: "red, green")
 	  
-ForList(Source){Body}
+ForList(Source, Index){Body}
 ------------------------------
 Выводит список элементов из источника данных *Source* в формате шаблона, заданного в *Body*. Создает элемент **forlist**.
 
 * *Source* - источник данных из функций *DBFind* или *Data*,
+* *Index* - можно указать имя переменной для счетчика итераций, счет ведется с 1. Если параметр *Index* не указан, то счетчик будет записываться в переменную *[Source]_index*,
 * *Body* - шаблон, задающий формат вывода элементов списка.
 
 .. code:: js
 
-      ForList(mysrc){Span(#name#)}
+      ForList(mysrc){Span(#mysrc_index#. #name#)}
 	  
 
 Image(Src,Alt,Class) [.Style(Style)]
