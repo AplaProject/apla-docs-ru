@@ -406,6 +406,17 @@ MenuItem(Title, Page, Params, Icon, Vde)
 .. code:: js
 
        MenuItem(Interface, interface)
+
+QRcode(Text)
+------------------------------
+Возвращает элемент *qrcode* c указанным текстом для генерации QR кода. 
+
+* *Text* - текст для генерации QR кода.
+
+.. code:: js
+
+     QRcode(#name#)
+     
        
 Table(Source, Columns) [.Style(Style)]
 ------------------------------
