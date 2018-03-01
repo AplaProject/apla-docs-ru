@@ -439,7 +439,33 @@ DBRow(table string) [.Columns(columns string)] [.Where(where string, params ...)
    var ret map
    ret = DBRow("contracts").Columns("id,value").Where("id = ?", 1)
    Println(ret)
-	
+
+DBSelectMetric(metric string, timeInterval string, aggregateFunc string) array
+------------------------------
+Функция возвращает массив *array* с агрегированными данными для метрики *metric* за указанный интревал времени *timeInterval*, агрегация осуществляется через функцию *aggregateFunc*. Массив *array* состоит из ассоциативных массивов *map*, содержащих данные *key* - ключ, *value* - значение.
+
+Названия метрик:
+* *ecosystem_pages* - кол-во страниц экосистемы, *key* - номер экосистемы, *value* - значение,
+* *ecosystem_members* - кол-во участников экосистемы, *key* - номер экосистемы, *value* - значение,
+* *ecosystem_tx* - кол-во транзакций экосистемы, *key* - номер экосистемы, *value* - значение.
+Данные метрики обновляются каждые 30 минут и хранятся в разрезе дня.
+
+* *metric* - название метрики,
+* *timeInterval* - интервал вермени, за который требуется получить значения метрик. Например, ``1 day`` или ``30 days``, 
+* *aggregateFunc* - функция агрегации. Например, ``max``, ``min`` или ``avg``,
+
+.. code:: js
+
+   var rows array
+   rows = DBSelectMetrics("ecosystem_tx", "30 days", "avg")
+   
+   var i int
+   while(i < Len(rows)) {
+      var row map
+      row = rows[i] // row содержит map, с ключами key и value, где key - номер экосистемы, value - среднее кол-во транзакций за 30 дней
+      i = i + 1
+   }
+
 EcosysParam(name string) string
 ------------------------------
 Функция возвращает значение указанного параметра из настроек экосистемы (таблица *parameters*). 
