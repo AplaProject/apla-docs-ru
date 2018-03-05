@@ -521,7 +521,18 @@ Join(in array, sep string) string
     myarr[0] = "first"
     myarr[1] = 10
     val = Join(myarr, ",")
-    
+
+JSONToMap(in string) map
+------------------------------
+Функция конвертирует строку *in* с данными в формате JSON в ассоциативный массив.
+
+* *in* - Строка с данными в JSON формате.
+
+.. code:: js
+
+    var mydata map
+    mydata = JSONToMap(`{"name": "John Smith", "company": "Smith's company"}`)
+
 Split(in string, sep string) array
 ------------------------------
 Функция возвращает массив, полученный из элементов строки *in*, при ее разбивании в соответствии с разделителем *sep*.
