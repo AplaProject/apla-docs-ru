@@ -246,7 +246,26 @@ install
         "success": true
     }      
 
-Ошибки: *E_SERVER, E_INSTALLED, E_DBNIL* 
+Ошибки: *E_SERVER, E_INSTALLED, E_DBNIL*
+
+version
+==============================
+**GET**/ Возвращает текущую версию сервера.
+
+Запрос
+
+.. code:: 
+
+    GET
+    /api/v2/version
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    "0.1.6"
 
 ********************************************************************************
 Функции получения данных
