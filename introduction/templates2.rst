@@ -530,7 +530,19 @@ EcosysParam(Name, Index, Source)
  
      EcosysParam(Name: gender_list, Source: src_gender)
      Select(Name: gender, Source: src_gender, NameColumn: name, ValueColumn: id)
-	 
+
+JsonToSource(Source, Data)
+------------------------------
+Создает элемент **jsontosource**, заполняет его парами *key* и *value*, которые переданы в json объекте в *Data* и помещает в конструкцию *Source*, которая потом указывается в *Table* и других командах, получающих *Source* в качестве входных данных. Записи в результирующих данных отсортированы в алфавитном порядке по ключам JSON объекта.
+
+* *Source* - произвольное имя источника данных,
+* *Data* - может указываться как JSON объект так и переменная *#name#*, которпая содержит JSON объект.
+
+.. code:: js
+
+   JsonToSource(src, #myjson#)
+   JsonToSource(dat, {"param":"value", "param2": "value 2"})
+
 LangRes(Name, Lang)
 ------------------------------
 Возвращает указанный языковой ресурс. В случае запроса дерева для редактирования возвращается элемент **langres**. Возможно использование сокращенной записи вида ``$langres$``.
