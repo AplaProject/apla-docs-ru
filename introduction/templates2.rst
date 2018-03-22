@@ -211,7 +211,7 @@ AddToolButton(Title, Icon, Page, PageParams)
 
       AddToolButton(Help, help, help_page)
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButton,CancelButton,Icon)] [.Style(Style)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text,ConfirmButton,CancelButton,Icon)] [.Style(Style)]
 ------------------------------
 Создает элемент HTML-формы  **button**, по клику на котором инициируется выполнение контракта или переход на другую страницу.
 
@@ -221,6 +221,11 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 * *Contract* - имя вызываемого контракта,
 * *Params* - список передаваемых контракту значений; по умолчанию, значения параметров контракта (секция ``data``) берутся из HTML элементов (например, полей формы) с одноименными идентификаторами (``id``); если имена идентификаторов элементов, значения которых требуется передать в контракт, отличаются от имен параметров контракта, то используется присваивание парамтеров в формате ``contractField1=idname1, contractField2=idname2``,
 * *PageParams* - параметры для перехода на страницу в формате ``contractField1=idname1, contractField2=idname2``, при этом на странице перехода создаются переменные с именами параметров ``#contractField1#`` и ``#contractField2#`` с присвоением им указанных значений (особенности передачи параметров см. в разделе выше "*Передача параметров странице через PageParams*").
+
+**CompositeContract** - используется для навешивании на кнопку дополнительных контрактов. Можно для одной кнопки указывать несколько *CompositeContract*.
+
+* *Name* - имя контракта,
+* *Data* - параметры для контракта в виде JSON массива с параметрами. 
 
 **Alert** - используется для вывода сообщений.
 
@@ -235,6 +240,7 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.Alert(Text,ConfirmButt
 
 .. code:: js
 
+      Button(Submit, default_page).CompisiteContract(NewPage, [{"Name":"Name of Page"},{"Value":"Span(Test)"}])
       Button(Submit, default_page, mybtn_class).Alert(Alert message)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 	  
