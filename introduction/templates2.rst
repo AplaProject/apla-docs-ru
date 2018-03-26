@@ -792,6 +792,32 @@ Select(Name, Source, NameColumn, ValueColumn, Value, Class) [.Validate(validatio
       DBFind(mytable, mysrc)
       Select(mysrc, name)
 
+InputMap(Name, Type, MapType, Value)
+------------------------------
+Создаёт текстовое поле ввода адреса с возможностью визуального выбора координат на карте.
+
+* *Name* - имя элемента
+* *Value* - значение по умолчанию, объект в виде строки, например ( `{"coords":[{"lat":number,"lng":number},]}` или `{"zoom":int, "center":{"lat":number,"lng":number}}`. Также поддерживается поле address для сохранения значения адреса(поскольку при отрисовке InputMap с предустановленным Value - поле для ввода адреса не должно быть пустым)
+* *Type* - "polygon"
+* *MapType* - тип карты. Одно из значений: hybrid, roadmap, satellite, terrain
+
+.. code:: js
+
+      InputMap(Name: Coords,Type: polygon, MapType: hybrid, Value: `{"zoom":8, "center":{"lat":55.749942860682545,"lng":37.6207172870636}}`)
+      
+
+Map(Hmap, MapType, Value)
+------------------------------
+Создаёт визуальное отображение карты для отображения координат в произвольном формате.
+
+* *Hmap* - высота HTML-элемента на странице, по умолчанию 100.
+* *Value* - значение, объект в виде строки, например ( `{"coords":[{"lat":number,"lng":number},]}` или `{"zoom":int, "center":{"lat":number,"lng":number}}`. Если center не указан явно, то окно отображения карты будет автоматически подстроено для того, чтобы выбранные координаты "вписались" в него.
+* *MapType* - тип карты. Одно из значений: hybrid, roadmap, satellite, terrain
+
+.. code:: js
+
+      Map(MapType:hybrid, Hmap:400, Value:{"coords":[{"lat":55.58774531752405,"lng":36.97260184619233},{"lat":55.58396161622043,"lng":36.973803475831005},{"lat":55.585222890513975,"lng":36.979811624024364},{"lat":55.58803635636347,"lng":36.978781655762646}],"area":146846.65783403456,"address":"Unnamed Road, Московская обл., Россия, 143041"})
+      
 Операции с кодом
 ===================
 If(Condition){ Body } [.ElseIf(Condition){ Body }] [.Else{ Body }]
