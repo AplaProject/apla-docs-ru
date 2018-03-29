@@ -750,13 +750,13 @@ IdToAddress(id int) string
     
 PubToID(hexkey string) int
 ------------------------------
-The function returns the wallet address by the public key in hexadecimal encoding.
+Функция возвращает числовой идентификатор владельца публичного ключа
 
-* *hexkey* - public key in hexadecimal form.
+* *hexkey* - публичный ключ в виде шестнадцатиричной строки
 
 .. code:: js
-    var wallet int
-    wallet = PubToID("fa5e78.....34abd6")    
+    var keyId int
+    keyId = PubToID("fa5e78.....34abd6")    
     
 
 Операции со значениями переменных
