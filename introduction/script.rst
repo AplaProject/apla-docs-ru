@@ -755,6 +755,7 @@ PubToID(hexkey string) int
 * *hexkey* - публичный ключ в виде шестнадцатиричной строки
 
 .. code:: js
+
     var keyId int
     keyId = PubToID("fa5e78.....34abd6")    
     
