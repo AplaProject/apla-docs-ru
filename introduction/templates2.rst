@@ -538,6 +538,17 @@ EcosysParam(Name, Index, Source)
      EcosysParam(Name: gender_list, Source: src_gender)
      Select(Name: gender, Source: src_gender, NameColumn: name, ValueColumn: id)
 
+GetColumnType(Table, Column)
+------------------------------
+Функция возвращает тип указанной колонки в указанной таблице. Возвращается наименование внутреннего типа -например, *text,varchar,number,money,double,bytea,json,datetime,double*.
+
+* *Table* - имя таблицы,
+* *Column* - имя колонки.
+
+.. code:: js
+
+    SetVar(coltype,GetColumnType(members, member_name))Div(){#coltype#}
+
 JsonToSource(Source, Data)
 ------------------------------
 Создает элемент **jsontosource**, заполняет его парами *key* и *value*, которые переданы в json объекте в *Data* и помещает в конструкцию *Source*, которая потом указывается в *Table* и других командах, получающих *Source* в качестве входных данных. Записи в результирующих данных отсортированы в алфавитном порядке по ключам JSON объекта.
