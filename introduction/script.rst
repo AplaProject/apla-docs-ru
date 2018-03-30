@@ -494,6 +494,18 @@ EcosysParam(name string) string
 .. code:: js
 
     Println( EcosysParam("gov_account"))
+
+GetColumnType(table, column string) string
+------------------------------
+Функция возвращает тип указанной колонки в указанной таблице. Возвращается наименование внутреннего типа -например, *text,varchar,number,money,double,bytea,json,datetime,double*.
+
+* *table* - имя таблицы,
+* *column* - имя колонки.
+
+.. code:: js
+
+    var coltype string
+    coltype = GetColumnType("members", "member_name")
 	
 LangRes(label string, lang string) string
 ------------------------------
