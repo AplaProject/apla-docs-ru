@@ -597,7 +597,19 @@ SysParam(Name)
 .. code:: js
 
      Address(SysParam(founder_account))
+     
+Binary(Name, AppID, MemberID) 
+------------------------------
+Функция возвращает ссылку на статичный файл, который хранится в таблице binaries.
+ 
+* *Name* - имя файла,
+* *AppID* - идентификатор приложения,
+* *MemberID* - идентификатор пользователя, по умолчанию 0.
 
+.. code:: js
+
+     Image(Src: Binary("my_image", 1))
+     
 Элементы форматирования данных
 ============================== 
 Div(Class, Body) [.Style(Style)]
