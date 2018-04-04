@@ -784,6 +784,17 @@ DecodeBase64(input string) string
 .. code:: js
 
     val = DecodeBase64(mybase64)
+    
+EncodeBase64(input string) string
+------------------------------
+Функция кодирует строку в кодировку base64 и возвращает строку в закодированном виде.
+
+* *input* - входящая строка.
+
+.. code:: js
+
+    var base64str string
+    base64str = EncodeBase64("my text")
 
 Float(val int|string) float
 ------------------------------
@@ -1350,3 +1361,16 @@ EditDelayedContract
 UUID
 ------------------------------
 Генерирует и возвращает новый UUID 4 типа как строку
+
+UploadBinary
+------------------------------
+Контракт добавляет/перезаписывает статичный файл в X_binaries. Параметры:
+
+* *Name string* - название статичного файла,
+* *Data string* - данные статичного файла в base64 с описанием Mime Type файла, пример: `data:mime/type;base64,...`,
+* *AppID int* - идентификатор приложения,
+* *MemberID int "optional"* - идентификатор пользователя, по умолчанию 0.
+
+Если MemberID не передан, то статика является системной.
+
+
