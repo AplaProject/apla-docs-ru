@@ -708,6 +708,28 @@ a - A-Z и a-z, 1 - 1-9
 *******************************************************************
 Язык Simvolio
 *******************************************************************
+**Лексемы**
+
+Исходный текст программы должен быть в кодировке UTF-8. Обрабатываются следущие типы лексем:
+
+* **Ключевые слова** - action break conditions continue contract data else error false func if info nil return settings true var warning while
+* **Числа** - принимаются только числа в десятичной системе исчисления. Имеется два базовых типа  - **int** и **float**. При наличии десятичной точки число становится типом *float*. *int* соотвествует типу **int64** (в golang), а тип *float* типу **float64** (в golang).
+* **Строки** - строка может заключаться в двойные ("строка") или обратные кавычки (`строка`). Строки обоих типов могут включать в себя переносч строк. 
+
+
+**Типы**
+
+Рядом с типами указаны соответствующие типы из golang.
+
+* **bool** - bool,
+* **bytes** - []byte{},
+* **int** - int64,
+* **address** - uint64,
+* **array** - []interface{},
+* **map** - map[string]interface{},
+* **money** - decimal.Decimal,
+* **float** - float64,
+* **string** - string.
 
 <десятичная цифра> ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
@@ -771,19 +793,4 @@ a - A-Z и a-z, 1 - 1-9
 
 <while> ::= while <выражение><блок>
 
-Ключевые слова
-action break conditions continue contract data else error false func if info nil return settings true var warning while
 
-**Типы**
-
-Рядом с типами указаны соответствующие типы из golang.
-
-* **bool** - bool,
-* **bytes** - []byte{},
-* **int** - int64,
-* **address** - uint64,
-* **array** - []interface{},
-* **map** - map[string]interface{},
-* **money** - decimal.Decimal,
-* **float** - float64,
-* **string** - string.
