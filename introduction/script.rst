@@ -1171,7 +1171,8 @@ NewPage
 * *Value string* - текст страницы,
 * *Menu string* - имя меню, привязанного к данной странице,
 * *Conditions string* - права на изменение страницы,
-* *ValidateCount int "optional"* - кол-во нод для проверки валидности страницы, если параметр не задан, то используется значение из параметра экосистемы *min_page_validate_count*. Значение не может быть меньше *min_page_validate_count* и больше *max_page_validate_count*.
+* *ValidateCount int "optional"* - кол-во нод для проверки валидности страницы, если параметр не задан, то используется значение из параметра экосистемы *min_page_validate_count*. Значение не может быть меньше *min_page_validate_count* и больше *max_page_validate_count*,
+* *ValidateMode int "optional"* - количество проверок страниц. 0 - только при загрузке, 1 - при загрузке и при уходе со страницы.
 
 EditPage
 ------------------------------
@@ -1182,6 +1183,7 @@ EditPage
 * *Menu string "optional"* - имя нового меню страницы,
 * *Conditions string "optional"* - новые права на изменение страницы,
 * *ValidateCount int "optional"* - кол-во нод для проверки валидности страницы, если параметр не задан, то используется значение из параметра экосистемы *min_page_validate_count*. Значение не может быть меньше *min_page_validate_count* и больше *max_page_validate_count*.
+* *ValidateMode string "optional"* - количество проверок страниц. 0 - только при загрузке, 1 - при загрузке и при уходе со страницы.
 
 AppendPage
 ------------------------------
