@@ -598,17 +598,19 @@ SysParam(Name)
 
      Address(SysParam(founder_account))
      
-Binary(Name, AppID, MemberID) 
+Binary(Name, AppID, MemberID)[.ById(ID)]
 ------------------------------
 Функция возвращает ссылку на статичный файл, который хранится в таблице binaries.
  
 * *Name* - имя файла,
 * *AppID* - идентификатор приложения,
-* *MemberID* - идентификатор пользователя, по умолчанию 0.
+* *MemberID* - идентификатор пользователя, по умолчанию 0,
+* *ID* - идентификатор статичного файла.
 
 .. code:: js
 
      Image(Src: Binary("my_image", 1))
+     Image(Src: Binary().ById(2))
      
 Элементы форматирования данных
 ============================== 
