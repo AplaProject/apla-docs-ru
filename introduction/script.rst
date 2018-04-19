@@ -95,6 +95,19 @@ Cекция data
 		DBUpdate("keys", $recipient,"+amount,pub", $amount, $Pub)
 	}
 
+Кроме секции action контракт может содержать функцию **price**. Эта функция нужна для установления дополнительной стоимости в единицах топлива при выполнении контракта. Она может возвращать как число типа *int*, так и типа *money*. Возвращенное значение из функции price будет добавлено к стоимости выполнения контракта и умножено на коэффициент **fuel_rate**.
+
+.. code:: js
+	
+	contract MyContract {
+		action {
+			DBUpdate("keys", $key_id,"-amount", $amount)
+			DBUpdate("keys", $recipient,"+amount,pub", $amount, $Pub)
+		}
+		func price int {
+		     return 10000
+		}
+	}
 
 Переменные в контракте
 ==============================
