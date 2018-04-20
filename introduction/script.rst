@@ -521,17 +521,18 @@ GetColumnType(table, column string) string
     var coltype string
     coltype = GetColumnType("members", "member_name")
 	
-LangRes(label string, lang string) string
+LangRes(appID int64, label string, lang string) string
 ------------------------------
 Функция возвращает языковой ресурс с именем label для языка lang, заданного двухсимвольным кодом, например, *en,fr,ru*. Если для указанного языка нет ресурса, то возвращается значение на английском языке. Используется для перевода текста в всплывающих окнах, инициируемых контрактами.
 
-* *label* - имя языкового ресурса,
+* *appID* - id приложения.
+* *label* - имя языкового ресурса.
 * *lang* - двухсимвольный код языка.
 
 .. code:: js
 
-    warning LangRes("confirm", $Lang)
-    error LangRes("problems", "de")
+    warning LangRes($AppID, "confirm", $Lang)
+    error LangRes($AppID, "problems", "de")
     
 GetBlock(blockID int64) map
 ------------------------------
@@ -877,16 +878,17 @@ Str(val int|float) string
     myfloat = 5.678
     val = Str(myfloat)
 
-UpdateLang(name string, trans string)
+UpdateLang(appID int, name string, trans string)
 ------------------------------
 Функция обновляет языковой ресурс в памяти. Используется в транзакциях, которые меняют языковые ресурсы.
 
-* *name* - имя языкового ресурса,
+* *appID* - id приложения.
+* *name* - имя языкового ресурса.
 * *trans* - ресурс с переводами.
 
 .. code:: js
 
-    UpdateLang($Name, $Trans)
+    UpdateLang($AppID, $Name, $Trans)
 
 Операции со строковыми значениями
 ==============================
