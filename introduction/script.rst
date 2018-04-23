@@ -637,17 +637,6 @@ Join(in array, sep string) string
     myarr[1] = 10
     val = Join(myarr, ",")
 
-JSONToMap(in string) map
-------------------------------
-Функция конвертирует строку *in* с данными в формате JSON в ассоциативный массив.
-
-* *in* - Строка с данными в JSON формате.
-
-.. code:: js
-
-    var mydata map
-    mydata = JSONToMap(`{"name": "John Smith", "company": "Smith's company"}`)
-
 Split(in string, sep string) array
 ------------------------------
 Функция возвращает массив, полученный из элементов строки *in*, при ее разбивании в соответствии с разделителем *sep*.
@@ -919,6 +908,33 @@ UpdateLang(appID int, name string, trans string)
 .. code:: js
 
     UpdateLang($AppID, $Name, $Trans)
+
+Операции с JSON
+==============================
+
+JSONEncode(src int|float|string|map|array) string
+------------------------------
+Функция конвертирует число, строку или массив *src* в строку в формате JSON.
+
+* *src* - Данные которые требуется конвертировать в JSON.
+
+.. code:: js
+
+    var mydata map
+    mydata["key"] = 1
+    var json string
+    json = JSONEncode(mydata)
+    
+JSONDecode(src string) int|float|string|map|array
+------------------------------
+Функция конвертирует строку *src* с данными в формате JSON в число, строку или массив.
+
+* *src* - Строка с данными в JSON формате.
+
+.. code:: js
+
+    var mydata map
+    mydata = JSONDecode(`{"name": "John Smith", "company": "Smith's company"}`)
 
 Операции со строковыми значениями
 ==============================
