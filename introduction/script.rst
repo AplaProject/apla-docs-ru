@@ -1011,6 +1011,31 @@ Substr(s string, offset int, length int) string
     var s string
     s = Substr($Name, 1, 10)
 
+Операции с байтами
+==============================
+
+StringToBytes(src string) bytes
+------------------------------
+Функция преобразует строку в байты.
+
+* *src* - строка.
+
+.. code:: js
+
+    var b bytes
+    b = StringToBytes("my string")
+
+BytesToString(src bytes) string
+------------------------------
+Функция преобразует байты в строку.
+
+* *src* - байты.
+
+.. code:: js
+
+    var s string
+    s = BytesToString($Bytes)
+
 Операции с системными параметрами
 ==============================
 
@@ -1088,7 +1113,6 @@ DBUpdateSysParam(name, value, conditions string)
    date = "2017-05-20 00:00:00"
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + date )
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + $txtime )
-
 
 Функции для VDE
 ==============================
