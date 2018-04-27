@@ -1246,3 +1246,49 @@ block/{id}
     }      
 
 Ошибки: *E_NOTFOUND*
+
+avatar/{ecosystem}/{member}
+==============================
+**GET**/ Возвращает аватар пользователя
+
+Запрос
+
+* *ecosystem* - id экосистемы пользователя
+* *member* - id пользователя
+
+.. code:: 
+    
+    GET
+    /api/v2/avatar/1/7136200061669836581
+
+Ответ
+
+Заголовок Content-Type с типом изображения
+Изображение в теле
+
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: image/png  
+
+Ошибки: *E_NOTFOUND* *E_SERVER*
+
+config/centrifugo
+==============================
+**GET**/ Возвращает хост и порт для подключения к centrifugo
+
+Запрос
+
+.. code:: 
+    
+    GET
+    /api/v2/config/centrifugo
+
+Ответ
+
+Строка http://127.0.0.1:8000 в теле ответа
+
+Ошибки: *E_SERVER*
