@@ -507,6 +507,7 @@ DBSelectMetrics(metric string, timeInterval string, aggregateFunc string) array
 Функция возвращает массив *array* с агрегированными данными для метрики *metric* за указанный интревал времени *timeInterval*, агрегация осуществляется через функцию *aggregateFunc*. Массив *array* состоит из ассоциативных массивов *map*, содержащих данные *key* - ключ, *value* - значение.
 
 Названия метрик:
+
 * *ecosystem_pages* - кол-во страниц экосистемы, *key* - номер экосистемы, *value* - значение,
 * *ecosystem_members* - кол-во участников экосистемы, *key* - номер экосистемы, *value* - значение,
 * *ecosystem_tx* - кол-во транзакций экосистемы, *key* - номер экосистемы, *value* - значение.
