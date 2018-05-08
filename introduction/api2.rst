@@ -41,6 +41,7 @@ REST API v2
 * **E_INVALIDWALLET** - Wallet %s is not valid,
 * **E_NOTFOUND** - Content page or menu has not been found,
 * **E_NOTINSTALLED** - platform is not installed. В этом случае нужно запустить установку командно *install*,
+* **E_PARAMNOTFOUND** - parameter has not been found,
 * **E_QUERY** - DB query is wrong,
 * **E_RECOVERED** - API recovered, возвращается в случае panic error,
 * **E_REFRESHTOKEN** - Refresh token is not valid,
@@ -436,7 +437,7 @@ appparam/{appid}/{name}
         "conditions": "true"
     }      
 
-Ошибки: *E_ECOSYSTEM*
+Ошибки: *E_ECOSYSTEM,E_PARAMNOTFOUND*
 
 
 ecosystemparams
@@ -518,7 +519,7 @@ ecosystemparam/{name}
         "conditions": "true"
     }      
 
-Ошибки: *E_ECOSYSTEM,E_VDE*
+Ошибки: *E_ECOSYSTEM,E_VDE,E_PARAMNOTFOUND*
     
 tables/[?limit=...&offset=...]
 ==============================
