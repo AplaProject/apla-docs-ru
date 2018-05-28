@@ -632,6 +632,18 @@ DBUpdateExt(tblname string, column string, value (int|string), params string, va
 Операции с массивами
 ==============================
 
+Append(src array, val someType) array
+------------------------------
+Функция вставляетв src значение val любого типа и возвращает результирующий массив
+
+* *src* - исходный массив
+* *val* - значение, которое необходимо добавить в массив
+
+.. code:: js
+
+var list array
+list = Append(list, "new_val")
+
 Join(in array, sep string) string
 ------------------------------
 Функция объединяет элементы массива *in* в строку с указанным разделителем *sep*.
