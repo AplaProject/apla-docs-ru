@@ -328,6 +328,8 @@ ecosystemname
         "ecosystem_name": "platform_ecosystem"
     }
 
+Ошибки: *E_PARAMNOTFOUND*
+
 ecosystems
 ==============================
 **GET**/ Возвращает количество экосистем.
