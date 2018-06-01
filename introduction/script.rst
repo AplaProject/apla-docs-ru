@@ -708,6 +708,34 @@ One(list array, column string) string
    if ret != nil {
       Println(ret)
    }
+   
+GetMapKeys(val map) array
+------------------------------
+Функция возвращает массив ключей из ассациативного массива *val*.
+
+* *val* - массив map.
+
+.. code:: js
+
+   var val map
+   var arr array
+   val["k1"] = "v1"
+   val["k2"] = "v2"
+   arr = GetMapKeys(val)
+
+SortedKeys(val map) array
+------------------------------
+Функция возвращает отсортированный массив ключей из ассациативного массива *val*.
+
+* *val* - массив map.
+
+.. code:: js
+
+   var val map
+   var arr array
+   val["k1"] = "v1"
+   val["k2"] = "v2"
+   arr = SortedKeys(val)
 
 Операции с контрактами и условиями
 ==============================
