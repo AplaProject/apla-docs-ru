@@ -211,7 +211,7 @@ AddToolButton(Title, Icon, Page, PageParams)
 
       AddToolButton(Help, help, help_page)
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text,ConfirmButton,CancelButton,Icon)] [.Style(Style)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)]
 ------------------------------
 Создает элемент HTML-формы  **button**, по клику на котором инициируется выполнение контракта или переход на другую страницу.
 
@@ -234,6 +234,11 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Cont
 * *CancelButton* - текст кнопки отмены,
 * *Icon* - иконка.
 
+**Popup** - используется для вывода модального окна.
+
+* *Header* - заголовок окна,
+* *Width* - ширина окна в процентах, принимает значения от 1 до 100.
+
 **Style** - служит для указания css стилей
 
 * *Style* - css стили.
@@ -242,6 +247,7 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Cont
 
       Button(Submit, default_page).CompisiteContract(NewPage, [{"Name":"Name of Page"},{"Value":"Span(Test)"}])
       Button(Submit, default_page, mybtn_class).Alert(Alert message)
+      Button(Submit, default_page, mybtn_class).Popup(Header: message, Width: 50)
       Button(Contract: MyContract, Body:My Contract, Class: myclass, Params:"Name=myid,Id=i10,Value")
 	  
 LinkPage(Body, Page, Class, PageParams) [.Style(Style)]
