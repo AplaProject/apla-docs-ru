@@ -585,6 +585,18 @@ JsonToSource(Source, Data)
    JsonToSource(src, #myjson#)
    JsonToSource(dat, {"param":"value", "param2": "value 2"})
 
+ArrayToSource(Source, Data)
+------------------------------
+Создает элемент **arraytosource**, заполняет его парами *key* и *value*, которые переданы в json массиве в *Data* и помещает в конструкцию *Source*, которая потом указывается в *Table* и других командах, получающих *Source* в качестве входных данных.
+
+* *Source* - произвольное имя источника данных,
+* *Data* - может указываться как JSON массив так и переменная *#name#*, которпая содержит JSON массив.
+
+.. code:: js
+
+   ArrayToSource(src, #myjsonarr#)
+   ArrayToSource(dat, [1, 2, 3])
+
 LangRes(Name, Lang)
 ------------------------------
 Возвращает указанный языковой ресурс. В случае запроса дерева для редактирования возвращается элемент **langres**. Возможно использование сокращенной записи вида ``$langres$``.
