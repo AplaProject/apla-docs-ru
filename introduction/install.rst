@@ -27,6 +27,7 @@ config.toml, который используется для управление
         MaxPageGenerationTime = 0
         WorkDir = "files"
         PrivateDir = "files"
+        RunningMode = "privateBlockchain"
 
         [TCPServer]
           Host = "127.0.0.1"
@@ -83,6 +84,8 @@ config.toml, который используется для управление
 * **WorkDir** - рабочая директория, где искать файлы первого блока, конфига, pidfile, роллбека.
 
 * **PrivateDir** -  директория, где хранятся файлы ключей. NodePrivateKey, NodePublicKey, PrivateKey, PublicKey, и KeyID.
+
+* **RunningMode** - режим запуска ноды, допустимые значения: VDE, VDEMaster, PrivateBlockchain, PublicBlockchain.
 
 -----------------------------------------------------------
 TCPServer
@@ -173,3 +176,4 @@ Centrifugo
 * **updateInterval** - интервал, с которым проверяется наличие обновлениий. По умолчанию - 1 час.
 * **updatePublicKeyPath** - публичный ключ для сервера автообновлений. По умолчанию "update.pub".
 * **updateServer** - ардес сервера для автоапдейтов. По умолчанию http://127.0.0.1:12345.
+* **runMode** - режим запуска ноды: VDE, VDEMaster, PrivateBlockchain, PublicBlockchain
