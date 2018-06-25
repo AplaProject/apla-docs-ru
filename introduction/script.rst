@@ -548,6 +548,18 @@ EcosysParam(name string) string
 
     Println( EcosysParam("gov_account"))
 
+GetBlockHistory(id int) []map 
+------------------------------
+Функция массив ассоциативных массивов map c историей изменений записи в таблице **_blocks**. Каждый массив содержит поля записи перед очередным изменением. Результирующий список отсортирован от последних изменений к более ранним.
+
+* *id* - идентификатор записи.
+
+.. code:: js
+
+    var list array
+    list = GetBlockHistory(1)
+
+
 GetColumnType(table, column string) string
 ------------------------------
 Функция возвращает тип указанной колонки в указанной таблице. Возвращается наименование внутреннего типа -например, *text,varchar,number,money,double,bytea,json,datetime,double*.
