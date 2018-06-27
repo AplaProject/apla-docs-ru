@@ -520,7 +520,7 @@ Data(Source,Columns,Data) [.Custom(Column){Body}]
      }.Custom(link){Button(Body: View, Class: btn btn-link, Page: user, PageParams: "id=#id#"}    
 
 
-DBFind(table, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Count(countvar)] [.Ecosystem(id)] [.Custom(Column){Body}] [.Vars(Prefix)]
+DBFind(table, Source) [.Columns(columns)] [.Where(conditions)] [.WhereId(id)] [.Order(name)] [.Limit(limit)] [.Offset(offset)] [.Count(countvar)] [.Ecosystem(id)] [.Cutoff(columns)] [.Custom(Column){Body}] [.Vars(Prefix)]
 ------------------------------
 Создает элемент **dbfind**, заполняет его данными, полученными из таблицы *table*, и помещает его в конструкцию *Source*, которая потом указывается в *Table* и других командах, получающих *Source* в качестве входных данных. Последовательность записей в *data* должна соотвествовать последовательности имен колонок. 
 
