@@ -685,7 +685,7 @@ SysParam(Name)
 
      Address(SysParam(founder_account))
      
-Binary(Name, AppID, MemberID)[.ById(ID)]
+Binary(Name, AppID, MemberID)[.ById(ID)][.Ecosystem(ecosystem)]
 ------------------------------
 Функция возвращает ссылку на статичный файл, который хранится в таблице binaries.
  
@@ -693,11 +693,13 @@ Binary(Name, AppID, MemberID)[.ById(ID)]
 * *AppID* - идентификатор приложения,
 * *MemberID* - идентификатор пользователя, по умолчанию 0,
 * *ID* - идентификатор статичного файла.
+* *ecosystem* - идентификатор экосистемы, с которой запрашиваеются двоичные данные. Если не указан, то запрашиваются из текущей экосистемы.
 
 .. code:: js
 
      Image(Src: Binary("my_image", 1))
      Image(Src: Binary().ById(2))
+     Image(Src: Binary().ById(#id#).Ecosystem(#eco#))
      
 Элементы форматирования данных
 ============================== 
