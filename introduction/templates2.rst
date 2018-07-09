@@ -198,7 +198,7 @@ SetVar(Name, Value)
 
 Навигация
 ==============================
-AddToolButton(Title, Icon, Page, PageParams)
+AddToolButton(Title, Icon, Page, PageParams) [.Popup(Width, Header)] 
 ------------------------------
 Добавляет кнопку в панель инструментов. Создает элемент **addtoolbutton**. 
 
@@ -206,6 +206,11 @@ AddToolButton(Title, Icon, Page, PageParams)
 * *Icon* - иконка для кнопки,
 * *Page* - имя страницы для перехода,
 * *PageParams* - параметры, передаваемые странице.
+
+**Popup** - используется для вывода модального окна.
+
+* *Header* - заголовок окна,
+* *Width* - ширина окна в процентах, принимает значения от 1 до 100.
 
 .. code:: js
 
