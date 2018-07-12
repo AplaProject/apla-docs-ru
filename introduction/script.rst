@@ -637,7 +637,35 @@ GetColumnType(table, column string) string
     var coltype string
     coltype = GetColumnType("members", "member_name")
 	
-LangRes(appID int64, label string, lang string) string
+GetJSONFromExcel(binId int, line int, count int, sheet int) string
+------------------------------
+Функция возвращает JSON данные в виде массива из массива ячеек из таблицы Excel.
+
+* *binId* - идентификатор загруженной Excel таблицы из таблицы *binary*,
+* *line* - строка c которой необходимо получить данные, счёт с нуля,
+* *count* - количество возвращаемых строк,
+* *sheet* - номер листа в Excel файле, счёт с 1.
+
+.. code:: js
+
+    var out string
+    out = GetJSONFromExcel(binid, 12, 10, 1)
+    var a array
+    a = JSONDecode(out)
+
+GetRowsCountExcel(binId int, sheet int) int
+------------------------------
+Функция возвращает количество строк на указанном листе в Excel файле.
+
+* *binId* - идентификатор загруженной Excel таблицы из таблицы *binary*,
+* *sheet* - номер листа в Excel файле, счёт с 1.
+
+.. code:: js
+
+    var count int
+    count = GetRowsCountExcel(binid, 1)
+
+LangRes(appID int, label string, lang string) string
 ------------------------------
 Функция возвращает языковой ресурс с именем label для языка lang, заданного двухсимвольным кодом, например, *en,fr,ru*. Если для указанного языка нет ресурса, то возвращается значение на английском языке. Используется для перевода текста в всплывающих окнах, инициируемых контрактами.
 
