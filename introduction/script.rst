@@ -637,9 +637,9 @@ GetColumnType(table, column string) string
     var coltype string
     coltype = GetColumnType("members", "member_name")
 	
-GetJSONFromExcel(binId int, line int, count int, sheet int) string
+GetDataFromExcel(binId int, line int, count int, sheet int) string
 ------------------------------
-Функция возвращает JSON данные в виде массива из массива ячеек из таблицы Excel.
+Функция возвращает данные в виде массива массивов ячеек из таблицы Excel.
 
 * *binId* - идентификатор загруженной Excel таблицы из таблицы *binary*,
 * *line* - строка c которой необходимо получить данные, счёт с нуля,
@@ -648,10 +648,8 @@ GetJSONFromExcel(binId int, line int, count int, sheet int) string
 
 .. code:: js
 
-    var out string
-    out = GetJSONFromExcel(binid, 12, 10, 1)
     var a array
-    a = JSONDecode(out)
+    a = GetDataFromExcel(binid, 12, 10, 1)
 
 GetRowsCountExcel(binId int, sheet int) int
 ------------------------------
