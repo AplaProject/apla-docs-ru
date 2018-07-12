@@ -637,31 +637,31 @@ GetColumnType(table, column string) string
     var coltype string
     coltype = GetColumnType("members", "member_name")
 	
-GetDataFromExcel(binId int, line int, count int, sheet int) string
+GetDataFromXLSX(binId int, line int, count int, sheet int) string
 ------------------------------
-Функция возвращает данные в виде массива массивов ячеек из таблицы Excel.
+Функция возвращает данные в виде массива массивов ячеек из таблицы XLSX.
 
-* *binId* - идентификатор загруженной Excel таблицы из таблицы *binary*,
+* *binId* - идентификатор загруженной XLSX таблицы из таблицы *binary*,
 * *line* - строка c которой необходимо получить данные, счёт с нуля,
 * *count* - количество возвращаемых строк,
-* *sheet* - номер листа в Excel файле, счёт с 1.
+* *sheet* - номер листа в XLSX файле, счёт с 1.
 
 .. code:: js
 
     var a array
-    a = GetDataFromExcel(binid, 12, 10, 1)
+    a = GetDataFromXLSX(binid, 12, 10, 1)
 
-GetRowsCountExcel(binId int, sheet int) int
+GetRowsCountXLSX(binId int, sheet int) int
 ------------------------------
-Функция возвращает количество строк на указанном листе в Excel файле.
+Функция возвращает количество строк на указанном листе в XLSX файле.
 
-* *binId* - идентификатор загруженной Excel таблицы из таблицы *binary*,
-* *sheet* - номер листа в Excel файле, счёт с 1.
+* *binId* - идентификатор загруженной XLSX таблицы из таблицы *binary*,
+* *sheet* - номер листа в XLSX файле, счёт с 1.
 
 .. code:: js
 
     var count int
-    count = GetRowsCountExcel(binid, 1)
+    count = GetRowsCountXLSX(binid, 1)
 
 LangRes(appID int, label string, lang string) string
 ------------------------------
