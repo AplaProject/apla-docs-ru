@@ -410,7 +410,18 @@ ForList(Source, Index){Body}
 .. code:: js
 
       ForList(mysrc){Span(#mysrc_index#. #name#)}
-	  
+
+Hint(Icon,Title,Text)
+------------------------------
+Создает элемент **hint** для вывода подсказки.
+ 
+* *Icon* - имя иконки,
+* *Title* - заголовок подсказки, 
+* *Text* - текст подсказки.
+
+.. code:: js
+
+    Hint(myicon, My Header, This is a hint text)
 
 Image(Src,Alt,Class) [.Style(Style)]
 ------------------------------
