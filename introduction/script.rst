@@ -1300,6 +1300,14 @@ DBUpdateSysParam(name, value, conditions string)
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + date )
    DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + $txtime )
 
+BlockTime()
+------------------------------
+Функция возвращает время генерации блока в SQL формате. Данная функция должна использоваться вместо функции получения текущего времени NOW().
+
+.. code:: js
+
+    DBInsert(`mytable`, `created_at`, BlockTime())
+
 Функции для VDE
 ==============================
 Данные функции можно использовать только в контрактах virtual dedicated ecosystems (VDE).
