@@ -502,13 +502,13 @@ AppParam(app int, name string) string
 
     Println( AppParam(1, "app_account"))
 
-DBFind(table string) [.Columns(columns array|string)] [.Where(where string, params ...)] [.WhereId(id int)] [.Order(order string)] [.Limit(limit int)] [.Offset(offset int)] [.Ecosystem(ecosystemid int)] array
+DBFind(table string) [.Columns(columns array|string)] [.Where(where map)] [.WhereId(id int)] [.Order(order string)] [.Limit(limit int)] [.Offset(offset int)] [.Ecosystem(ecosystemid int)] array
 ------------------------------
 Функция возвращает массив *array* из таблицы базы данных *table* в соответствии с указанным запросом. Массив *array* состоит из ассоциативных массивов *map*, содержащих данные из записей таблицы. Для получения массива *map* первого элемента (первой записи запроса) используется функция ``.Row()``. Единичное    значение колонки с именем *column* из первого элемента массива возвращается добавлением функции ``.One(column string)``.
 
 * *table* - имя таблицы,
 * *сolumns* - список возвращаемых колонок, можно указать в виде массива array или в виде строки с перечислением  через запятую. Если не указано, то возвратятся все колонки, 
-* *Where* - условие поиска. Например, ``.Where("name = 'John'")`` или  ``.Where("name = ?", "John")``,
+* *Where* - условие поиска. Например, ``.Where({name: "John"})`` или  ``.Where({"id": {"$gte": 4}})``,
 * *id* - поиск по идентификатору. Достаточно указать значение идентификатора.  Например, ``.WhereId(1)``,
 * *order* - поле, по которому нужно отсортировать. По умолчанию, сортируется по *id*. Если сортируется только по одному полю, то его можно указать в качестве строки. В противном случае, необходимо передавать массив строк и объектов *{"field": "-1"}* или *{"field": "1"}*. *{"field": "-1"}* = *field desc*, *{"field": "1"}* = *field asc*. Например, **.Order({name: "-1"}, {amount: "1"})**
 * *limit* - количество возвращаемых записей. По умолчанию, 25. Максимально возможное количество - 250,
@@ -518,7 +518,7 @@ DBFind(table string) [.Columns(columns array|string)] [.Where(where string, para
 .. code:: js
 
    var i int
-   ret = DBFind("contracts").Columns(["id","value"]).Where("id> ? and id < ?", 3, 8).Order("id")
+   ret = DBFind("contracts").Columns(["id","value"]).Where({id: [{"$gt": 3}, {"$lt":8}]}).Order("id")
    while i < Len(ret) {
        var vals map
        vals = ret[0]
@@ -532,13 +532,13 @@ DBFind(table string) [.Columns(columns array|string)] [.Where(where string, para
    	Println(ret) 
    }
 
-DBRow(table string) [.Columns(columns array|string)] [.Where(where string, params ...)] [.WhereId(id int)] [.Order(order array|string)] [.Ecosystem(ecosystemid int)] map
+DBRow(table string) [.Columns(columns array|string)] [.Where(where map)] [.WhereId(id int)] [.Order(order array|string)] [.Ecosystem(ecosystemid int)] map
 ------------------------------
 Функция возвращает ассоциативный массив *map*, с данными полученными из таблицы *table* в соответствии с указанным запросом.
 
 * *table* - имя таблицы,
 * *сolumns* - список возвращаемых колонок, можно указать в виде массива array или в виде строки с перечислением  через запятую. Если не указано, то возвратятся все колонки, 
-* *Where* - условие поиска; например, ``.Where("name = 'John'")`` или  ``.Where("name = ?", "John")``,
+* *Where* - условие поиска, подробнее описано в функции **DBFind**; например, ``.Where({name: "John"})`` или  ``.Where({"id": {"$gte": 4}})``,
 * *id* - идентификатор возвращаемой строки; например, ``.WhereId(1)``,
 * *order* - поле по которому производится сортировка; по умолчанию, сортируется по *id*. Более подробно описано в функции **DBFind**.
 * *ecosystemid* - идентификатор экосистемы; по умолчанию,  id текущей экосистемы.
@@ -546,7 +546,7 @@ DBRow(table string) [.Columns(columns array|string)] [.Where(where string, param
 .. code:: js
 
    var ret map
-   ret = DBRow("contracts").Columns(["id","value"]).Where("id = ?", 1)
+   ret = DBRow("contracts").Columns(["id","value"]).Where({id: 1})
    Println(ret)
 
 DBSelectMetrics(metric string, timeInterval string, aggregateFunc string) array
