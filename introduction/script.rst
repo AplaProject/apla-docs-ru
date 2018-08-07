@@ -1312,6 +1312,22 @@ BlockTime()
 .. code:: js
 
     DBInsert(`mytable`, `created_at`, BlockTime())
+    
+Datetime(unixtime int) string
+------------------------------
+Функция конвертирует unixtime в формат времени `YYYY-MM-DD HH\:MI\:SS`.
+
+.. code:: js
+
+    Datetime(1532325250)
+    
+UnixDatetime(datetime string) int
+------------------------------
+Функция конвертирует строку с форматом времени `YYYY-MM-DD HH\:MI\:SS` в unixtime.
+
+.. code:: js
+
+    UnixDatetime("2018-07-20 14:23:10")
 
 Функции для VDE
 ==============================
