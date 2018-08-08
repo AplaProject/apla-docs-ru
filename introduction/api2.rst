@@ -304,31 +304,6 @@ ecosystems
 
 Ошибки: *E_SERVER* 
 
-vde/create
-==============================
-**POST**/ Создает Virtal Dedicated Ecosystem (VDE) для текущей экосистемы.
-
-.. code:: 
-    
-    POST
-    /api/v2/vde/create
-
-Ответ
-
-* *result* - возвращает *true*, если VDE успешно создалась.
-    
-Вариант ответа
-
-.. code:: 
-    
-    200 (OK)
-    Content-Type: application/json
-    {
-        "result": true,
-    }     
-    
-Ошибки: *E_VDECREATED, E_PERMISSION, E_SERVER*
-
 appparams
 ==============================
 **GET**/ Возвращает список параметров приложения в текущей или указанной экосистеме.
