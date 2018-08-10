@@ -74,6 +74,7 @@ REST API v2
     block
     maxblockid
     ecosystemparams
+    ecosystemparam
     systemparams
     ecosystems
 
