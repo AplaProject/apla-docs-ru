@@ -1089,7 +1089,22 @@ JSONEncode(src int|float|string|map|array) string
     mydata["key"] = 1
     var json string
     json = JSONEncode(mydata)
-    
+
+JSONEncodeIndent(src int|float|string|map|array, indent string) string
+------------------------------
+Функция конвертирует число, строку или массив *src* в строку в формате JSON с указанными отступами.
+
+* *src* - Данные которые требуется конвертировать в JSON,
+* *indent* - Строка, которая будет использоваться в качестве отступов.
+
+.. code:: js
+
+    var mydata map
+    mydata["key"] = 1
+    var json string
+    json = JSONEncodeIndent(mydata, "\t")
+
+
 JSONDecode(src string) int|float|string|map|array
 ------------------------------
 Функция конвертирует строку *src* с данными в формате JSON в число, строку или массив.
