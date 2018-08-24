@@ -75,7 +75,7 @@ Contents
    introduction/appexample.rst
    introduction/vm.rst
    introduction/install.rst
-   introduction/tools.rst
+   tools/tools.rst
 
 .. toctree::
    :maxdepth: 2
@@ -92,3 +92,6 @@ Contents
    introduction/mobile.rst
    introduction/contractsignatures.rst
    introduction/thesaurus.rst
+
+
+.. todolist::
