@@ -62,15 +62,33 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+Contents
+========
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Руководство
+
    introduction/what-is-Apla.rst
    introduction/script.rst
    introduction/templates2.rst
    introduction/appexample.rst
-   introduction/api2.rst
    introduction/vm.rst
    introduction/install.rst
-   introduction/alphabetical_index.rst
-   introduction/faq.rst
-   introduction/thesaurus.rst
    introduction/tools.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: API 
+
+   introduction/api2.rst
+.. introduction/exchangeapi.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Дополнительно
+
+   introduction/faq.rst
+   introduction/mobile.rst
+   introduction/contractsignatures.rst
+   introduction/thesaurus.rst
