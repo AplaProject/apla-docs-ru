@@ -67,7 +67,7 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Руководство
+   :caption: Руководства
 
    introduction/what-is-Apla.rst
    introduction/script.rst
@@ -79,9 +79,9 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: API 
+   :caption: Справочники
 
-   introduction/api2.rst
+   reference/api2.rst
 .. introduction/exchangeapi.rst
 
 .. toctree::
