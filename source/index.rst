@@ -79,10 +79,9 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Справочники
+   :caption: Справочник API
 
    reference/api2.rst
-.. introduction/exchangeapi.rst
 
 .. toctree::
    :maxdepth: 2
