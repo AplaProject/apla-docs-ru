@@ -67,6 +67,12 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+   :caption: Идея
+
+   concepts/thesaurus.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: Руководство
 
    introduction/what-is-Apla.rst
