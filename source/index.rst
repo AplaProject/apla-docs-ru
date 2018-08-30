@@ -96,6 +96,12 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+   :caption: Инструкции
+
+   howtos/install.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: Дополнительно
 
 
