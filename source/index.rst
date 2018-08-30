@@ -67,7 +67,7 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Идея
+   :caption: Обзор
 
    concepts/thesaurus.rst
 
