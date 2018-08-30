@@ -82,7 +82,6 @@ Contents
    introduction/templates2.rst
    introduction/appexample.rst
    introduction/vm.rst
-   introduction/install.rst
 
 
 .. toctree::
@@ -90,6 +89,7 @@ Contents
    :caption: Справочная информация
 
    reference/api2.rst
+   reference/mobile.rst
    reference/update_client.rst
    reference/desync_monitor.rst
 
@@ -104,8 +104,6 @@ Contents
    :maxdepth: 2
    :caption: Дополнительно
 
-
-   introduction/mobile.rst
    introduction/contractsignatures.rst
 
 
