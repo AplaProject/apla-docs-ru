@@ -78,10 +78,11 @@ Contents
    :maxdepth: 2
    :caption: Руководство
 
-   introduction/script.rst
-   introduction/templates2.rst
-   introduction/appexample.rst
-   introduction/vm.rst
+   topics/script.rst
+   topics/contractsignatures.rst
+   topics/templates2.rst
+   topics/appexample.rst
+   topics/vm.rst
 
 
 .. toctree::
@@ -99,12 +100,6 @@ Contents
    :caption: Инструкции
 
    howtos/install.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Дополнительно
-
-   introduction/contractsignatures.rst
 
 
 .. todolist::
