@@ -69,18 +69,21 @@ Contents
    :maxdepth: 2
    :caption: Обзор
 
+   concepts/about-the-platform.rst
+   concepts/faq.rst
    concepts/thesaurus.rst
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Руководство
 
-   introduction/what-is-Apla.rst
    introduction/script.rst
    introduction/templates2.rst
    introduction/appexample.rst
    introduction/vm.rst
    introduction/install.rst
+
 
 .. toctree::
    :maxdepth: 2
@@ -95,10 +98,9 @@ Contents
    :maxdepth: 2
    :caption: Дополнительно
 
-   introduction/faq.rst
+
    introduction/mobile.rst
    introduction/contractsignatures.rst
-   introduction/thesaurus.rst
 
 
 .. todolist::
