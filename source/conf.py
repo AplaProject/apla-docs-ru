@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Документация Genesis Blockchain Platform'
+project = u'Документация Genesis Blockchain Platform'
 copyright = '2018, Apla'
 author = 'Apla'
 
