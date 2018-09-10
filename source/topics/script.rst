@@ -1046,6 +1046,10 @@ Hash(val interface{}) string, error
 
 * *val* - входящая строка или массив байт
 
+.. code:: js
+
+    var hash string
+    hash = Hash("Test message")
 
 Sha256(val string) string
 ------------------------------
