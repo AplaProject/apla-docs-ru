@@ -899,8 +899,8 @@ GetContractById(id int) string
 
 .. code:: js
 
-    var id int
-    id = GetContractById(`NewBlock`)  
+    var name string
+    name = GetContractById($IdContract)  
 
 GetContractByName(name string) int
 ------------------------------
@@ -910,8 +910,8 @@ GetContractByName(name string) int
 
 .. code:: js
 
-    var name string
-    name = GetContractByName($IdContract)  
+    var id int
+    id = GetContractByName(`NewBlock`) 
 
 RoleAccess(id int, [id int]) bool
 ------------------------------
