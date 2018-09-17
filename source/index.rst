@@ -90,7 +90,6 @@ Contents
    :caption: Справочная информация
 
    reference/api2.rst
-   reference/mobile.rst
    reference/update_client.rst
    reference/desync_monitor.rst
 
