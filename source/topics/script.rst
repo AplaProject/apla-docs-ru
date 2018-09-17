@@ -964,6 +964,18 @@ RoleAccess(id int, [id int]) bool
     RoleAccess(1)  
     RoleAccess(1, 3) 
 
+TransactionInfo(hash: string)
+------------------------------
+Функция ищет транзакцию по указанному хэшу и возвращает информацию о вызванном контракте и его параметрах. Функция возвращает строку в формате json *{"contract":"ContractName", "params":{"key": "val"}, "block": "N"}*, где в поле *contract* возвращается имя контракта, *params* - переданные параметры, *block* - номер блока в котором была обработана данная транзакция.
+
+* *hash* - хэш транзакции в виде шестндцатеричной строки.
+
+.. code:: js
+
+    var out map
+    out = JSONDecode(TransactionInfo(hash))
+
+
 ValidateCondition(condition string, ecosystemid int) 
 ----------------------------------------------------
 
@@ -1088,6 +1100,17 @@ Int(val string) int
     mystr = "-37763499007332"
     val = Int(mystr)
     
+
+Hash(val interface{}) string, error
+------------------------------
+Функция принимает массив байт или строку и возвращает Hash, полученный с помощью системмного криптопровайдера
+
+* *val* - входящая строка или массив байт
+
+.. code:: js
+
+    var hash string
+    hash = Hash("Test message")
 
 Sha256(val string) string
 -------------------------

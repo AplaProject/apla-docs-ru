@@ -685,7 +685,18 @@ Binary(Name, AppID, MemberID)[.ById(ID)][.Ecosystem(ecosystem)]
      Image(Src: Binary("my_image", 1))
      Image(Src: Binary().ById(2))
      Image(Src: Binary().ById(#id#).Ecosystem(#eco#))
-     
+
+
+TransactionInfo(Hash)
+------------------------------
+Функция ищет транзакцию по указанному хэшу и возвращает информацию о вызванном контракте и его параметрах. Функция возвращает строку в формате json *{"contract":"ContractName", "params":{"key": "val"}, "block": "N"}*, где в поле *contract* возвращается имя контракта, *params* - переданные параметры, *block* - номер блока в котором была обработана данная транзакция.
+
+* *hash* - хэш транзакции в виде шестндцатеричной строки.
+
+.. code:: js
+
+    P(TransactionInfo(#hash#))
+
 Элементы форматирования данных
 ============================== 
 Div(Class, Body) [.Style(Style)]
