@@ -760,6 +760,29 @@ DBUpdateExt(tblname string, column string, value (int|string), params map)
 .. code:: js
 
     DBUpdateExt("mytable", "address", addr, {name: "John Dow", amount: 100})
+    
+DelColumn(tblname string, column string)
+--------------------------------------------
+
+Функция удаляет столбец в указанной таблице. Таблица не должна содержать записей.
+
+* *tblname* - имя таблицы в базе данных,
+* *column* - имя удаляемой колонки.
+
+.. code:: js
+
+    DelColumn("mytable", "mycolumn")
+
+DelTable(tblname string)
+--------------------------------------------
+
+Функция удаляет указанную таблицу. Таблица не должна содержать записей.
+
+* *tblname* - имя таблицы в базе данных.
+
+.. code:: js
+
+    DelTable("mytable")
 
 Операции с массивами
 ====================
