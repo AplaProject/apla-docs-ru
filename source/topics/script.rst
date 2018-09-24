@@ -1107,7 +1107,7 @@ FormatMoney(exp string, digit int)
 
 .. code:: js
 
-       s = Money("123456723722323332", 0)
+       s = FormatMoney("123456723722323332", 0)
     
 
 Random(min int, max int) int
