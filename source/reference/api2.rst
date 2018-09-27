@@ -44,7 +44,6 @@ REST API v2
 * **E_PARAMNOTFOUND** - parameter has not been found,
 * **E_QUERY** - DB query is wrong,
 * **E_RECOVERED** - API recovered, возвращается в случае panic error,
-* **E_REFRESHTOKEN** - Refresh token is not valid,
 * **E_SERVER** - Server error. Возвращается в случае ошибки в библиотечных функциях golang; поле *msg* содержит текст ошибки,
 * **E_SIGNATURE** - Signature is incorrect,
 * **E_STATELOGIN** - %s is not a membership of ecosystem %s,
@@ -140,7 +139,6 @@ login
 Ответ
 
 * *token* - JWT токен,
-* *refresh* - JWT токен для продления сессии. Необходимо передавать в команду **refresh**,
 * *ecosystem* - идентификатор экосистемы,
 * *key_id* - идентификатор  аккаунта,
 * *address* - адрес аккаунта в формате ``XXXX-XXXX-.....-XXXX``,
@@ -157,45 +155,12 @@ login
     Content-Type: application/json
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODp0Y"
-        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
         "ecosystem":"1",
         "key_id":"12345",
         "address": "1234-....-3424"
     }      
 
 Ошибки: *E_SERVER, E_UNKNOWNUID, E_SIGNATURE, E_STATELOGIN, E_EMPTYPUBLIC* 
-
-refresh
-==============================
-**POST**/ Команда выдает новые токены и продляет сессию пользователя. В случае успешного завершения нужно полученный в ответе токен передавать во всех запросах в заголовке *Authorization*.
-
-Запрос
-
-.. code:: 
-
-    POST
-    /api/v2/refresh
-    
-* *[expire]* - время длительности JWT токена в секундах. По умолчанию, 36000.
-* *token* - токен обновления из предыдущего вызова **login** или **refresh**.
-
-Ответ
-
-* *token* - JWT токен.
-* *refresh* - JWT токен для продления сессии. Необходимо передавать в команду **refresh**.
-
-Вариант ответа
-
-.. code:: 
-    
-    200 (OK)
-    Content-Type: application/json
-    {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODplQXbVu0Y"
-        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
-    }      
-
-Ошибки: *E_SERVER, E_TOKEN, E_REFRESHTOKEN* 
 
 ********************************************************************************
 Служебные команды
