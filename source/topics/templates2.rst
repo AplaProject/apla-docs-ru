@@ -217,7 +217,7 @@ AddToolButton(Title, Icon, Page, PageParams) [.Popup(Width, Header)]
 
       AddToolButton(Help, help, help_page)
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)] [.ErrorRedirect((ErrorID,PageName,PageParams)]
 ------------------------------
 Создает элемент HTML-формы  **button**, по клику на котором инициируется выполнение контракта или переход на другую страницу.
 
@@ -248,6 +248,12 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Cont
 **Style** - служит для указания css стилей
 
 * *Style* - css стили.
+
+**ErrorRedirect** - служит для указания редиректа в случае получения ошибки, сгенерированной функцией *Throw* во время выполнения контракта. Может быть несколько вызовов *ErrorRedirect*. В результате возвращается атрибут *errredir* со списком ключей *ErrorID* и параметрами в качестве значения.
+
+* *ErrorID* - идентификатор ошибки,
+* *PageName* - имя страницы,
+* *PageParams* - передаваемые параметры.
 
 .. code:: js
 
