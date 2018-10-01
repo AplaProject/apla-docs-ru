@@ -998,6 +998,17 @@ TransactionInfo(hash: string)
     var out map
     out = JSONDecode(TransactionInfo(hash))
 
+Throw(ErrorId: string, ErrDescription: string)
+------------------------------
+Функция генерирует ошибку выполнения типа *exception*, но добавляет туда дополнительное поле *id*. Результат выполнения такой транзакции будет иметь вид *{"type":"exception","error":"Error description","id":"Error ID"}*
+
+* *ErrorId* - идентификатор ошибки.
+* *ErrDescription* - описание ошибки.
+
+.. code:: js
+
+    Throw("Problem", "There is some problem")
+
 
 ValidateCondition(condition string, ecosystemid int) 
 ----------------------------------------------------
