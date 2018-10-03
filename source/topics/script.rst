@@ -606,19 +606,18 @@ GetRowsCountXLSX(binId int, sheet int) int
     var count int
     count = GetRowsCountXLSX(binid, 1)
 
-LangRes(appID int, label string, lang string) string
+LangRes(label string, lang string) string
 ----------------------------------------------------
 
 Функция возвращает языковой ресурс с именем label для языка lang, заданного двухсимвольным кодом, например, *en,fr,ru*. Если для указанного языка нет ресурса, то возвращается значение на английском языке. Используется для перевода текста в всплывающих окнах, инициируемых контрактами.
 
-* *appID* - id приложения.
 * *label* - имя языкового ресурса.
 * *lang* - двухсимвольный код языка.
 
 .. code:: js
 
-    warning LangRes($AppID, "confirm", $Lang)
-    error LangRes($AppID, "problems", "de")
+    warning LangRes("confirm", $Lang)
+    error LangRes("problems", "de")
     
 GetBlock(blockID int64) map
 ---------------------------
@@ -676,6 +675,29 @@ DBUpdateExt(tblname string, column string, value (int|string), params map)
 .. code:: js
 
     DBUpdateExt("mytable", "address", addr, {name: "John Dow", amount: 100})
+    
+DelColumn(tblname string, column string)
+--------------------------------------------
+
+Функция удаляет столбец в указанной таблице. Таблица не должна содержать записей.
+
+* *tblname* - имя таблицы в базе данных,
+* *column* - имя удаляемой колонки.
+
+.. code:: js
+
+    DelColumn("mytable", "mycolumn")
+
+DelTable(tblname string)
+--------------------------------------------
+
+Функция удаляет указанную таблицу. Таблица не должна содержать записей.
+
+* *tblname* - имя таблицы в базе данных.
+
+.. code:: js
+
+    DelTable("mytable")
 
 Операции с массивами
 ====================
@@ -892,6 +914,17 @@ TransactionInfo(hash: string)
     var out map
     out = JSONDecode(TransactionInfo(hash))
 
+Throw(ErrorId: string, ErrDescription: string)
+------------------------------
+Функция генерирует ошибку выполнения типа *exception*, но добавляет туда дополнительное поле *id*. Результат выполнения такой транзакции будет иметь вид *{"type":"exception","error":"Error description","id":"Error ID"}*
+
+* *ErrorId* - идентификатор ошибки.
+* *ErrDescription* - описание ошибки.
+
+.. code:: js
+
+    Throw("Problem", "There is some problem")
+
 
 ValidateCondition(condition string, ecosystemid int) 
 ----------------------------------------------------
@@ -991,6 +1024,18 @@ HexToBytes(hexdata string) bytes
 
     var val bytes
     val = HexToBytes("34fe4501a4d80094")
+    
+FormatMoney(exp string, digit int) 
+------------------------------
+Функция возвращает строковое значение exp/10^digit. Если параметр digit не указан, то он будет браться из параметра **money_digit** экосистемы.
+
+* *exp* - Числововое значение в виде строки,
+* *digit* - степень 10 в выражении exp/10^digit. Может быть как положительным, так и отрицательным. В случае положительного значения определяет количество цифр после запятой.
+
+.. code:: js
+
+       s = FormatMoney("123456723722323332", 0)
+    
 
 Random(min int, max int) int
 ----------------------------
@@ -1680,7 +1725,7 @@ NewLang
 
 * *Name string* - имя языкового ресурса (только латинские символы).
 * *Trans* - языковые ресурсы в виде строки в JSON формате, где ключ - двухсимвольный код языков, значение - перевод, например: ``{"en": "English text", "ru": "Английский текст"}``.
-* *AppID int* - ID приложения.
+* *[Lang string]* - опциональный параметр. Указывает язык для сообщений об ошибках во время выполнения контракта.
 
 EditLang
 --------
@@ -1691,7 +1736,7 @@ EditLang
 * *Id int* - ID языкового ресурса.
 * *Name string* - имя языкового ресурса. 
 * *Trans* - языковые ресурсы в виде строки в JSON формате, где ключ - двухсимвольный код языков, значение - перевод, например: ``{"en": "English text", "ru": "Английский текст"}``.
-* *AppID int* - ID приложения.
+* *[Lang string]* - опциональный параметр. Указывает язык для сообщений об ошибках во время выполнения контракта.
 
 NewSign
 -------

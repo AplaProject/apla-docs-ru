@@ -45,7 +45,6 @@ REST API v2
 * **E_PARAMNOTFOUND** - parameter has not been found,
 * **E_QUERY** - DB query is wrong,
 * **E_RECOVERED** - API recovered, возвращается в случае panic error,
-* **E_REFRESHTOKEN** - Refresh token is not valid,
 * **E_SERVER** - Server error. Возвращается в случае ошибки в библиотечных функциях golang; поле *msg* содержит текст ошибки,
 * **E_SIGNATURE** - Signature is incorrect,
 * **E_STATELOGIN** - %s is not a membership of ecosystem %s,
@@ -67,6 +66,8 @@ REST API v2
 .. code::
 
     txstatus
+    txinfo
+    txinfoMultiple
     appparam
     appparams
     history
@@ -138,7 +139,6 @@ login
 Ответ
 
 * *token* - JWT токен,
-* *refresh* - JWT токен для продления сессии. Необходимо передавать в команду **refresh**,
 * *ecosystem* - идентификатор экосистемы,
 * *key_id* - идентификатор  аккаунта,
 * *address* - адрес аккаунта в формате ``XXXX-XXXX-.....-XXXX``,
@@ -155,7 +155,6 @@ login
     Content-Type: application/json
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYT8fNGODp0Y"
-        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........iOiI1Nzk3ODE3NjYwNDM2ODA5MzQ2Iiw"        
         "ecosystem":"1",
         "key_id":"12345",
         "address": "1234-....-3424"
@@ -580,6 +579,45 @@ list/{name}[?limit=...&offset=...&columns=]
 
 Ошибки: *E_TABLENOTFOUND,E_VDE*    
 
+sections[?limit=...&offset=...&lang=]
+==============================
+**GET**/ Возвращает список записей таблицы *sections* в текущей экосистеме. Можно указать смещение и количество запрашиваемых элементов таблицы. При этом, если поле *roles_access* содержит список ролей и текущей роли там нет, то эта запись не будет возвращаться. Также, вданных столбца *title* происходит замена языковых ресурсов.
+
+Запрос
+
+* *[limit]* - количество записей, по умолчанию - 25,
+* *[offset]* - смещение начала записей, по умолчанию - 0,
+* *[lang]* - можно указать двухбуквенный код языка или lcid, для подключения соответствующих языковых ресурсов. Например, *en,ru,fr,en-US,en-GB*. Если, например, не будет найден ресурс для *en-US*, то он будет искаться для *en*.
+
+.. code:: 
+    
+    GET
+    /api/v2/sections
+
+Ответ
+
+* *count* - общее количество записей в таблице,
+* *list* - массив, каждый элемент которого содержит все столбцы таблицы *sections*.
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "count": "2"
+        "list": [{ 
+            "id": "1",
+            "title": "Development",
+	    "urlpage": "develop",
+	    ...
+        }, 
+        ]
+    }   
+
+Ошибки: *E_TABLENOTFOUND,E_VDE*    
+
 row/{tablename}/{id}[?columns=]
 ==============================
 **GET**/ Возвращает запись таблицы с указанным id в текущей экосистеме. Можно указать возвращаемые колонки. 
@@ -930,6 +968,87 @@ txstatus/
 
 Ошибки: *E_HASHWRONG, E_HASHNOTFOUND*
     
+txinfo/{hash}
+==============================
+**GET**/ Возвращает данные о транзакции с данным хэшем. Возвращается номер блока и количество поджтверждений, кроме этого, можно получить имя соответствующего контракта и параметры, с которыми он был вызван.
+
+Запрос
+
+* *hash* - хэш проверяемой транзакции,
+* *[contractinfo]* - для получения информации о контракте и параметрах, укажите этот параметр со значением 1.
+
+.. code:: 
+    
+    GET
+    /api/v2/txinfo/2353467abcd7436ef47438
+    
+Ответ
+
+* *blockid* - номер блока, в который попала транзакции. Если равен 0, то транзакция не найдена,
+* *confirm* - количество подтверждений данного блока,
+* *data* - если был указан параметр *contentinfo*, то здесь вернется json информация о контракте и параметрах.
+    
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "blockid": "4235237",
+        "confirm": "10"
+    }      
+
+Ошибки: *E_HASHWRONG*
+
+txinfoMultiple/
+==============================
+**GET**/ Возвращает инфоромацию о транзакциях с данными хэшами. 
+
+Запрос
+
+* *data* - json содержащий список хэшей проверяемых транзакций в виде шестнадцатеричных строк.
+* *[contractinfo]* - для получения информации о контракте и параметрах, укажите этот параметр со значением 1.
+
+.. code::
+
+     {"hashes":["contract1hash", "contract2hash", "contract3hash"]}
+
+.. code:: 
+    
+    GET
+    /api/v2/txinfoMultiple/
+    
+Ответ
+
+* *results* - словарь содержащий в качестве ключа хэш транзакции а в качестве значения результат выполнения.
+
+        *hash* - хэш транзакции
+
+                * *blockid* - номер блока, вкоторый попала транзакции,
+                * *confirm* - количество подтверждения данного блока,
+                * *data* - если был указан параметр *contentinfo*, то здесь вернется json информация о контракте и параметрах.
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {"results":
+      { 
+        "hash1": {
+             "blockid": "3123",
+             "confirm": "5",
+         },
+         "hash2": {
+              "blockid": "3124",
+              "confirm": "3",
+         }
+       }
+     }
+
+Ошибки: *E_HASHWRONG*
 
 content/{menu|page}/{name}
 ==============================

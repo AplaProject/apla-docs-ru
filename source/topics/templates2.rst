@@ -217,7 +217,7 @@ AddToolButton(Title, Icon, Page, PageParams) [.Popup(Width, Header)]
 
       AddToolButton(Help, help, help_page)
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)] [.ErrorRedirect((ErrorID,PageName,PageParams)]
 ------------------------------
 Создает элемент HTML-формы  **button**, по клику на котором инициируется выполнение контракта или переход на другую страницу.
 
@@ -248,6 +248,12 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Cont
 **Style** - служит для указания css стилей
 
 * *Style* - css стили.
+
+**ErrorRedirect** - служит для указания редиректа в случае получения ошибки, сгенерированной функцией *Throw* во время выполнения контракта. Может быть несколько вызовов *ErrorRedirect*. В результате возвращается атрибут *errredir* со списком ключей *ErrorID* и параметрами в качестве значения.
+
+* *ErrorID* - идентификатор ошибки,
+* *PageName* - имя страницы,
+* *PageParams* - передаваемые параметры.
 
 .. code:: js
 
@@ -700,7 +706,7 @@ TransactionInfo(Hash)
 
 Элементы форматирования данных
 ============================== 
-Div(Class, Body) [.Style(Style)]
+Div(Class, Body) [.Style(Style)] [.Show(Condition)] [.Hide(Condition)]
 ------------------------------
 Создает HTML элемент **div**.
 
@@ -711,9 +717,14 @@ Div(Class, Body) [.Style(Style)]
 
 * *Style* - css стили.
 
+**Show** - Определяет условия, при каких следует показывать данный блок.
+**Hide** - Определяет условия, при каких следует скрывать данный блок. 
+
+* *Condition* - можно через запятую перечислить условия в виде пар InputName=Value. Условие будет выполнено, когда для каждой из пар текст соответствующего input равен указанному значению. Если указано несколько вызовов *Show* или **Hide*, то в этом случае действие будет применимо, если выполнено условие хотя бы одного вызова.
+
 .. code:: js
 
-      Div(class1 class2, This is a paragraph.)
+      Div(class1 class2, This is a paragraph.).Show(inp1=test,inp2=none)
      
 Em(Body, Class)
 ------------------------------
