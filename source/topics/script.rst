@@ -951,7 +951,19 @@ AddressToId(address string) int
 .. code:: js
 
     account = AddressToId($Recipient)
-    
+
+HexToPub(hexpub string) bytes
+--------------------------
+
+Функция конвертирует шестнадцатеричную строку с публичным ключом в переменную типа *bytes*. При этом входящая стркоа может содержать в начале префикс '04'.
+
+* *hexpub* - публичный ключ в шестнадцатеричном виде
+
+.. code:: js
+
+        pub = HexToPub(hexkey)
+
+
 IdToAddress(id int) string
 --------------------------
 
@@ -962,6 +974,19 @@ IdToAddress(id int) string
 .. code:: js
 
     $address = IdToAddress($id)
+
+PubToHex(pub string | bytes) string
+--------------------------
+
+Функция конвертирует публичный ключ в шестнадцатеричную строку. При этом добавляется в начало строка '04'.
+
+* *pub* - публичный ключ в двоичном виде
+
+.. code:: js
+
+        pub = DBFind("@1keys").Columns("pub").Where({id:"2367267345348734"}).One("pub")
+        var hex string
+        hex = PubToHex(pub)
     
 PubToID(hexkey string) int
 --------------------------
