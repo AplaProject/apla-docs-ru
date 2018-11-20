@@ -68,6 +68,7 @@ REST API v2
     txstatus
     txinfo
     txinfoMultiple
+    appcontent
     appparam
     appparams
     history
@@ -345,6 +346,50 @@ appparams
             "value": "My value",
             "conditions": "true",
         }, 
+        ]
+    }      
+
+Ошибки: *E_ECOSYSTEM*
+
+appcontent
+==============================
+**GET**/ Возвращает списки (id , название) для страниц, интерфейсных блоков и контрактов для заданного приложения.
+
+Запрос
+
+.. code:: 
+    
+    GET
+    /api/v2/appcontent/{appid}[?ecosystem=...]
+
+* *[appid]* - идентификатор приложения,
+* *[ecosystem]* - идентификатор экосистемы; если не указан, то будут возвращены параметры текущей экосистемы
+
+Ответ 
+
+* *[list], [list], [list]* - массив с описанием блоков интерфейса, массив с описанием страниц, массив с описанием контрактов. Каждый массив содержит элементы с полями:
+
+  * *id* - наименование параметра,
+  * *name* - значение параметра.
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {
+        "blocks": [
+            { "id": 1, "name": "admin_link" },
+            { "id": 2, "name": "export_info" }
+        ],
+        "pages": [
+            { "id": 1, "name": "admin_index" },
+            { "id": 2, "name": "developer_index" }
+        ],
+        "contracts": [
+            { "id": 1, "name": "AdminCondition" },
+            { "id": 2, "name": "DeveloperCondition" }
         ]
     }      
 
