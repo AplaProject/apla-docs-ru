@@ -662,19 +662,18 @@ DBUpdate(tblname string, id int, params map)
 
     DBUpdate("mytable", myid, {name: "John Dow", amount: 100})
 
-DBUpdateExt(tblname string, column string, value (int|string), params map)
+DBUpdateExt(tblname string, where map, params map)
 --------------------------------------------------------------------------
 
-Функция обновляет столбцы в записи, у которой колонка имеет заданное значение. Таблица должна иметь индекс по указанной колонке.
+Функция обновляет столбцы в записи, которая удовлетворяет параметрам поиска.
 
 * *tblname* - имя таблицы в базе данных,
-* *column* - имя колонки, по которой будет идти поиск записи,
-* *value* - значение для поиска записи в колонке,
+* *where* - условие поиска. Например, ``{name: "John"}``.``{"id": {"$gte": 4}}``, ``{id: $key_id, ecosystem: $ecosystem_id}``. Полное описание возможностей по созданию условий поиска имеется в описании функции **DBFind**,
 * *params* - ассоциативный массив *map*, в котором в качестве ключей передаются имена полей и соответствующие им значения. 
 
 .. code:: js
 
-    DBUpdateExt("mytable", "address", addr, {name: "John Dow", amount: 100})
+    DBUpdateExt("mytable", {id: $key_id, ecosystem: $ecosystem_id}, {name: "John Dow", amount: 100})
     
 DelColumn(tblname string, column string)
 --------------------------------------------
