@@ -448,7 +448,17 @@ DBFind(table string) [.Columns(columns array|string)] [.Where(where map)] [.Wher
 * **{field: {"$like": "value"}} → field like '%value%' (поиск подстроки)**
 * **{field: {"$begin": "value"}} → field like 'value%' (начинается с value)**
 * **{field: {"$end": "value"}} → field like '%value' (заканчивается value)**
+* **{field: {"$ilike": "value"}} → field ilike '%value%' (регистронезависимый поиск подстроки)**
+* **{field: {"$ibegin": "value"}} → field ilike 'value%' (регистронезависимый поиск - начинается с value)**
+* **{field: {"$iend": "value"}} → field ilike '%value' (регистронезависимый поиск - заканчивается value)**
 * **{field: "$isnull"} → field is null**
+
+При перечислении элементов массивов **$or** или **$and** можно не указывать фигурные скобки у элементов. Например
+
+.. code:: js
+
+      m = DBFind("contracts").Where({id: 10, name: "EditColumn", $or: [id: 10, id: {$neq: 20}]})
+      
 
 Имеется ещё один момент. Предположим есть запрос *id>2 and id<5*. Написать так *{id:{"$gt": 2}, id:{"$lt": 5}}*
 нельзя, так как у нас в массиве второе присваивание ключа перекроет первое и останется только *id<5*.
