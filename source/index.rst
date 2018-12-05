@@ -32,15 +32,10 @@
 
    - Широкие возможности масштабирования и глобальный охват аудитории для продуктов и сервисов.
 
-Детальное описание платформы |platform| на английском языке содержится в документе Apla White Paper (www.apla.io).
+Детальное описание платформы |platform| на английском языке содержится в документе `Apla White Paper`_.
 
+.. _Apla White Paper: https://apla.io/download/White_Paper.pdf
 
-
-Contents
-========
-
-.. toctree::
-   :maxdepth: 2
 
 Contents
 ========
