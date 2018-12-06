@@ -448,7 +448,17 @@ DBFind(table string) [.Columns(columns array|string)] [.Where(where map)] [.Wher
 * **{field: {"$like": "value"}} → field like '%value%' (поиск подстроки)**
 * **{field: {"$begin": "value"}} → field like 'value%' (начинается с value)**
 * **{field: {"$end": "value"}} → field like '%value' (заканчивается value)**
+* **{field: {"$ilike": "value"}} → field ilike '%value%' (регистронезависимый поиск подстроки)**
+* **{field: {"$ibegin": "value"}} → field ilike 'value%' (регистронезависимый поиск - начинается с value)**
+* **{field: {"$iend": "value"}} → field ilike '%value' (регистронезависимый поиск - заканчивается value)**
 * **{field: "$isnull"} → field is null**
+
+При перечислении элементов массивов **$or** или **$and** можно не указывать фигурные скобки у элементов. Например
+
+.. code:: js
+
+      m = DBFind("contracts").Where({id: 10, name: "EditColumn", $or: [id: 10, id: {$neq: 20}]})
+      
 
 Имеется ещё один момент. Предположим есть запрос *id>2 and id<5*. Написать так *{id:{"$gt": 2}, id:{"$lt": 5}}*
 нельзя, так как у нас в массиве второе присваивание ключа перекроет первое и останется только *id<5*.
@@ -662,19 +672,18 @@ DBUpdate(tblname string, id int, params map)
 
     DBUpdate("mytable", myid, {name: "John Dow", amount: 100})
 
-DBUpdateExt(tblname string, column string, value (int|string), params map)
+DBUpdateExt(tblname string, where map, params map)
 --------------------------------------------------------------------------
 
-Функция обновляет столбцы в записи, у которой колонка имеет заданное значение. Таблица должна иметь индекс по указанной колонке.
+Функция обновляет столбцы в записи, которая удовлетворяет параметрам поиска.
 
 * *tblname* - имя таблицы в базе данных,
-* *column* - имя колонки, по которой будет идти поиск записи,
-* *value* - значение для поиска записи в колонке,
+* *where* - условие поиска. Например, ``{name: "John"}``.``{"id": {"$gte": 4}}``, ``{id: $key_id, ecosystem: $ecosystem_id}``. Полное описание возможностей по созданию условий поиска имеется в описании функции **DBFind**,
 * *params* - ассоциативный массив *map*, в котором в качестве ключей передаются имена полей и соответствующие им значения. 
 
 .. code:: js
 
-    DBUpdateExt("mytable", "address", addr, {name: "John Dow", amount: 100})
+    DBUpdateExt("mytable", {id: $key_id, ecosystem: $ecosystem_id}, {name: "John Dow", amount: 100})
     
 DelColumn(tblname string, column string)
 --------------------------------------------

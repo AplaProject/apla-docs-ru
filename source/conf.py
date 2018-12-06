@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'Документация Genesis Blockchain Platform'
+project = u'Документация Apla Blockchain Platform'
 copyright = '2018, Apla'
 author = 'Apla'
 
@@ -106,7 +106,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GenesisRuDoc'
+htmlhelp_basename = 'AplaRuDoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -133,7 +133,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GenesisBlockchainPlatformGuide.tex', 'Genesis Blockchain Platform Guide',
+    (master_doc, 'AplaBlockchainPlatformGuide.tex', 'Apla Blockchain Platform Guide',
      'Apla', 'manual'),
 ]
 
@@ -143,7 +143,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'genesisblockchainplatformguide', 'Genesis Blockchain Platform Guide',
+    (master_doc, 'aplablockchainplatformguide', 'Apla Blockchain Platform Guide',
      [author], 1)
 ]
 
@@ -154,8 +154,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GenesisBlockchainPlatformGuide', 'Genesis Blockchain Platform Guide',
-     author, 'GenesisBlockchainPlatformGuide', 'Public blockchain platform for building digital ecosystems.',
+    (master_doc, 'AplaBlockchainPlatformGuide', 'Apla Blockchain Platform Guide',
+     author, 'AplaBlockchainPlatformGuide', 'Public blockchain platform for building digital ecosystems.',
      'Miscellaneous'),
 ]
 
@@ -171,7 +171,8 @@ todo_emit_warnings = False
 
 # -- Prolog substitutions (available on all pages)
 
-platform = 'Genesis'
+#platform = 'Genesis'
+platform = 'Apla'
 
 rst_prolog = """
 .. |platform| replace:: {0}
@@ -182,7 +183,9 @@ platform,
 
 # -- Ifconfig conditionals
 
-if_project = 'genesis'
+# .. ifconfig:: if_project in ('apla', 'genesis')
+#if_project = 'genesis'
+if_project = 'apla'
 
 def setup(app):
     
