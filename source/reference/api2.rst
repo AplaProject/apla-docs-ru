@@ -116,7 +116,8 @@ getuid
     Content-Type: application/json
     {
         "uid": "28726874268427424",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYTDplQXbVu0Y"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6I........AU3yPRp64SLO4aJqhN-kMoU5HNYTDplQXbVu0Y",
+	"network_id": "5324976953280995276"
     }
     
 Ошибки: *E_SERVER*   
