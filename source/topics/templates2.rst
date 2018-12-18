@@ -197,6 +197,17 @@ SetVar(Name, Value)
      SetVar(name, John Smith).(out, I am #name#)
      Span(#out#)
 
+VarAsIs(Name, Value)
+------------------------------
+Присваивает переменной с именем *Name* значение *Value*, но, в отличии от функции *SetVar*, не происходит подстановка переменных в значении *Value*. 
+
+* *Name* - имя переменной,
+* *Value* - значение переменной, может содержать ссылку на другие переменные, но они не подставляются.
+
+.. code:: js
+
+     VarAsIs(name, I am #name#)
+
 Навигация
 ==============================
 AddToolButton(Title, Icon, Page, PageParams) [.Popup(Width, Header)] 
