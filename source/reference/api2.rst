@@ -54,7 +54,6 @@ REST API v2
 * **E_UNAUTHORIZED** - Unauthorized,
 * **E_UNDEFINEVAL** - Value %s is undefined,
 * **E_UNKNOWNUID** - Unknown uid,
-* **E_VDE** - Virtual Dedicated Ecosystem %s doesn't exist,
 * **E_VDECREATED** - Virtual Dedicated Ecosystem is already created.
 
 
@@ -478,7 +477,7 @@ ecosystemparams
         ]
     }      
 
-Ошибки: *E_ECOSYSTEM,E_VDE*
+Ошибки: *E_ECOSYSTEM*
 
 ecosystemparam/{name}
 ==============================
@@ -492,8 +491,7 @@ ecosystemparam/{name}
     /api/v2/ecosystemparam/{name}[?ecosystem=1]
     
 * *name* - имя запрашиваемого параметра,
-* *[ecosystem]* - можно указать идентификатор экосистемы. По умолчанию, возвратится значение текущей экосистемы,
-* *[vde]* - укажите ``true``, если необходимо получить параметр из VDE, в противном случае, этот параметр указывать не нужно.
+* *[ecosystem]* - можно указать идентификатор экосистемы. По умолчанию, возвратится значение текущей экосистемы.
 
 Ответ
     
@@ -513,7 +511,7 @@ ecosystemparam/{name}
         "conditions": "true"
     }      
 
-Ошибки: *E_ECOSYSTEM,E_VDE,E_PARAMNOTFOUND*
+Ошибки: *E_ECOSYSTEM,E_PARAMNOTFOUND*
     
 tables/[?limit=...&offset=...]
 ==============================
@@ -554,9 +552,7 @@ tables/[?limit=...&offset=...]
             "count": "5",
        }, 
         ]
-    }    
-
-Ошибки: *E_VDE*    
+    }     
 
 table/{name}
 ==============================
@@ -608,7 +604,7 @@ table/{name}
         ]
     }      
     
-Ошибки: *E_TABLENOTFOUND,E_VDE*    
+Ошибки: *E_TABLENOTFOUND*    
     
 list/{name}[?limit=...&offset=...&columns=]
 ==============================
@@ -653,7 +649,7 @@ list/{name}[?limit=...&offset=...&columns=]
         ]
     }   
 
-Ошибки: *E_TABLENOTFOUND,E_VDE*    
+Ошибки: *E_TABLENOTFOUND*    
 
 sections[?limit=...&offset=...&lang=]
 ==============================
@@ -692,7 +688,7 @@ sections[?limit=...&offset=...&lang=]
         ]
     }   
 
-Ошибки: *E_TABLENOTFOUND,E_VDE*    
+Ошибки: *E_TABLENOTFOUND*    
 
 row/{tablename}/{id}[?columns=]
 ==============================
@@ -1119,6 +1115,34 @@ txinfoMultiple/
      }
 
 Ошибки: *E_HASHWRONG*
+
+/page/validators_count/{name}
+==============================
+**GET**/ Возвращает количество нод валидации для страницы **{name}**
+
+Запрос
+
+* *name* - имя страницы с префиксом экосистеме, в формате: @1page_name, где @1 указывает на индекс экосистемы
+
+.. code::
+
+    GET
+    /api/v2/page/validators_count/@1page_name
+
+
+Ответ
+
+* *validate_count* - количество нод для валидации
+
+Вариант ответа
+
+.. code:: 
+    
+    200 (OK)
+    Content-Type: application/json
+    {"validate_count":1}
+
+Ошибки: *E_NOTFOUND, E_SERVER*
 
 content/{menu|page}/{name}
 ==============================
