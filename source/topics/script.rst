@@ -411,17 +411,18 @@ Cекция data
 Получение значений из таблиц базы данных
 ========================================
 
-AppParam(app int, name string) string
+AppParam(app int, name string, ecosystemid int) string
 -------------------------------------
 
 Функция возвращает значение указанного параметра из параметров приложения (таблица *app_params*). 
 
 * *app* - идентификатор приложения,
 * *name* - имя получаемого параметра,
+* *ecosystemid* - идентифкатор экосистемы.
 
 .. code:: js
 
-    Println( AppParam(1, "app_account"))
+    AppParam(1, "app_account", 1)
 
 DBFind(table string) [.Columns(columns array|string)] [.Where(where map)] [.WhereId(id int)] [.Order(order string)] [.Limit(limit int)] [.Offset(offset int)] [.Ecosystem(ecosystemid int)] array
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
