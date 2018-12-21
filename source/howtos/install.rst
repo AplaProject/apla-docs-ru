@@ -85,7 +85,7 @@ config.toml, который используется для управление
 
 * **PrivateDir** -  директория, где хранятся файлы ключей. NodePrivateKey, NodePublicKey, PrivateKey, PublicKey, и KeyID.
 
-* **RunningMode** - режим запуска ноды, допустимые значения: VDE, VDEMaster, PrivateBlockchain, PublicBlockchain.
+* **RunningMode** - режим запуска ноды, допустимые значения: OBS, OBSMaster, PrivateBlockchain, PublicBlockchain.
 
 -----------------------------------------------------------
 TCPServer
@@ -142,7 +142,7 @@ Centrifugo
 * **workDir** - указать рабочую директорию.
 * **centrifugoSecret** - секретный ключ для centrifugo.
 * **centrifugoUrl** - url для centrifugo, в формате host:port.
-* **checkReadAccess** - Проверять ли поля доступа к колонкам таблиц на чтение. Используется только для VDE.
+* **checkReadAccess** - Проверять ли поля доступа к колонкам таблиц на чтение. Используется только для OBS.
 * **configPath** - путь к .toml конфигу ноды.
 * **dbHost** - хост БД. По умолчанию 127.0.0.1
 * **dbName** - имя БД. По умолчанию apla.
@@ -176,4 +176,4 @@ Centrifugo
 * **updateInterval** - интервал, с которым проверяется наличие обновлениий. По умолчанию - 1 час.
 * **updatePublicKeyPath** - публичный ключ для сервера автообновлений. По умолчанию "update.pub".
 * **updateServer** - ардес сервера для автоапдейтов. По умолчанию http://127.0.0.1:12345.
-* **runMode** - режим запуска ноды: VDE, VDEMaster, PrivateBlockchain, PublicBlockchain
+* **runMode** - режим запуска ноды: OBS, OBSMaster, PrivateBlockchain, PublicBlockchain
