@@ -1538,7 +1538,7 @@ UnixDateTime(datetime string) int
 
 Функции для OBS
 ===============
-Данные функции можно использовать только в контрактах virtual dedicated ecosystems (OBS).
+Данные функции можно использовать только в контрактах Off-Blockchain Server (OBS).
 
 HTTPRequest(url string, method string, heads map, pars map) string
 ------------------------------------------------------------------
