@@ -658,7 +658,7 @@ DBInsert(table string, params map) int
 
 .. code:: js
 
-    DBInsert("mytable", {name: "John Dow", amount: 100})
+    DBInsert("mytable", {name: "John Smith", amount: 100})
 
 DBUpdate(tblname string, id int, params map)
 --------------------------------------------
@@ -671,7 +671,7 @@ DBUpdate(tblname string, id int, params map)
 
 .. code:: js
 
-    DBUpdate("mytable", myid, {name: "John Dow", amount: 100})
+    DBUpdate("mytable", myid, {name: "John Smith", amount: 100})
 
 DBUpdateExt(tblname string, where map, params map)
 --------------------------------------------------------------------------
@@ -684,7 +684,7 @@ DBUpdateExt(tblname string, where map, params map)
 
 .. code:: js
 
-    DBUpdateExt("mytable", {id: $key_id, ecosystem: $ecosystem_id}, {name: "John Dow", amount: 100})
+    DBUpdateExt("mytable", {id: $key_id, ecosystem: $ecosystem_id}, {name: "John Smith", amount: 100})
     
 DelColumn(tblname string, column string)
 --------------------------------------------
@@ -1500,17 +1500,17 @@ UpdateRolesNotifications(ecosystemID int, roles int ...)
 
 .. code:: js
 
-   DBInsert("mytable", "name,timestamp mytime", "John Dow", 146724678424 )
+   DBInsert("mytable", "name,timestamp mytime", "John Smith", 146724678424 )
 
 Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае,  **timestamp** необходимо указать перед самим значением. 
 
 .. code:: js
 
-   DBInsert("mytable", "name,mytime", "John Dow", "timestamp 2017-05-20 00:00:00" )
+   DBInsert("mytable", "name,mytime", "John Smith", "timestamp 2017-05-20 00:00:00" )
    var date string
    date = "2017-05-20 00:00:00"
-   DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + date )
-   DBInsert("mytable", "name,mytime", "John Dow", "timestamp " + $txtime )
+   DBInsert("mytable", "name,mytime", "John Smith", "timestamp " + date )
+   DBInsert("mytable", "name,mytime", "John Smith", "timestamp " + $txtime )
 
 BlockTime()
 -----------
