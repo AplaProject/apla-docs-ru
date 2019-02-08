@@ -1503,7 +1503,9 @@ BlockTime()
 
 .. code:: js
 
-    DBInsert(`mytable`, `created_at`, BlockTime())
+    var mytime string
+    mytime = BlockTime()
+    DBInsert("mytable", myid, {time: mytime})
     
 DateTime(unixtime int) string
 -----------------------------
