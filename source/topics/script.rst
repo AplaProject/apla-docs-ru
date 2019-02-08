@@ -139,7 +139,7 @@ Cекция data
     }
     func action {
         var amount money
-	amount = $Amount - 10
+        amount = $Amount - 10
         DBUpdate("mytable", $ownerId, {name: $Name,amount: amount})
         DBUpdate("mytable2", $citizen, {amount: 10})
     }
