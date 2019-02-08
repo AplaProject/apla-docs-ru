@@ -1496,21 +1496,6 @@ UpdateRolesNotifications(ecosystemID int, roles int ...)
     to_timestamp(date_column) > now()
     date_initial < now() - 30 * interval '1 day'
 
-Рассмотрим ситуацию, когда у нас есть значение в формате Unix и необходимо записать его в поле имеющее тип *timestamp*. В этом случае, при перечислении полей, перед именем данной колонки необходимо указать **timestamp**. 
-
-.. code:: js
-
-   DBInsert("mytable", "name,timestamp mytime", "John Smith", 146724678424 )
-
-Если же вы имеете строковое значение времени и вам нужно записать его в поле с типом *timestamp*. В этом случае,  **timestamp** необходимо указать перед самим значением. 
-
-.. code:: js
-
-   DBInsert("mytable", "name,mytime", "John Smith", "timestamp 2017-05-20 00:00:00" )
-   var date string
-   date = "2017-05-20 00:00:00"
-   DBInsert("mytable", "name,mytime", "John Smith", "timestamp " + date )
-   DBInsert("mytable", "name,mytime", "John Smith", "timestamp " + $txtime )
 
 BlockTime()
 -----------
