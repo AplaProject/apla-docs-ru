@@ -877,6 +877,17 @@ EvalCondition(table string, name string, condfield string)
 
     EvalCondition(`menu`, $Name, `condition`)  
 
+CheckCondition(condition string) bool
+----------------------------------------------------------
+
+Функция проверяет выполнено ли условие, которое указано в параметре *condition*. Если условие выполнено, то возвращается *true*, в противном случае возвращается *false*.
+
+* *condition* - условие, которое необходимо проверить.
+
+.. code:: js
+
+    CheckCondition(`ContractConditions("MainCondition")`)  
+
 GetContractById(id int) string
 ------------------------------
 Функция возвращает имя контракта по его идентификатору. Если контракт не найден, то возвращается пустая строка.
