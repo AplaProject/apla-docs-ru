@@ -644,6 +644,17 @@ GetBlock(blockID int64) map
    var b map
    b = GetBlock(1)
    Println(b)
+
+CurrentKeyFromAccount(account string) int
+-----------------------------------------
+
+Функция возвращает текущий, активный *key_id* для *account*.
+
+* *account* - идентификатор аккаунта
+
+.. code:: js
+
+    CurrentKeyFromAccount("0074-8403-1172-8070-6998")
 	
 Изменение значений в таблицах базы данных
 =========================================
