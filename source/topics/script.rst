@@ -1533,6 +1533,24 @@ UnixDateTime(datetime string) int
 .. code:: js
 
     UnixDateTime("2018-07-20 14:23:10")
+    
+DateTimeLocation(unixtime int, loc string) string
+-----------------------------
+Функция конвертирует unixtime с учетом временной зоны loc в формат времени `YYYY-MM-DD HH\:MI\:SS`.
+
+.. code:: js
+
+    DateTimeLocation(1532325250, "Europe/Luxembourg")
+    
+UnixDateTimeLocation(datetime string, loc string) int
+---------------------------------
+Функция конвертирует строку с форматом времени `YYYY-MM-DD HH\:MI\:SS` в unixtime с учетом временной зоны loc.
+
+.. code:: js
+
+    UnixDateTimeLocation("2018-07-20 14:23:10", "Europe/Luxembourg")
+    
+Список поддерживаемых временных зон содержится в системной таблице @1time_zones.
 
 Функции для OBS
 ===============
