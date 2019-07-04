@@ -348,18 +348,20 @@ CmpTime(Time1, Time2)
 
      If(CmpTime(#time1#, #time2#)<0){...}
 	 
-DateTime(DateTime, Format) 
+DateTime(DateTime, Format, Location) 
 ------------------------------
 
 Функция выводит на экран значение даты и времени в заданном формате. 
  
 *  *DateTime* - время в unixtime или стандартном формате ``2006-01-02T15:04:05``.
 *  *Format* -  шаблон формата : ``YY`` короткий год, ``YYYY`` полный год, ``MM`` - месяц, ``DD`` - день, ``HH`` - часы, ``MM`` - минуты, ``SS`` – секунды, например, ``YY/MM/DD HH:MM``. Если формат не указан, то будет использовано значение параметра  *timeformat* определенное в таблице *languages*, если его нет, то ``YYYY-MM-DD HH:MI:SS``.
+*  *Location* - временная зона, список поддерживаемых временных зон содержится в системной таблице @1time_zones. 
 
 .. code:: js
 
     DateTime(2017-11-07T17:51:08)
     DateTime(#mytime#,HH:MI DD.MM.YYYY)
+    DateTime(DateTime: 1560938400, Location: "Europe/Moscow")
 
 Money(Exp, Digit) 
 ------------------------------
