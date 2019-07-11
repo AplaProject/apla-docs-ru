@@ -67,6 +67,7 @@ Contents
    reference/api2.rst
    reference/update_client.rst
    reference/desync_monitor.rst
+   reference/pgp.rst
 
 
 .. toctree::
