@@ -20,23 +20,23 @@
 
 Для работы программы необходим файл настроек. Вот пример
 
-```
-LogFile = "apla.log"
-StoreFile = "./store/apla-pgp.store"
-OutPath = "./backup"
+.. code:: 
 
-[Settings]
-  Timeout = 2
-  Compression = 1
-  NodePrivateKey = "/home/ak/apla/apla-data/NodePrivateKey"
+    LogFile = "apla.log"
+    StoreFile = "./store/apla-pgp.store"
+    OutPath = "./backup"
 
-[PGP]
-  Path = "/home/ak/.gnupg"
-  Phrase = "1234"
+    [Settings]
+      Timeout = 2
+      Compression = 1
+      NodePrivateKey = "/home/ak/apla/apla-data/NodePrivateKey"
 
-[TCP]
-  Host = "127.0.0.1:7078"
-```
+    [PGP]
+      Path = "/home/ak/.gnupg"
+      Phrase = "1234"
+
+    [TCP]
+      Host = "127.0.0.1:7078"
 
 * **LogFile** - имя (можно с путем) лог-файла.  
 * **StoreFile** -  имя файла, где будут хранится хэши обработанных блоков.  
