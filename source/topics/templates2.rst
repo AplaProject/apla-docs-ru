@@ -243,7 +243,7 @@ AddToolButton(Title, Icon, Page, PageParams) [.Popup(Width, Header)]
       AddToolButton(Help, help, help_page)
 
 
-Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)] [.ErrorRedirect((ErrorID,PageName,PageParams)]
+Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Contract, Data)] [.Alert(Text, ConfirmButton, CancelButton, Icon)] [.Popup(Width, Header)] [.Style(Style)] [.ErrorRedirect((ErrorID,PageName,PageParams)][.Action(Name, Params)]
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Создает элемент HTML-формы  **button**, по клику на котором инициируется выполнение контракта или переход на другую страницу.
@@ -259,6 +259,11 @@ Button(Body, Page, Class, Contract, Params, PageParams) [.CompositeContract(Cont
 
 * *Name* - имя контракта,
 * *Data* - параметры для контракта в виде JSON массива с параметрами. 
+
+**Action** - используется для указании действий по наатию на кнопку. Можно для одной кнопки указывать несколько *Action*. Действия возвращаются в виде массива.
+
+* *Name* - имя действия,
+* *Params* - параметры вида *param1=val1,param2=val2*. 
 
 **Alert** - используется для вывода сообщений.
 
