@@ -210,7 +210,7 @@ network
 	       "public_key":"04c0b50....3ba20e",
 	       "unban_time":"",
 	       "stopped":false
-	  }
+	      }
 	  ]
     }
     
